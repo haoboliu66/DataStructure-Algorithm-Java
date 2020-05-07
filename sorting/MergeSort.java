@@ -14,7 +14,6 @@ public class MergeSort {
         System.out.println(Arrays.toString(arr));
     }
 
-
     public static void mergeSort(int[] arr){
         if(arr == null || arr.length < 2){
             return;
@@ -41,8 +40,8 @@ public class MergeSort {
         int rightPointer = mid + 1;
         while(leftPointer <= mid && rightPointer <= right){
             buffer[index++] = arr[leftPointer] < arr[rightPointer]? arr[leftPointer++]: arr[rightPointer++];
-
         }
+
         while(leftPointer <= mid){
             buffer[index++] = arr[leftPointer++];
         }
@@ -53,6 +52,11 @@ public class MergeSort {
         for(int i=0; i<buffer.length; i++){
             arr[left + i] = buffer[i];
         }
+    }
+
+
+    public static void mergeSort1(int[] arr, int left, int right){
+        
 
 
     }
