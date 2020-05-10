@@ -10,11 +10,15 @@ public class MergeSort {
 
     public static void main(String[] args) {
         int[] arr = {3,5,6,1,0,7,9,2,-4};
-        mergeSort(arr);
+        mergeSort2(arr);
         System.out.println(Arrays.toString(arr));
     }
 
-    public static void mergeSort(int[] arr){
+    /**
+     * recursive implementation
+     * @param arr
+     */
+    public static void mergeSort1(int[] arr){
         if(arr == null || arr.length < 2){
             return;
         }
@@ -55,11 +59,27 @@ public class MergeSort {
     }
 
 
-    public static void mergeSort1(int[] arr, int left, int right){
-        
+    /**
+     * Iterative implementation
+     * @param arr
+     */
+    public static void mergeSort2(int[] arr){
+        if(arr == null || arr.length < 2){
+            return;
+        }
+        int N = arr.length;
+        int mergeSize = 1;   // group size = mergeSize * 2
+        while(mergeSize < N){
+
+
+
+
+            mergeSize <<= 1;
+        }
 
 
     }
+
 
 
 }
