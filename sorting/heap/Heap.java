@@ -1,4 +1,4 @@
-package sorting;
+package sorting.heap;
 
 /**
  * @author andy-liu
@@ -11,19 +11,12 @@ public class Heap {
      *  left child  2 * i + 1
      *  right child  2 * i + 2
      *
+     *  Max-heap
+     *  Min-heap
+     *
      * */
-
-    public void heapInsert(int[] arr, int num){
-        if(arr == null){
-            return;
-        }
+    public static void main(String[] args) {
 
     }
-
-    public void heapify(int[] arr){
-
-
-    }
-
 
 }

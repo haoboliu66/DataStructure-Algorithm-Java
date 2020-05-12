@@ -208,7 +208,10 @@ public class QuickSort {
         if(left >= right){
             return;
         }
-        /** choose a random index within left...right, and swap arr[index] with arr[right] */
+        /*
+         choose a random index within left...right, and swap arr[index] with arr[right]
+         so that the worse situation is a possibility
+         */
         int random = left + (int)(Math.random() * (right - left + 1));
         swap(arr,random, right);
         int[] equalArea = netherlandsFlag(arr, left, right);

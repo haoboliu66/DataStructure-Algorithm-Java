@@ -1,6 +1,9 @@
 package sorting;
 
+import org.junit.Test;
+
 import java.util.Arrays;
+import java.util.Random;
 
 /**
  * @author andy-liu
@@ -40,8 +43,8 @@ public class MergeSort {
     public static void merge(int[] arr, int left, int mid, int right){
         int[] buffer = new int[right - left + 1];
         int index = 0;
-        int leftPointer = left;
-        int rightPointer = mid + 1;
+        int leftPointer = left; // left part scanner
+        int rightPointer = mid + 1; // right part scanner
         while(leftPointer <= mid && rightPointer <= right){
             buffer[index++] = arr[leftPointer] < arr[rightPointer]? arr[leftPointer++]: arr[rightPointer++];
         }
@@ -68,18 +71,51 @@ public class MergeSort {
             return;
         }
         int N = arr.length;
-        int mergeSize = 1;   // group size = mergeSize * 2
+        int mergeSize = 1;   // merge group size = mergeSize * 2
         while(mergeSize < N){
-
-
-
+            int left = 0;
+            while(left < N){
+                /*
+                firstly locate mid and right of each group
+                 */
+                int mid = left + mergeSize - 1;  // mid of merge group
+                int right = Math.min(left + 2 * mergeSize - 1, N - 1); // right of merge group
+                /*
+                 if mid reach the end of the array, meaning there is no right part,
+                    and left part is already ordered
+                 */
+                if(mid > N - 1){
+                    break;
+                }
+                // from left to N - 1, merge each group
+                merge(arr, left, mid, right);
+                // locate next group
+                left = right + 1;
+            }
+            // Integer MAX_VALUE overflow
+            if(mergeSize * 2 > N){
+                break;
+            }
 
             mergeSize <<= 1;
+
         }
 
 
     }
 
+    @Test
+    public void ttt(){
+        Random random = new Random();
+        int mergeSize = random.nextInt(500);
+        System.out.println(mergeSize);
+        int left = 1;
+        int right = left + 2 * mergeSize - 1;
+        int mid = left + (right - left) / 2;
+        System.out.println(mergeSize);
+        System.out.println(mid + " ,,, " + (left + mergeSize));
+        System.out.println(mid == (left + mergeSize));
+    }
 
 
 }
