@@ -10,12 +10,19 @@ public class MaxHeap {
 
     public static void main(String[] args) {
         MaxHeap heap = new MaxHeap();
-        heap.insertHeap(5);
-        heap.insertHeap(7);
-        heap.insertHeap(8);
-        heap.insertHeap(6);
-        heap.insertHeap(3);
+        heap.push(5);
+        heap.push(7);
+        heap.push(8);
+        heap.push(6);
+        heap.push(3);
         System.out.println(heap);
+        System.out.println(heap.size());
+        int i = heap.pop();
+        System.out.println(heap);
+        System.out.println(heap.size());
+        heap.push(12);
+        System.out.println(heap);
+        System.out.println(heap.size());
 
     }
 
@@ -25,7 +32,8 @@ public class MaxHeap {
     private final int DEFAULT_SIZE_LIMIT = 20;
 
     public MaxHeap() {
-       this.heap = new int[DEFAULT_SIZE_LIMIT];
+        limit = DEFAULT_SIZE_LIMIT;
+        heap = new int[limit];
         heapSize = 0;
     }
 
@@ -42,11 +50,21 @@ public class MaxHeap {
         return heapSize;
     }
 
-    public void insertHeap(int val){
+    public void push(int val){
+        heapInsert(val);
+    }
+
+    /** insert a new number into heap   */
+    private void heapInsert(int val){
+        if(heapSize > limit){
+            throw new RuntimeException("HeapSize reaches the limit");
+        }
         heap[heapSize] = val;
-        int parentIndex = (heapSize - 1) / 2;
+        int index = heapSize;
+        int parentIndex = (index - 1) / 2;
         while(val > heap[parentIndex]){
-            swap(heap,heapSize, parentIndex);
+            swap(heap, index, parentIndex);
+            index = parentIndex;
             parentIndex = (parentIndex - 1) / 2;
         }
         heapSize++;
@@ -58,17 +76,26 @@ public class MaxHeap {
         arr[j] = temp;
     }
 
-    public int getMax(){
+    public int pop(){
         int max = heap[0];
-//        heapify();
-
+        heapify(heap, 0, heapSize);
         return max;
     }
 
+    /**  rearrange heap array into Max-heap  */
     private void heapify(int[] arr, int index, int heapSize){
-
+        swap(arr,0,heapSize - 1); // remove the largest element out of heap
+        heapSize--;
+        int largest = (arr[index * 2 + 1] >= arr[index * 2 + 2])? index * 2 + 1: index * 2 + 2;
+        while(largest < heapSize && arr[index] < arr[largest]){
+            swap(arr,index,largest);
+            index = largest;
+            if(index * 2 + 1 > heapSize){
+                break;
+            }
+            largest = (arr[index * 2 + 1] >= arr[index * 2 + 2])? index * 2 + 1: index * 2 + 2;
+        }
     }
-
 
     @Override
     public String toString() {
@@ -76,4 +103,7 @@ public class MaxHeap {
                 "heap=" + Arrays.toString(heap) +
                 '}';
     }
+
+
+
 }
