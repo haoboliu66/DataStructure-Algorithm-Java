@@ -26,22 +26,6 @@ public class HeapSort {
         process(arr);
     }
 
-    private static void heapify(int[] arr, int index, int heapSize){
-        if(heapSize == 0){
-            return;
-        }
-       swap(arr,0,heapSize - 1);
-       int largest = arr[index * 2 + 1] > arr[index * 2 + 2]? index * 2 + 1: index * 2 + 2;
-       while(largest < heapSize && arr[index] < arr[largest]){
-           swap(arr,index,largest);
-           index = largest;
-           if(index * 2 + 1 > heapSize){
-               break;
-           }
-           largest = arr[index * 2 + 1] > arr[index * 2 + 2]? index * 2 + 1: index * 2 + 2;
-       }
-    }
-
     private static void process(int[] arr){
         heap = new int[arr.length];
 
@@ -75,10 +59,26 @@ public class HeapSort {
         heapSize++;
     }
 
-
     private static void swap(int[] arr, int i, int j){
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
     }
+
+    private static void heapify(int[] arr, int index, int heapSize){
+        if(heapSize == 0){
+            return;
+        }
+        swap(arr,0,heapSize - 1);
+        int largest = arr[index * 2 + 1] > arr[index * 2 + 2]? index * 2 + 1: index * 2 + 2;
+        while(largest < heapSize && arr[index] < arr[largest]){
+            swap(arr,index,largest);
+            index = largest;
+            if(index * 2 + 1 > heapSize){
+                break;
+            }
+            largest = arr[index * 2 + 1] > arr[index * 2 + 2]? index * 2 + 1: index * 2 + 2;
+        }
+    }
+
 }
