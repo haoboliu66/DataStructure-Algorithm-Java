@@ -8,77 +8,67 @@ import java.util.Arrays;
  */
 public class HeapSort {
 
-    static int[] arr;
-    static int[] heap;
-    static int heapSize = 0;
-
     public static void main(String[] args) {
-        arr = new int[]{5,12,3,7,1,8,9,0,-6};
-        heapSort(arr);
-        System.out.println(Arrays.toString(arr));
-
+        int[] arr = {4,1,6,9,0,-5,7,11,8};
+        MyHeapSort.heapSort(arr);
+//        System.out.println(Arrays.toString(arr));
     }
 
-    public static void heapSort(int[] arr){
-        if(arr == null || arr.length < 1){
-            return;
-        }
-        process(arr);
-    }
+    public static class MyHeapSort{
 
-    private static void process(int[] arr){
-        heap = new int[arr.length];
-
-        for(int i=0; i<arr.length ;i++){
-            maxHeapInsert(arr[i]);
-        }
-        System.out.println(Arrays.toString(heap));
-        while(heapSize > 0){
-            System.out.println(heapSize);
-            swap(heap,0,--heapSize);
-            heapify(heap,0, heapSize);
-        }
-
-        for(int i=0; i<arr.length; i++){
-            arr[i] = heap[i];
-        }
-    }
-
-    private static void maxHeapInsert(int val){
-        if(heapSize > arr.length){
-            return;
-        }
-        heap[heapSize] = val;
-        int index = heapSize;
-        int parent = (index - 1) / 2;
-        while(val > heap[parent]){
-            swap(heap,index,parent);
-            index = parent;
-            parent = (parent - 1) / 2;
-        }
-        heapSize++;
-    }
-
-    private static void swap(int[] arr, int i, int j){
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-    }
-
-    private static void heapify(int[] arr, int index, int heapSize){
-        if(heapSize == 0){
-            return;
-        }
-        swap(arr,0,heapSize - 1);
-        int largest = arr[index * 2 + 1] > arr[index * 2 + 2]? index * 2 + 1: index * 2 + 2;
-        while(largest < heapSize && arr[index] < arr[largest]){
-            swap(arr,index,largest);
-            index = largest;
-            if(index * 2 + 1 > heapSize){
-                break;
+        public static void heapSort(int[] arr){
+            if(arr == null || arr.length < 2){
+                return;
             }
-            largest = arr[index * 2 + 1] > arr[index * 2 + 2]? index * 2 + 1: index * 2 + 2;
+            /* construct Max-Heap, Method1   */
+//            for(int i=0; i<arr.length; i++){ // O(N)
+//             保证 i 之前的部分都已经构成大根堆(每向右遍历一个数看这个新数字要不要上升)
+//                heapInsert(arr,i);    // O(logN)
+//            }
+
+            int heapSize = arr.length;
+
+            /* construct Max-Heap, Method2  */
+            for(int i = arr.length - 1; i >= 0; i--){
+                // 保证 i 之后的部分都已经构成大根堆(每向左遍历一个数看这个新数字要不要下沉)
+                heapify(arr,i, heapSize);
+            }
+
+            while(heapSize > 0){    // O(N)
+                swap(arr, 0, --heapSize);  // O(1)
+                heapify(arr,0, heapSize); // O(logN)
+            }
         }
+
+        private static void heapify(int[] arr, int index, int heapSize){
+            int left = index * 2 + 1;
+            while(left < heapSize){
+                int largest = (left + 1 < heapSize && arr[left + 1] > arr[left])? left + 1: left;
+                largest = arr[largest] > arr[index] ?largest: index;
+                if(index == largest){
+                    break;
+                }
+                swap(arr,largest,index);
+                index = largest;
+                left = index * 2 + 1;
+            }
+        }
+
+
+        private static void heapInsert(int[] arr, int index){
+            while(arr[index] > arr[(index - 1) / 2]){
+                swap(arr,index,(index - 1) / 2);
+                index = (index - 1) / 2 ;
+            }
+        }
+        private static void swap(int[] arr, int i, int j){
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+
     }
+
+
 
 }
