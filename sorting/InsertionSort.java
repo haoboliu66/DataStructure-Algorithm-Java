@@ -1,7 +1,6 @@
 package sorting;
 
 
-
 import static sorting.BubbleSort.*;
 
 /**
@@ -11,15 +10,15 @@ import static sorting.BubbleSort.*;
 public class InsertionSort {
 
 
-    public static void insertionSort(int[] arr, int left, int right){
-        for(int i = left + 1; i < right + 1; i++){   // sort 0 ... i
-            for(int j = i - 1; j >= left && arr[j + 1] < arr[j]; j--){ // each time sort i - 1 ... 0
-                swap(arr,j,j + 1);
-           }
+    public static void insertionSort(int[] arr, int left, int right) {
+        for (int i = left + 1; i < right + 1; i++) {   // sort 0 ... i
+            for (int j = i - 1; j >= left && arr[j + 1] < arr[j]; j--) { // each time sort i - 1 ... 0
+                swap(arr, j, j + 1);
+            }
         }
     }
 
-    public static void swap(int[] arr, int i, int j){
+    public static void swap(int[] arr, int i, int j) {
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;

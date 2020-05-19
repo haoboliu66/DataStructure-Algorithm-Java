@@ -1,12 +1,7 @@
 package sorting;
 
-import org.junit.Test;
-
-import java.util.Arrays;
-import java.util.Random;
 
 import static sorting.BubbleSort.*;
-import static sorting.BubbleSort.isEqual;
 
 /**
  * @author andy-liu
@@ -94,7 +89,6 @@ public class MergeSort {
 
         }
     }
-
 
     public static void main(String[] args) {
         int maxSize = 300;

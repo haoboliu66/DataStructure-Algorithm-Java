@@ -1,6 +1,7 @@
 package sorting;
 
-import java.util.Arrays;
+
+import static sorting.BubbleSort.*;
 
 /**
  * @author andy-liu
@@ -8,41 +9,38 @@ import java.util.Arrays;
  */
 public class SelectionSort {
 
-    public static void main(String[] args) {
-        int[] arr = {2,4,1,6,5,8,0,-4};
-        selectionSort(arr);
-        System.out.println(Arrays.toString(arr));
-    }
-
-    public static void selectionSort(int[] arr){
-        for(int i=0; i<arr.length;i++){
+    public static void selectionSort(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
             int minimum = i;
-            for(int j= i; j<arr.length; j++){
-                minimum = (arr[j] < arr[minimum])?j : minimum;
+            for (int j = i; j < arr.length; j++) {
+                minimum = (arr[j] < arr[minimum]) ? j : minimum;
             }
-            swap(arr,i,minimum);
+            swap(arr, i, minimum);
         }
     }
-    public static void swap(int[] arr, int i, int j){
+
+    public static void swap(int[] arr, int i, int j) {
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
     }
 
-    public static boolean equals(int[] arr1, int[] arr2){
-        if(arr1 == null || arr2 == null){
-            return false;
-        }
-        if(arr1.length != arr2.length){
-            return false;
-        }
-        for(int i=0; i<arr1.length;i++){
-            if(arr1[i] != arr2[i]){
-                return false;
+    public static void main(String[] args) {
+        int maxSize = 300;
+        int maxValue = 100000;
+        int times = 1000000;
+        for (int i = 0; i < times; i++) {
+            int[] arr = generateRandomArray(200, 50000);
+            int[] copyArr = copyArray(arr);
+            selectionSort(arr);
+            comparator(copyArr);
+            boolean res = isEqual(arr, copyArr);
+            if (!res) {
+                System.out.println("Oops");
+                break;
             }
         }
-        return true;
+        System.out.println("Done");
     }
-
 
 }
