@@ -14,7 +14,9 @@ public class MergeSort {
     public static void main(String[] args) {
         int[] arr = {3,5,6,1,0,7,9,2,-4};
         mergeSort2(arr);
-        System.out.println(Arrays.toString(arr));
+        int[] arr1 = {3,5,6,1,0,7,9,2,-4};
+        Arrays.sort(arr1);
+        System.out.println(equals(arr, arr1));
     }
 
     /**
@@ -100,8 +102,6 @@ public class MergeSort {
             mergeSize <<= 1;
 
         }
-
-
     }
 
     @Test
@@ -117,5 +117,19 @@ public class MergeSort {
         System.out.println(mid == (left + mergeSize));
     }
 
+    public static boolean equals(int[] arr1, int[] arr2){
+        if(arr1 == null || arr2 == null){
+            return false;
+        }
+        if(arr1.length != arr2.length){
+            return false;
+        }
+        for(int i=0; i<arr1.length;i++){
+            if(arr1[i] != arr2[i]){
+                return false;
+            }
+        }
+        return true;
+    }
 
 }

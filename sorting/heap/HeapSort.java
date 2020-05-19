@@ -11,7 +11,7 @@ public class HeapSort {
     public static void main(String[] args) {
         int[] arr = {4,1,6,9,0,-5,7,11,8};
         MyHeapSort.heapSort(arr);
-//        System.out.println(Arrays.toString(arr));
+        System.out.println(Arrays.toString(arr));
     }
 
     public static class MyHeapSort{
