@@ -1,9 +1,8 @@
 package sorting.heap;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Map;
+import org.junit.Test;
+
+import java.util.*;
 
 /**
  * @author andy-liu

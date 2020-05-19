@@ -1,8 +1,8 @@
 package sorting;
 
-import org.junit.Test;
 
-import java.util.Arrays;
+
+import static sorting.BubbleSort.*;
 
 /**
  * @author andy-liu
@@ -26,11 +26,22 @@ public class InsertionSort {
     }
 
 
-    @Test
-    public void testInsertion(){
-        int[] arr = {3,13,5,1,7,8,5,0,-2,-7,-8,0};
-        insertionSort(arr,0,arr.length - 1);
-        System.out.println(Arrays.toString(arr));
+    public static void main(String[] args) {
+        int maxSize = 500;
+        int maxValue = 80000;
+        int times = 1000000;
+        for (int i = 0; i < times; i++) {
+            int[] arr = generateRandomArray(200, 50000);
+            int[] copyArr = copyArray(arr);
+            insertionSort(arr, 0, arr.length - 1);
+            comparator(copyArr);
+            boolean res = isEqual(arr, copyArr);
+            if (!res) {
+                System.out.println("Oops");
+                break;
+            }
+        }
+        System.out.println("Done");
     }
 
 

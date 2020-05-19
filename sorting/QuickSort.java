@@ -4,20 +4,13 @@ import org.junit.Test;
 
 import java.util.Arrays;
 
+import static sorting.BubbleSort.*;
+
 /**
  * @author andy-liu
  * @date 2020/5/7 - 9:19 PM
  */
 public class QuickSort {
-
-    public static void main(String[] args) {
-        int[] arr = {3,5,4,0,4,6,7,2,5};
-
-//        int[] index = netherlandsFlag(arr, 0, arr.length - 1);
-//        System.out.println(Arrays.toString(arr));
-
-
-    }
 
     /** divide the array by num, numbers less or equal than num on the left side,
      * numbers greater on the right side of the array
@@ -224,6 +217,24 @@ public class QuickSort {
         int[] arr = {3,5,4,0,4,6,7,2,5,-3};
         quickSort3(arr);
         System.out.println(Arrays.toString(arr));
+    }
+
+    public static void main(String[] args) {
+        int maxSize = 200;
+        int maxValue = 50000;
+        int times = 1000000;
+        for (int i = 0; i < times; i++) {
+            int[] arr = generateRandomArray(200, 50000);
+            int[] copyArr = copyArray(arr);
+            quickSort3(arr);
+            comparator(copyArr);
+            boolean res = isEqual(arr, copyArr);
+            if (!res) {
+                System.out.println("Oops");
+                break;
+            }
+        }
+        System.out.println("Done");
     }
 
 }
