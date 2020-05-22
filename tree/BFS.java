@@ -8,22 +8,6 @@ import java.util.*;
  */
 public class BFS {
 
-    public static void main(String[] args) {
-        Node node1 = new Node("A");
-        Node node2 = new Node("B");
-        Node node3 = new Node("C");
-        Node node4 = new Node("D");
-        Node node5 = new Node("E");
-        Node node6 = new Node("F");
-        Node node7 = new Node("G");
-        node1.left = node2;
-        node1.right = node3;
-        node2.left = node4;
-        node2.right = node5;
-        node3.left = node6;
-        node3.right = node7;
-        breadthFirstSearch(node1);
-    }
 
     public static void breadthFirstSearch(Node head) {
         if (head == null) {
@@ -43,13 +27,13 @@ public class BFS {
         }
     }
 
-    public static void BFSNoQueue(Node head){
-        if(head == null){
-            return;
-        }
-        Node curEnd = head;
-        Node nextEnd = null;
-    }
+//    public static void BFSNoQueue(Node head){
+//        if(head == null){
+//            return;
+//        }
+//        Node curEnd = head;
+//        Node nextEnd = null;
+//    }
 
 
     public static int maxWidthUsingMap(Node head) {
@@ -97,24 +81,42 @@ public class BFS {
         Node nextEnd = null;    //如果有下一层的话, 下一层的最右节点
         int curLevelNodes = 0;
         int max = 0;
-        while(!queue.isEmpty()){
+        while (!queue.isEmpty()) {
             Node cur = queue.poll();
-            if(cur.left != null){
+            if (cur.left != null) {
                 queue.add(cur.left);
                 nextEnd = cur.left;
             }
-            if(cur.right != null){
+            if (cur.right != null) {
                 queue.add(cur.right);
                 nextEnd = cur.right;
             }
             curLevelNodes++;  //因为队列刚弹出一个Node, 所以当前层节点要++
-            if(cur == curEnd){ //当队列弹出的节点等于curEnd的时, 说明这个节点已经是到了该层的最后一个
-                max = Math.max(max,curLevelNodes);
+            if (cur == curEnd) { //当队列弹出的节点等于curEnd的时, 说明这个节点已经是到了该层的最后一个
+                max = Math.max(max, curLevelNodes);
                 curLevelNodes = 0; // 还没统计下一层,所以是0
                 curEnd = nextEnd;  //到了下一层, 下一层的最后一个节点curEnd就是上一层统计的nextEnd
             }
         }
         return max;
+    }
+
+
+    public static void main(String[] args) {
+        Node node1 = new Node("A");
+        Node node2 = new Node("B");
+        Node node3 = new Node("C");
+        Node node4 = new Node("D");
+        Node node5 = new Node("E");
+        Node node6 = new Node("F");
+        Node node7 = new Node("G");
+        node1.left = node2;
+        node1.right = node3;
+        node2.left = node4;
+        node2.right = node5;
+        node3.left = node6;
+        node3.right = node7;
+        breadthFirstSearch(node1);
     }
 
 
