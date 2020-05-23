@@ -190,7 +190,7 @@ public class Serialization {
         System.out.println(queue);
         System.out.println("**************");
         Node head = levelDeserial(queue);
-        BinaryTree.preOrderIter(head);
+        PreOrder.preOrderIter(head);
     }
 
 }
