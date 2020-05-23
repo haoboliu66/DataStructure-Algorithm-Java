@@ -19,7 +19,7 @@ public class Serialization {
         return ans;
     }
 
-    public static void preProcess(Node node, Queue<String> ans) {
+    private static void preProcess(Node node, Queue<String> ans) {
         if (node == null) {
             ans.add(null);
             return;
@@ -51,7 +51,7 @@ public class Serialization {
         return ans;
     }
 
-    public static void inProcess(Node node, Queue<String> ans) {
+    private static void inProcess(Node node, Queue<String> ans) {
         if (node == null) {
             ans.add(null);
             return;
@@ -77,7 +77,7 @@ public class Serialization {
         return ans;
     }
 
-    public static void postProcess(Node node, Queue<String> ans) {
+    private static void postProcess(Node node, Queue<String> ans) {
         if (node == null) {
             ans.add(null);
             return;
@@ -88,22 +88,13 @@ public class Serialization {
     }
 
     public static Node postDeserial(Queue<String> postList) {
-        String left = postList.poll();
-
-        Node leftNode = null;
-        if (left != null) {
-            leftNode = postDeserial(postList);
-        }
-        String right = postList.poll();
-        Node rightNode = null;
-        if (right != null) {
-            rightNode = postDeserial(postList);
-        }
         String first = postList.poll();
+        if (first == null) {
+            return null;
+        }
         Node head = new Node(first);
-        head.left = leftNode;
-        head.right = rightNode;
-
+        head.left = preDeserial(postList);
+        head.right = preDeserial(postList);
         return head;
     }
 
@@ -186,11 +177,11 @@ public class Serialization {
         node2.right = node5;
         node3.left = node6;
         node3.right = node7;
-        Queue<String> queue = levelSerial(node1);
+        Queue<String> queue = postSerial(node1);
         System.out.println(queue);
         System.out.println("**************");
-        Node head = levelDeserial(queue);
-        PreOrder.preOrderIter(head);
+//        Node head = levelDeserial(queue);
+//        PreOrder.preOrderIter(head);
     }
 
 }
