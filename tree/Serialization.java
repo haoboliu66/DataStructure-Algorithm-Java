@@ -88,14 +88,7 @@ public class Serialization {
     }
 
     public static Node postDeserial(Queue<String> postList) {
-        String first = postList.poll();
-        if (first == null) {
-            return null;
-        }
-        Node head = new Node(first);
-        head.left = preDeserial(postList);
-        head.right = preDeserial(postList);
-        return head;
+        return null;
     }
 
 
