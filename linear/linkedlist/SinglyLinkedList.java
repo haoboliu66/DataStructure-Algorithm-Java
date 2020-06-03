@@ -1,27 +1,10 @@
-package linear;
-
-import java.util.LinkedList;
+package linear.linkedlist;
 
 /**
  * @author andy-liu
  * @date 2020/5/11 - 5:43 PM
  */
 public class SinglyLinkedList {
-
-    public static void main(String[] args) {
-        SinglyLinkedList list = new SinglyLinkedList();
-        list.insert(2);
-        list.insert(4);
-        list.insert(6);
-        list.insert(8);
-        list.insert(10);
-        list.traversal();
-        Node newHead = list.reverse();
-        traversal(newHead);
-        System.out.println("*********");
-        Node newnew = reverse(newHead);
-        traversal(newnew);
-    }
 
     private int size;
     private Node head;
@@ -36,17 +19,17 @@ public class SinglyLinkedList {
         size = 0;
     }
 
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return this.size == 0;
     }
 
-    public int size(){
+    public int size() {
         return this.size;
     }
 
-    public void insert(int value){
+    public void insert(int value) {
         Node node = new Node(value);
-        if(isEmpty()){
+        if (isEmpty()) {
             this.head = node;
             this.tail = node;
             size++;
@@ -57,11 +40,11 @@ public class SinglyLinkedList {
         size++;
     }
 
-    public void insert(Node node){
-        if(node == null){
+    public void insert(Node node) {
+        if (node == null) {
             return;
         }
-        if(isEmpty()){
+        if (isEmpty()) {
             this.head = node;
             this.tail = node;
             size++;
@@ -72,10 +55,10 @@ public class SinglyLinkedList {
         size++;
     }
 
-    public Node search(int value){
+    public Node search(int value) {
         Node cur = head;
-        while(cur != null){
-            if(cur.value == value){
+        while (cur != null) {
+            if (cur.value == value) {
                 return cur;
             }
             cur = cur.next;
@@ -83,30 +66,32 @@ public class SinglyLinkedList {
         return cur;
     }
 
-    public void traversal(){
+    public void traversal() {
         Node cur = head;
-        while(cur != null){
+        while (cur != null) {
             System.out.println(cur);
             cur = cur.next;
         }
     }
 
-    public static void traversal(Node head){
+    public static void traversal(Node head) {
         Node cur = head;
-        while(cur != null){
+        while (cur != null) {
             System.out.println(cur);
             cur = cur.next;
         }
     }
 
-    /**  reverse a list, return new head  */
-    public Node reverse(){
-        if(this.head == null || this.head.next == null){
+    /**
+     * reverse a list, return new head
+     */
+    public Node reverse() {
+        if (this.head == null || this.head.next == null) {
             return head;
         }
         Node pre = null;
         Node next = null;
-        while(head != null){
+        while (head != null) {
             next = head.next;
             head.next = pre;
             pre = head;
@@ -116,13 +101,13 @@ public class SinglyLinkedList {
     }
 
 
-    public static Node reverse(Node head){
-        if(head == null || head.next == null){
+    public static Node reverse(Node head) {
+        if (head == null || head.next == null) {
             return head;
         }
         Node pre = null;
         Node next = null;
-        while(head != null){
+        while (head != null) {
             next = head.next;
             head.next = pre;
             pre = head;
@@ -149,15 +134,15 @@ public class SinglyLinkedList {
 
 }
 
-class Node{
-    public int value;
+class Node {
+    public Integer value;
     public Node next;
     public Node rand;
 
     public Node() {
     }
 
-    public Node(int value) {
+    public Node(Integer value) {
         this.value = value;
     }
 
