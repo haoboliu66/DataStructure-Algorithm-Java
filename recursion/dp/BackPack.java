@@ -1,4 +1,4 @@
-package recursion;
+package recursion.dp;
 
 /**
  * @author andy-liu
@@ -6,23 +6,7 @@ package recursion;
  */
 public class BackPack {
 
-    public static int backPackProblem(int[] weights, int[] values, int bag) {
-        return process3(weights, values, 0, 0, 0, bag);
-    }
-
-    public static int process3(int[] weights, int[] values, int i, int weight, int value, int bag) {
-        if (i == weights.length) {
-            return value;
-        }
-        if (weights[i] + weight > bag) {
-            return value;
-        }
-        int no = process3(weights, values, i + 1, weight, value, bag);
-        int yes = process3(weights, values, i + 1, weight + weights[i], value + values[i], bag);
-        return Math.max(yes, no);
-    }
-
-
+    /*  Solution1  */
     public static int getMaxValue1(int[] weight, int[] values, int bag) {
         return process1(weight, values, 0, 0, bag);
     }
@@ -43,6 +27,7 @@ public class BackPack {
         return Math.max(p1, p2);
     }
 
+    /*  Solution2  */
     public static int getMaxValue2(int[] weights, int[] values, int bag) {
         return process2(weights, values, 0, bag);
     }
@@ -73,7 +58,7 @@ public class BackPack {
 
                 int p1 = dp[index + 1][rest];
                 int p2 = -1;
-                if(rest - w[index] >= 0){  // 要保证rest轴下标不越界
+                if (rest - w[index] >= 0) {  // 要保证rest轴下标不越界
                     p2 = v[index] + dp[index + 1][rest - w[index]];
                 }
 

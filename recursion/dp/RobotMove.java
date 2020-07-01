@@ -1,4 +1,4 @@
-package recursion;
+package recursion.dp;
 
 /**
  * @author andy-liu
@@ -65,7 +65,7 @@ public class RobotMove {
         for (int i = 1; i <= K; i++) {
             for (int j = 1; j <= N; j++) {
                 if (j == 1) {
-                    dp[i][j] = dp[i - 1][2]; // return walk1(N, 2, rest - 1, P);
+                    dp[i][j] = dp[i - 1][2]; // return walk1(n, 2, rest - 1, p);
 
                 } else if (j == N) {
                     dp[i][j] = dp[i - 1][j - 1]; // walk1Cached(N, N - 1, rest - 1, P, cache)
