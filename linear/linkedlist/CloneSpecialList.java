@@ -19,7 +19,7 @@ public class CloneSpecialList {
             return head;
         }
         HashMap<Node, Node> map = new HashMap<>();
-        /* Map:  Node ---> cloned Node  */
+        /* Map:  SBTNode ---> cloned SBTNode  */
         Node cur = head;
         while (cur != null) {
             Node clonedNode = new Node(cur.value);

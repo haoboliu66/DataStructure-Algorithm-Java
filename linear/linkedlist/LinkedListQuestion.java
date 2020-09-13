@@ -40,7 +40,7 @@ public class LinkedListQuestion {
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
+    /* Clone special linkedList with random
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /**
@@ -52,11 +52,7 @@ public class LinkedListQuestion {
      * 1.返回第一个入环节点
      */
     /*  Find the node that forms a loop   */
-    public static Node getLoopNodeUseSet(SinglyLinkedList list) {
-        if (list == null) {
-            throw new RuntimeException("Invalid Parameter");
-        }
-        Node head = list.getHead();
+    public static Node getLoopNodeUseSet(Node head) {
         if (head == null || head.next == null) {
             return head;
         }
@@ -73,11 +69,7 @@ public class LinkedListQuestion {
     }
 
     /*  implementation with extra space complexity O(1)  */
-    public static Node getLoopNode(SinglyLinkedList list) {
-        if (list == null) {
-            throw new RuntimeException("Invalid Parameter");
-        }
-        Node head = list.getHead();
+    public static Node getLoopNode(Node head) {
         if (head == null || head.next == null) {
             return head;
         }
@@ -113,23 +105,18 @@ public class LinkedListQuestion {
         list.insert(node5);
         list.insert(node6);
 
-        Node loop1 = getLoopNodeUseSet(list);
-        Node loop2 = getLoopNode(list);
+        Node loop1 = getLoopNodeUseSet(list.getHead());
+        Node loop2 = getLoopNode(list.getHead());
         System.out.println(loop1);
         System.out.println(loop2);
         System.out.println(loop1 == loop2);
     }
 
     /**
-     * 2.two non-looped linked list intersect, find the first intersected Node
+     * 2.two non-looped linked list intersect, find the first intersected SBTNode
      * 2.两个无环单链表相交, 返回第一个相交节点
      */
-    public static Node getFirstIntersection(SinglyLinkedList list1, SinglyLinkedList list2) {
-        if (list1 == null || list2 == null) {
-            throw new RuntimeException("Invalid Parameter");
-        }
-        Node head1 = list1.getHead();
-        Node head2 = list2.getHead();
+    public static Node getFirstIntersection(Node head1, Node head2) {
         if (head1 == null || head2 == null) {
             return null;
         }
@@ -207,20 +194,20 @@ public class LinkedListQuestion {
 //        list2.insert(node7);
 //        list2.insert(node8);
 //        list2.insert(node9);
-        Node inter = getFirstIntersection(list1, list2);
+        Node inter = getFirstIntersection(list1.getHead(), list2.getHead());
         System.out.println(inter);
     }
 
-    public static Node getFirstIntersectionTwoLoops(SinglyLinkedList list1, SinglyLinkedList list2) {
-        Node loop1 = getLoopNode(list1);
-        Node loop2 = getLoopNode(list2);
+    public static Node getFirstIntersectionTwoLoops(Node head1, Node head2) {
+        Node loop1 = getLoopNode(head1);
+        Node loop2 = getLoopNode(head2);
         // 一个有环, 一个无环, 肯定不相交
         if ((loop1 == null && loop2 != null) || (loop1 != null && loop2 == null)) {
             return null;
         }
         // 两个链表都无环
         if (loop1 == null && loop2 == null) {
-            return getFirstIntersection(list1, list2);
+            return getFirstIntersection(head1, head2);
         }
         // 两个有环链表
         //1. 两个有环链表无交点 或 入环节点不是一个
@@ -238,7 +225,7 @@ public class LinkedListQuestion {
             return loop1;
         }
         //2.两个有环链表入环节点是一个, 所以相交节点可能在入环节点或入环节点之前
-        return getFirstIntersection(list1, list2);
+        return getFirstIntersection(head1, head2);
     }
 
     @Test
@@ -274,13 +261,13 @@ public class LinkedListQuestion {
         list2.insert(node6);
         list2.insert(node7);
         list2.insert(node8);
-        getFirstIntersectionTwoLoops(list1, list2);
+        getFirstIntersectionTwoLoops(list1.getHead(), list2.getHead());
 //        list2.insert(node5);
 //        list2.insert(node6);
 //        list2.insert(node7);
 //        list2.insert(node8);
 //        list2.insert(node9);
-//        Node inter = getFirstIntersection(list1, list2);
+//        SBTNode inter = getFirstIntersection(list1, list2);
 //        System.out.println(inter);
     }
 

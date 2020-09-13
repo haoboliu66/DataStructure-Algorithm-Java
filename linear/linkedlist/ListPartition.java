@@ -98,7 +98,7 @@ public class ListPartition {
         Node lt = null; // larger tail
         Node post = null;
         while (head != null) {
-            post = head.next; // post always keep the Node after the one being visited
+            post = head.next; // post always keep the SBTNode after the one being visited
             if (head.value < num) {
                 head.next = null;
                 if (sh != null) {

@@ -27,7 +27,7 @@ public class GetToMid {
     }
 
     /**
-     * implementation 1 with ArrayList<Node>, return (size - 1) / 2
+     * implementation 1 with ArrayList<SBTNode>, return (size - 1) / 2
      */
     public static Node midOrPreMidWithArray(Node head) {
         if (head == null || head.next == null || head.next.next == null) {
@@ -60,7 +60,7 @@ public class GetToMid {
     }
 
     /**
-     * implementation 2 with ArrayList<Node>
+     * implementation 2 with ArrayList<SBTNode>
      */
     public static Node midOrPostMidWithArray(Node head) {
         if (head == null || head.next == null) {
@@ -95,7 +95,7 @@ public class GetToMid {
     }
 
     /**
-     * implementation 2 with ArrayList<Node>
+     * implementation 2 with ArrayList<SBTNode>
      */
     public static Node preMidOrprePreMidWithArray(Node head) {
         if (head == null || head.next == null || head.next.next == null) {

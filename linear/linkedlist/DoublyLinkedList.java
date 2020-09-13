@@ -84,7 +84,7 @@ public class DoublyLinkedList {
 
         @Override
         public String toString() {
-            return "Node{" +
+            return "SBTNode{" +
                     "value=" + value +
                     '}';
         }
