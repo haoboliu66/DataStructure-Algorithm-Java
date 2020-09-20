@@ -1,6 +1,8 @@
 package advanced.top;
 
 
+import java.util.function.Consumer;
+
 public class Problem_0045_JumpGameII {
 
     public int jump(int[] nums) {
@@ -64,5 +66,7 @@ public class Problem_0045_JumpGameII {
         int start = 2;
         System.out.println(canReach(arr, start));
     }
+
+
 
 }
