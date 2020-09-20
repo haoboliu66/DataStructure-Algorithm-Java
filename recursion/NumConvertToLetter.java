@@ -1,10 +1,16 @@
 package recursion;
 
+import org.omg.PortableInterceptor.INACTIVE;
+
+import java.util.Arrays;
+
 /**
  * @author andy-liu
  * @date 2020/5/24 - 10:51 AM
  */
 public class NumConvertToLetter {
+
+    //91. Decode Ways
 
     public static int convert(String str) {
         if (str == null || str.length() == 0) {
@@ -70,13 +76,6 @@ public class NumConvertToLetter {
         }
         return dp[0];
     }
-
-
-    public static void main(String[] args) {
-        int count = convert("1111");
-        int count1 = convertDP("1111");
-        System.out.println(count);
-        System.out.println(count1);
-    }
+    
 
 }

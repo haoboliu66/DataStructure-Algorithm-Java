@@ -6,8 +6,14 @@ package recursion.dp;
  */
 public class MoneyChoice {
 
+    // 322. Coin Change 是问张数最少的取法
+
+    // 518. Coin Change 2 是问有多少种取法
+
     /*  Q: 一个数组中放不同面值的钱 [10,20,50,30] 每种可取任意数量, 给定目标aim = 1000, 问有多少种取法   */
 
+
+    //暴力递归
     public static int getWays1(int[] arr, int aim) {
         if (arr == null || arr.length == 0 || aim <= 0) {
             return 0;
@@ -29,6 +35,7 @@ public class MoneyChoice {
         }
         return ways;
     }
+
 
     /* 傻缓存 Memoization  */
     public static int getWays2(int[] arr, int aim) {
@@ -62,7 +69,7 @@ public class MoneyChoice {
         return dp[index][rest];
     }
 
-    /*  DP  */
+    /* 二维表 DP 枚举行为  */
     public static int getWays3(int[] arr, int aim) {
         if (arr == null || arr.length == 0 || aim <= 0) {
             return 0;
