@@ -2,10 +2,6 @@ package advanced.c2.sortedMap;
 
 import java.util.TreeMap;
 
-/**
- * @author andy-liu
- * @date 2020/6/20 - 12:01 AM
- */
 public class MinInterval {
 
     /*

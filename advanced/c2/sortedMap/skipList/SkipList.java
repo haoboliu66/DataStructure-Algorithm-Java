@@ -3,10 +3,7 @@ package advanced.c2.sortedMap.skipList;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author andy-liu
- * @date 2020/6/20 - 12:01 PM
- */
+
 public class SkipList {
 
     public static class SkipListNode<K extends Comparable<K>, V> {
@@ -62,11 +59,11 @@ public class SkipList {
             return cur;
         }
 
-        //现在来到的节点是cur，来到了cur的level层, 返回level上比key小的最右节点
+        //现在来到的节点是cur，来到了cur的level层, 返回level层上比key小的最右节点
         private SkipListNode<K, V> mostRightLessNodeInLevel(K key, SkipListNode<K, V> cur, int level) {
             SkipListNode<K, V> next = cur.nextNodes.get(level); //level层上cur的下一个节点为next
-            //当next没到最后, 且next的值比key小, 就还能向右走
-            while (next != null && next.isKeyLess(key)) { //本质就是单链表遍历
+            //当next没到最后, 且next的值比key小, 在当前层就还能向右走
+            while (next != null && next.isKeyLess(key)) { //在一层上的本质就是单链表遍历
                 cur = next;
                 next = cur.nextNodes.get(level);
             }

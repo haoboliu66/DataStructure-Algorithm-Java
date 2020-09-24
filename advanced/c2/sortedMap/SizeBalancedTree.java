@@ -1,10 +1,6 @@
 package advanced.c2.sortedMap;
 
 
-/**
- * @author andy-liu
- * @date 2020/6/20 - 12:37 AM
- */
 public class SizeBalancedTree {
 
 
