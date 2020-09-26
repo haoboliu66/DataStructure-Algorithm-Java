@@ -18,6 +18,7 @@ public class Problem_0078_Subsets {
     public static void process(int[] arr, int index, LinkedList<Integer> path, List<List<Integer>> res) {
         if (index == arr.length) {
             res.add(new ArrayList<>(path));
+//            res.add((List<Integer>) path.clone());
         } else {
             process(arr, index + 1, path, res); // 当前位置不统计进结果
             path.addLast(arr[index]);
