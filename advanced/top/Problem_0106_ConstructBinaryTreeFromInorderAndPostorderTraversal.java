@@ -36,15 +36,15 @@ public class Problem_0106_ConstructBinaryTreeFromInorderAndPostorderTraversal {
             return null;
         }
 
+        TreeNode head = new TreeNode(post[R2]);
         if (L2 == R2) {
-            return new TreeNode(post[L2]);
+            return head;
         }
 
-        TreeNode head = new TreeNode(post[R2]);
         int index = map.get(post[R2]);
 
-        head.right = process(in, index + 1, R1, post, R2 - (R1 - index - 1), R2 - 1, map);
-        head.left = process(in, L1, index - 1, post, L2, R2 - (R1 - index - 1) - 1, map);
+        head.right = process(in, index + 1, R1, post, R2 - (R1 - index), R2 - 1, map);
+        head.left = process(in, L1, index - 1, post, L2, R2 - (R1 - index) - 1, map);
 
         return head;
     }
