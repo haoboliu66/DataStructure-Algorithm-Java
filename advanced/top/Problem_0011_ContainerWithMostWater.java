@@ -1,9 +1,5 @@
 package advanced.top;
 
-/**
- * @author andy-liu
- * @date 2020/8/16 - 11:01 PM
- */
 public class Problem_0011_ContainerWithMostWater {
 
 

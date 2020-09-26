@@ -2,10 +2,6 @@ package advanced.top;
 
 import java.util.Stack;
 
-/**
- * @author andy-liu
- * @date 2020/8/25 - 10:58 AM
- */
 public class Problem_0020_ValidParentheses {
 
     public static boolean isValid(String s) {

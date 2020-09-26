@@ -5,10 +5,6 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @author andy-liu
- * @date 2020/8/16 - 8:39 PM
- */
 public class Problem_0004_MedianOfTwoSortedArray {
 
     /*

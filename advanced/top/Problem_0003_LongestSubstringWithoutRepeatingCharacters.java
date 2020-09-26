@@ -1,9 +1,5 @@
 package advanced.top;
 
-/**
- * @author andy-liu
- * @date 2020/8/16 - 8:01 PM
- */
 public class Problem_0003_LongestSubstringWithoutRepeatingCharacters {
 
     /*

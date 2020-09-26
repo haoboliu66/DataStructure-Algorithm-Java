@@ -3,10 +3,6 @@ package advanced.top;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
-/**
- * @author andy-liu
- * @date 2020/8/30 - 4:26 PM
- */
 public class Problem_0023_MergekSortedLists {
 
     public static class ListNode {

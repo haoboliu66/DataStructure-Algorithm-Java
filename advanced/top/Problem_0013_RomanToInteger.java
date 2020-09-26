@@ -2,10 +2,6 @@ package advanced.top;
 
 import java.util.Arrays;
 
-/**
- * @author andy-liu
- * @date 2020/8/25 - 10:58 AM
- */
 public class Problem_0013_RomanToInteger {
 
     //  1 <= num <= 3999

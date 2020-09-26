@@ -2,10 +2,6 @@ package advanced.top;
 
 import java.util.Arrays;
 
-/**
- * @author andy-liu
- * @date 2020/8/16 - 9:27 PM
- */
 public class Problem_0005_LongestPalindromicSubstring {
 
     /*

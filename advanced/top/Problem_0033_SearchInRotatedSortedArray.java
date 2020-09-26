@@ -1,9 +1,5 @@
 package advanced.top;
 
-/**
- * @author andy-liu
- * @date 2020/9/5 - 1:20 PM
- */
 public class Problem_0033_SearchInRotatedSortedArray {
 
     /*

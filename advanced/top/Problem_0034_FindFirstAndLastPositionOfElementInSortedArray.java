@@ -1,9 +1,5 @@
 package advanced.top;
 
-/**
- * @author andy-liu
- * @date 2020/9/5 - 3:57 PM
- */
 public class Problem_0034_FindFirstAndLastPositionOfElementInSortedArray {
 
     public int[] searchRange(int[] nums, int target) {

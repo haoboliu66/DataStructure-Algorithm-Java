@@ -2,10 +2,6 @@ package advanced.top;
 
 import java.util.HashMap;
 
-/**
- * @author andy-liu
- * @date 2020/8/16 - 7:41 PM
- */
 public class Problem_0001_TwoSum {
 
     public int[] twoSum(int[] nums, int target) {

@@ -1,9 +1,5 @@
 package advanced.top;
 
-/**
- * @author andy-liu
- * @date 2020/9/5 - 11:19 AM
- */
 public class Problem_0029_DivideTwoIntegers {
 
     public static int divide(int dividend, int divisor) {

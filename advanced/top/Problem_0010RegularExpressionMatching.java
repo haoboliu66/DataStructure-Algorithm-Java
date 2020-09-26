@@ -1,9 +1,5 @@
 package advanced.top;
 
-/**
- * @author andy-liu
- * @date 2020/8/17 - 4:11 PM
- */
 
 public class Problem_0010RegularExpressionMatching {
 

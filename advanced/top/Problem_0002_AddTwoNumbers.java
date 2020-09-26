@@ -1,9 +1,5 @@
 package advanced.top;
 
-/**
- * @author andy-liu
- * @date 2020/8/16 - 7:43 PM
- */
 public class Problem_0002_AddTwoNumbers {
 
     private static class ListNode {

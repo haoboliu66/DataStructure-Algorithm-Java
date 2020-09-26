@@ -1,12 +1,11 @@
 package advanced.top;
 
-import org.omg.PortableInterceptor.INACTIVE;
 
 import java.util.HashMap;
 
 public class Problem_0105_ConstructBinaryTreeFromPreorderAndInorderTraversal {
 
-    public class TreeNode {
+    private static class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
