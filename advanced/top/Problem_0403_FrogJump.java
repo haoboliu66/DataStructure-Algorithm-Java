@@ -3,7 +3,10 @@ package advanced.top;
 import org.omg.PortableInterceptor.INACTIVE;
 
 import java.util.HashMap;
-import java.util.HashSet;
+import java.util.Iterator;
+import java.util.concurrent.*;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class Problem_0403_FrogJump {
 
@@ -53,6 +56,80 @@ public class Problem_0403_FrogJump {
         }
 
         return false;
+    }
+
+
+    static char[] number = "123456".toCharArray();
+    static char[] letter = "ABCDEF".toCharArray();
+    static int indexNum = 0;
+    static int indexLetter = 0;
+
+    static ReentrantLock lock = new ReentrantLock();
+    static Condition numLock = lock.newCondition();
+    static Condition letterLock = lock.newCondition();
+
+
+    public static void print() {
+
+        new Thread(() -> {
+            try {
+                lock.lock();
+                for (char i : number) {
+                    System.out.println(i);
+                    letterLock.signal();
+                    numLock.await();
+                }
+                letterLock.signal();
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                lock.unlock();
+            }
+
+        }).start();
+
+
+        new Thread(() -> {
+            try {
+                lock.lock();
+                for (char i : letter) {
+
+                    System.out.println(i);
+                    numLock.signal();
+                    letterLock.await();
+                }
+                numLock.signal();
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                lock.unlock();
+            }
+
+        }).start();
+
+    }
+
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
+//        print();
+
+        ExecutorService service = Executors.newCachedThreadPool();
+
+        Future<String> future = service.submit(() -> {
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            return "Hello world";
+        });
+        int i = 0;
+        while (!future.isDone()) {
+            System.out.println(i++);
+            Thread.sleep(1000);
+        }
+        System.out.println(future.get());
+        service.shutdown();
+
     }
 
 }
