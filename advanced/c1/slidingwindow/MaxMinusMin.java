@@ -15,6 +15,29 @@ public class MaxMinusMin {
      * 返回arr中达标的子数组数量
      */
 
+    public static int subArrayBruteForce(int[] arr, int num) {
+
+        int res = 0;
+        for (int L = 0; L < arr.length; L++) {
+            for (int R = L; R < arr.length; R++) {
+                // 两层for循环枚举所有subArray
+                int max = arr[L];
+                int min = arr[L];
+                for (int i = L + 1; i <= R; i++) {
+                    max = Math.max(max, arr[i]);
+                    min = Math.min(min, arr[i]);
+                }
+                if (max - min > num) {
+                    break;
+                }
+                res++;
+            }
+        }
+
+        return res;
+    }
+
+
     public static int subArrayNum(int[] arr, int num) {
         LinkedList<Integer> qmax = new LinkedList<>(); //双向队列保存最大值
         LinkedList<Integer> qmin = new LinkedList<>(); //双向队列保存最小值
@@ -23,7 +46,6 @@ public class MaxMinusMin {
         int R = 0;
 
         while (L < arr.length) { //尝试每一个L
-
             while (R < arr.length) {
                 //更新最大值
                 while (!qmax.isEmpty() && arr[R] >= arr[qmax.peekLast()]) {
@@ -47,17 +69,16 @@ public class MaxMinusMin {
             res += R - L;
 
             // 检验最大值和最小值是否会在窗口左移后过期, 如果会, 就直接弹出
-            if(qmax.peekFirst() == L){
+            if (qmax.peekFirst() == L) {
                 qmax.pollFirst();
             }
-            if(qmin.peekFirst() == L){
+            if (qmin.peekFirst() == L) {
                 qmin.pollFirst();
             }
             L++;
         }
         return res;
     }
-
 
 
     // for test
@@ -87,8 +108,15 @@ public class MaxMinusMin {
         int[] arr = getRandomArray(30);
 //        int[] arr = {4, 1, 6, 6, 7, 8, 1, 2, 9, 5};
         int num = 5;
-        printArray(arr);
-        System.out.println(subArrayNum(arr, num));
+//        printArray(arr);
+        for(int i = 0; i < 100000; i++){
+            arr = getRandomArray(30);
+            if(subArrayNum(arr, num) != subArrayBruteForce(arr, num)){
+                System.out.println("Oops");
+                break;
+            }
+        }
+        System.out.println("done");
 
     }
 }
