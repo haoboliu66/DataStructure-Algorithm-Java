@@ -2,10 +2,6 @@ package advanced.c1.monotoneStack;
 
 import java.util.Stack;
 
-/**
- * @author andy-liu
- * @date 2020/5/27 - 6:23 PM
- */
 public class AllTimesMinToMax {
 
     /*

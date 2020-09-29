@@ -11,6 +11,10 @@ package advanced.c1.manacher;
  */
 public class AddShortestEnd {
 
+    /*
+    Shortest Palindrome
+     */
+
     public static String shortestEnd(String s) {
         if (s == null || s.length() == 0) {
             return null;

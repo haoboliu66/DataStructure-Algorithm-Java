@@ -4,10 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-/**
- * @author andy-liu
- * @date 2020/5/27 - 3:15 PM
- */
+
 public class MonotoneStack {
 
 //    相似问题: 求一个数字两侧最近比他小/ 两侧最近比他大
@@ -21,21 +18,23 @@ public class MonotoneStack {
         int[][] res = new int[arr.length][2];
         for (int i = 0; i < arr.length; i++) {
             while (!incrStack.isEmpty() && arr[i] < arr[incrStack.peek()]) {
-                Integer thisIndex = incrStack.pop(); //被弹出的数字 要收集他的左右两头信息
-                res[thisIndex][0] = incrStack.isEmpty() ? -1 : incrStack.peek();
-                res[thisIndex][1] = i;
+                //弹出数字 收集他的左右两头信息
+                Integer curIndex = incrStack.pop();
+                res[curIndex][0] = incrStack.isEmpty() ? -1 : incrStack.peek();
+                res[curIndex][1] = i;
             }
             incrStack.push(i);
         }
         while (!incrStack.isEmpty()) {
-            int thisIndex = incrStack.pop();
-            res[thisIndex][0] = incrStack.isEmpty() ? -1 : incrStack.peek();
-            res[thisIndex][1] = -1;
+            int curIndex = incrStack.pop();
+            res[curIndex][0] = incrStack.isEmpty() ? -1 : incrStack.peek();
+            res[curIndex][1] = -1;
         }
         return res;
     }
 
 
+    // 数组中有重复数字的情况
     public static int[][] getNearLessDuplicate(int[] arr) {
         if (arr == null || arr.length == 0) {
             return null;
@@ -46,7 +45,6 @@ public class MonotoneStack {
             while (!incrStack.isEmpty() && arr[i] <= arr[incrStack.peek().get(0)]) {
                 if (arr[incrStack.peek().get(0)] == arr[i]) {//如果遇到相等的, 直接加入List
                     incrStack.peek().add(i);  //加完直接进行下一轮
-                    break;
                 } else {
                     List<Integer> thisIndex = incrStack.pop(); //如果是小于栈顶, 弹出最上面的List,并收集信息
                     for (Integer index : thisIndex) { //遍历List中每一个index, 右边是当前i, 左边是压在下面的List中的index
@@ -119,6 +117,17 @@ public class MonotoneStack {
         }
     }
 
+    public static int[] getRandomArray(int len) {
+        if (len < 0) {
+            return null;
+        }
+        int[] arr = new int[len];
+        for (int i = 0; i < len; i++) {
+            arr[i] = (int) (Math.random() * 100);
+        }
+        return arr;
+    }
+
     public static boolean isEqual(int[][] arr1, int[][] arr2) {
         if (arr1.length != arr2.length) return false;
         for (int i = 0; i < arr1.length; i++) {
@@ -134,12 +143,19 @@ public class MonotoneStack {
 
     public static void main(String[] args) {
         int[] arr = {1, 5, 2, 5, 1, 6, 2, 5, 3, 8, 6};
-        int[][] res = getNearLess(arr);
-        printArray(res);
+        int[][] res = null;
+        int[][] myres = null;
         System.out.println("===========");
-        int[][] myres = getNearLessDuplicate(arr);
-        printArray(myres);
-        System.out.println(isEqual(res, myres));
+        for (int i = 0; i < 50000; i++) {
+            arr = getRandomArray(100);
+            res = getNearLess(arr);
+            myres = getNearLessDuplicate(arr);
+            if(!isEqual(res, myres)){
+                System.out.println("Oops");
+                break;
+            }
+        }
+        System.out.println("done");
 
     }
 

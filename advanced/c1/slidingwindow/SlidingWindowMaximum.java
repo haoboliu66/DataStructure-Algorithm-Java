@@ -4,10 +4,6 @@ import java.util.Arrays;
 import java.util.Deque;
 import java.util.LinkedList;
 
-/**
- * @author andy-liu
- * @date 2020/5/26 - 12:52 PM
- */
 
 public class SlidingWindowMaximum {
     /**

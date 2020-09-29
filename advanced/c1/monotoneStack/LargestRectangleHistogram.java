@@ -2,12 +2,7 @@ package advanced.c1.monotoneStack;
 
 import java.util.Stack;
 
-/**
- * @author andy-liu
- * @date 2020/5/29 - 11:37 AM
- */
 public class LargestRectangleHistogram {
-
 
     public static int largestRectangleArea(int[] arr) {
         if (arr == null || arr.length == 0) {

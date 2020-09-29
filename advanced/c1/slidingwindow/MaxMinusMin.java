@@ -2,10 +2,6 @@ package advanced.c1.slidingwindow;
 
 import java.util.LinkedList;
 
-/**
- * @author andy-liu
- * @date 2020/5/27 - 11:46 AM
- */
 public class MaxMinusMin {
 
     /**
@@ -33,7 +29,6 @@ public class MaxMinusMin {
                 res++;
             }
         }
-
         return res;
     }
 
@@ -68,7 +63,7 @@ public class MaxMinusMin {
             // 所以不能包含R的位置subArray总个数是R - L
             res += R - L;
 
-            // 检验最大值和最小值是否会在窗口左移后过期, 如果会, 就直接弹出
+            // 检查当前最大值和最小值是否会在窗口左移后过期, 如果会, 就直接弹出
             if (qmax.peekFirst() == L) {
                 qmax.pollFirst();
             }
