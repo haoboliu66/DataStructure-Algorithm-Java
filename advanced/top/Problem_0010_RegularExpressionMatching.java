@@ -1,7 +1,7 @@
 package advanced.top;
 
 
-public class Problem_0010RegularExpressionMatching {
+public class Problem_0010_RegularExpressionMatching {
 
     /*
     c4 - class8 - C01
