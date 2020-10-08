@@ -2,8 +2,10 @@ package advanced.top;
 
 import org.omg.PortableInterceptor.INACTIVE;
 
+import java.util.Deque;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.concurrent.*;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
@@ -108,6 +110,33 @@ public class Problem_0403_FrogJump {
         }).start();
 
     }
+
+
+    public static int[] window(int[] arr, int W) {
+
+        int[] res = new int[arr.length - W + 1];
+        int L = 0;
+        int R;
+        Deque<Integer> deque = new LinkedList<>();
+        for (R = 0; R < arr.length; R++) {
+            while (!deque.isEmpty() && arr[deque.peekFirst()] <= arr[R]) {
+                deque.pollFirst();
+            }
+            deque.addLast(R);
+
+            if (R - W + 1 >= 0) {
+                res[L++] = arr[deque.peekFirst()];
+            }
+
+            if (deque.peekFirst() < R - W + 1) {
+                deque.pollFirst();
+            }
+
+        }
+
+        return res;
+    }
+
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
 //        print();
