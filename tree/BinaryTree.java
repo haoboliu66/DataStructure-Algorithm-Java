@@ -1,35 +1,21 @@
 package tree;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Stack;
-
-/**
- * @author andy-liu
- * @date 2020/5/9 - 9:39 AM
- */
 public class BinaryTree {
 
-    Node root;
+    TreeNode root;
 
-    public BinaryTree() {
-        System.out.println();
-    }
-
-    public BinaryTree(Node root) {
+    public BinaryTree(TreeNode root) {
         this.root = root;
     }
 
-
     public static void main(String[] args) {
-        Node node1 = new Node("A");
-        Node node2 = new Node("B");
-        Node node3 = new Node("C");
-        Node node4 = new Node("D");
-        Node node5 = new Node("E");
-        Node node6 = new Node("F");
-        Node node7 = new Node("G");
+        TreeNode node1 = new TreeNode("A");
+        TreeNode node2 = new TreeNode("B");
+        TreeNode node3 = new TreeNode("C");
+        TreeNode node4 = new TreeNode("D");
+        TreeNode node5 = new TreeNode("E");
+        TreeNode node6 = new TreeNode("F");
+        TreeNode node7 = new TreeNode("G");
         node1.left = node2;
         node1.right = node3;
         node2.left = node4;
@@ -39,21 +25,25 @@ public class BinaryTree {
     }
 }
 
+class TreeNode {
 
-class Node {
     public String value;
-    public Node left;
-    public Node right;
+    public int val;
+    public TreeNode left;
+    public TreeNode right;
 
-    public Node(String value) {
+    public TreeNode(String value) {
         this.value = value;
+    }
+
+    public TreeNode(int val) {
+        this.val = val;
     }
 
     @Override
     public String toString() {
-        return "Node{" +
+        return "SBTNode{" +
                 "value='" + value + '\'' +
                 '}';
     }
-
 }

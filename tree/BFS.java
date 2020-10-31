@@ -2,21 +2,34 @@ package tree;
 
 import java.util.*;
 
-/**
- * @author andy-liu
- * @date 2020/5/22 - 8:39 AM
- */
 public class BFS {
 
+//    public static void breadthFirstSearchRecur(SBTNode head, Queue<SBTNode> queue){
+//        if (head == null) {
+//            return;
+//        }
+//        if(!queue.contains(head)){
+//            queue.add(head);
+//        }
+//        if(head.left != null){
+//            queue.add(head.left);
+//        }
+//        if(head.right != null){
+//            queue.add(head.right);
+//        }
+//        SBTNode cur = queue.poll();
+//        System.out.println(cur);
+//        breadthFirstSearchRecur(cur.left,queue);
+//    }
 
-    public static void breadthFirstSearch(Node head) {
+    public static void breadthFirstSearch(TreeNode head) {
         if (head == null) {
             return;
         }
-        Queue<Node> queue = new LinkedList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
         queue.add(head);
         while (!queue.isEmpty()) {
-            Node cur = queue.poll();
+            TreeNode cur = queue.poll();
             System.out.println(cur);
             if (cur.left != null) {
                 queue.add(cur.left);
@@ -27,28 +40,20 @@ public class BFS {
         }
     }
 
-//    public static void BFSNoQueue(Node head){
-//        if(head == null){
-//            return;
-//        }
-//        Node curEnd = head;
-//        Node nextEnd = null;
-//    }
 
-
-    public static int maxWidthUsingMap(Node head) {
+    public static int maxWidthUsingMap(TreeNode head) {
         if (head == null) {
             return 0;
         }
-        HashMap<Node, Integer> levelMap = new HashMap<>();
-        Queue<Node> queue = new LinkedList<>();
+        HashMap<TreeNode, Integer> levelMap = new HashMap<>();
+        Queue<TreeNode> queue = new LinkedList<>();
         queue.add(head);
         levelMap.put(head, 1);
         int curLevel = 1; //当前层
         int curLevelNodes = 0; //一个节点出队列的时候再加到宽度上
         int max = 0;
         while (!queue.isEmpty()) {
-            Node cur = queue.poll();
+            TreeNode cur = queue.poll();
             int curNodeLevel = levelMap.get(cur);
             if (cur.left != null) {
                 queue.add(cur.left);
@@ -66,23 +71,23 @@ public class BFS {
                 curLevelNodes = 1; //节点数置位1(也就是统计了刚出队列的这一个Node)
             }
         }
-        //最后一层节点没有在下一层个他结算, 所以最后还要再算一次
+        //最后一层节点没有再下一层给他结算, 所以最后还要再算一次
         max = Math.max(curLevelNodes, max);
         return max;
     }
 
-    public static int maxWidthNoMap(Node head) {
+    public static int maxWidthNoMap(TreeNode head) {
         if (head == null) {
             return 0;
         }
-        Queue<Node> queue = new LinkedList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
         queue.add(head);
-        Node curEnd = head;  // 当前层的最右节点
-        Node nextEnd = null;    //如果有下一层的话, 下一层的最右节点
+        TreeNode curEnd = head;  // 当前层的最右节点
+        TreeNode nextEnd = null;    //如果有下一层的话, 下一层的最右节点
         int curLevelNodes = 0;
         int max = 0;
         while (!queue.isEmpty()) {
-            Node cur = queue.poll();
+            TreeNode cur = queue.poll();
             if (cur.left != null) {
                 queue.add(cur.left);
                 nextEnd = cur.left;
@@ -103,20 +108,21 @@ public class BFS {
 
 
     public static void main(String[] args) {
-        Node node1 = new Node("A");
-        Node node2 = new Node("B");
-        Node node3 = new Node("C");
-        Node node4 = new Node("D");
-        Node node5 = new Node("E");
-        Node node6 = new Node("F");
-        Node node7 = new Node("G");
+        TreeNode node1 = new TreeNode("A");
+        TreeNode node2 = new TreeNode("B");
+        TreeNode node3 = new TreeNode("C");
+        TreeNode node4 = new TreeNode("D");
+        TreeNode node5 = new TreeNode("E");
+        TreeNode node6 = new TreeNode("F");
+        TreeNode node7 = new TreeNode("G");
         node1.left = node2;
         node1.right = node3;
         node2.left = node4;
         node2.right = node5;
         node3.left = node6;
         node3.right = node7;
-        breadthFirstSearch(node1);
+        int width = maxWidthNoMap(node1);
+        System.out.println(width);
     }
 
 

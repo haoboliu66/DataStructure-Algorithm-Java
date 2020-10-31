@@ -2,17 +2,13 @@ package tree;
 
 import java.util.Stack;
 
-/**
- * @author andy-liu
- * @date 2020/5/23 - 12:09 AM
- */
 public class PreOrder {
 
     /**
      * PreOrder traversal
      */
     /* Recursive implementation  */
-    public static void preOrderRecur(Node node) {
+    public static void preOrderRecur(TreeNode node) {
         if (node == null) {
             return;
         }
@@ -22,14 +18,14 @@ public class PreOrder {
     }
 
     /* Iterative implementation of preOrder  */
-    public static void preOrderIter(Node node) {
+    public static void preOrderIter(TreeNode node) {
         if (node == null) {
             return;
         }
-        Stack<Node> stack = new Stack<>();
+        Stack<TreeNode> stack = new Stack<>();
         stack.add(node);
         while (!stack.isEmpty()) {
-            Node cur = stack.pop();
+            TreeNode cur = stack.pop();
             System.out.println(cur);
             if (cur.right != null) {
                 stack.add(cur.right);

@@ -2,15 +2,12 @@ package tree;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
-/**
- * @author andy-liu
- * @date 2020/5/22 - 5:47 PM
- */
 public class Serialization {
 
     /*  preorder serialization(preSerial + preProcess) and deserialization(preDeserial)  */
-    public static Queue<String> preSerial(Node head) {
+    public static Queue<String> preSerial(TreeNode head) {
         if (head == null) {
             return null;
         }
@@ -19,7 +16,7 @@ public class Serialization {
         return ans;
     }
 
-    private static void preProcess(Node node, Queue<String> ans) {
+    private static void preProcess(TreeNode node, Queue<String> ans) {
         if (node == null) {
             ans.add(null);
             return;
@@ -30,19 +27,19 @@ public class Serialization {
         preProcess(node.right, ans);
     }
 
-    public static Node preDeserial(Queue<String> preList) {
+    public static TreeNode preDeserial(Queue<String> preList) {
         String first = preList.poll();
         if (first == null) {
             return null;
         }
-        Node head = new Node(first);
+        TreeNode head = new TreeNode(first);
         head.left = preDeserial(preList);
         head.right = preDeserial(preList);
         return head;
     }
 
     /*  inorder serialization(inSerial + inProcess) and deserialization(inDeserial)  */
-    public static Queue<String> inSerial(Node head) {
+    public static Queue<String> inSerial(TreeNode head) {
         if (head == null) {
             return null;
         }
@@ -51,7 +48,7 @@ public class Serialization {
         return ans;
     }
 
-    private static void inProcess(Node node, Queue<String> ans) {
+    private static void inProcess(TreeNode node, Queue<String> ans) {
         if (node == null) {
             ans.add(null);
             return;
@@ -61,14 +58,14 @@ public class Serialization {
         inProcess(node.right, ans);
     }
 
-    public static Node inDeserial(Queue<String> inList) {
-        Node head = null;
-
-        return head;
+    /* not working for inorder deserial  */
+    public static TreeNode inDeserial(Queue<String> inList) {
+        return null;
     }
 
+
     /*  postorder serialization(postSerial + postProcess) and deserialization(postDeserial)  */
-    public static Queue<String> postSerial(Node head) {
+    public static Queue<String> postSerial(TreeNode head) {
         if (head == null) {
             return null;
         }
@@ -77,7 +74,7 @@ public class Serialization {
         return ans;
     }
 
-    private static void postProcess(Node node, Queue<String> ans) {
+    private static void postProcess(TreeNode node, Queue<String> ans) {
         if (node == null) {
             ans.add(null);
             return;
@@ -87,22 +84,41 @@ public class Serialization {
         ans.add(String.valueOf(node.value));
     }
 
-    public static Node postDeserial(Queue<String> postList) {
-        return null;
+    public static TreeNode postDeserial(Queue<String> postList) {
+        if (postList == null || postList.size() == 0) {
+            return null;
+        }
+        Stack<String> stack = new Stack<>();
+        while (!postList.isEmpty()) {
+            stack.push(postList.poll());
+        }
+
+        return postDeserialProcess(stack);
+    }
+
+    public static TreeNode postDeserialProcess(Stack<String> stack) {
+        String first = stack.pop();
+        if (first == null) {
+            return null;
+        }
+        TreeNode head = new TreeNode(first);
+        head.right = postDeserialProcess(stack);
+        head.left = postDeserialProcess(stack);
+        return head;
     }
 
 
     /* Serialization by Level  */
-    public static Queue<String> levelSerial(Node head) {
+    public static Queue<String> levelSerial(TreeNode head) {
         Queue<String> ans = new LinkedList<>();
         if (head == null) {
             return null;
         }
         ans.add(String.valueOf(head.value));
-        Queue<Node> queue = new LinkedList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
         queue.add(head);
         while (!queue.isEmpty()) {
-            Node cur = queue.poll(); //实质就是BFS, 然后把节点都加入Queue, null也要加
+            TreeNode cur = queue.poll(); //实质就是BFS, 然后把节点都加入Queue, null也要加
             if (cur.left != null) {
                 queue.add(cur.left);
                 ans.add(String.valueOf(cur.left.value));
@@ -120,26 +136,26 @@ public class Serialization {
         return ans;
     }
 
-    public static Node levelDeserial(Queue<String> levelList) {
-        if(levelList == null || levelList.size() == 0){
+    public static TreeNode levelDeserial(Queue<String> levelList) {
+        if (levelList == null || levelList.size() == 0) {
             return null;
         }
-        Queue<Node> queue = new LinkedList<>();
-        Node head = generateNode(levelList.poll());
-        if(head != null){
+        Queue<TreeNode> queue = new LinkedList<>();
+        TreeNode head = generateNode(levelList.poll());
+        if (head != null) {
             queue.add(head);
         }
-        Node node = null;
+        TreeNode node = null;
         while (!queue.isEmpty()) {
             node = queue.poll();
             String left = levelList.poll();
-            Node leftNode = generateNode(left);
-            if(leftNode != null){
+            TreeNode leftNode = generateNode(left);
+            if (leftNode != null) {
                 queue.add(leftNode);
             }
             String right = levelList.poll();
-            Node rightNode = generateNode(right);
-            if(rightNode != null){
+            TreeNode rightNode = generateNode(right);
+            if (rightNode != null) {
                 queue.add(rightNode);
             }
             node.left = leftNode;
@@ -148,22 +164,22 @@ public class Serialization {
         return head;
     }
 
-    private static Node generateNode(String left) {
-        if(left == null){
+    private static TreeNode generateNode(String val) {
+        if (val == null) {
             return null;
         }
-        return new Node(left);
+        return new TreeNode(val);
     }
 
 
     public static void main(String[] args) {
-        Node node1 = new Node("A");
-        Node node2 = new Node("B");
-        Node node3 = new Node("C");
-        Node node4 = new Node("D");
-        Node node5 = new Node("E");
-        Node node6 = new Node("F");
-        Node node7 = new Node("G");
+        TreeNode node1 = new TreeNode("A");
+        TreeNode node2 = new TreeNode("B");
+        TreeNode node3 = new TreeNode("C");
+        TreeNode node4 = new TreeNode("D");
+        TreeNode node5 = new TreeNode("E");
+        TreeNode node6 = new TreeNode("F");
+        TreeNode node7 = new TreeNode("G");
         node1.left = node2;
         node1.right = node3;
         node2.left = node4;
@@ -173,7 +189,7 @@ public class Serialization {
         Queue<String> queue = postSerial(node1);
         System.out.println(queue);
         System.out.println("**************");
-//        Node head = levelDeserial(queue);
+//        SBTNode head = levelDeserial(queue);
 //        PreOrder.preOrderIter(head);
     }
 

@@ -1,9 +1,5 @@
-package tree.recursion;
+package tree;
 
-/**
- * @author andy-liu
- * @date 2020/5/24 - 8:46 AM
- */
 public class PrintFold {
 
     public static void printAllFold(int N) {

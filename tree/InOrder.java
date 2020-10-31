@@ -2,13 +2,9 @@ package tree;
 
 import java.util.Stack;
 
-/**
- * @author andy-liu
- * @date 2020/5/23 - 12:09 AM
- */
 public class InOrder {
 
-    public static void inOrderRecur(Node node) {
+    public static void inOrderRecur(TreeNode node) {
         if (node == null) {
             return;
         }
@@ -18,11 +14,11 @@ public class InOrder {
     }
 
     /* Iterative implementation of inOrder  */
-    public static void inOrderIter(Node head) {
+    public static void inOrderIter(TreeNode head) {
         if (head == null) {
             return;
         }
-        Stack<Node> stack = new Stack<>();
+        Stack<TreeNode> stack = new Stack<>();
         while (!stack.isEmpty() || head != null) {
             if (head != null) {
                 stack.push(head);
@@ -34,4 +30,21 @@ public class InOrder {
             }
         }
     }
+
+    public static void inOrderIter2(TreeNode head) {
+        if (head == null) {
+            return;
+        }
+        Stack<TreeNode> stack = new Stack<>();
+        while (!stack.isEmpty() || head != null) {
+            while (head != null) {
+                stack.push(head);
+                head = head.left;
+            }
+            head = stack.pop();
+            System.out.println(head);
+            head = head.right;
+        }
+    }
+
 }
