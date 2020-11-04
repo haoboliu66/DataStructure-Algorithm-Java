@@ -4,10 +4,6 @@ import org.junit.Test;
 
 import java.util.Comparator;
 
-/**
- * @author andy-liu
- * @date 2020/6/3 - 8:01 PM
- */
 public class ListPartition {
 
     /**
@@ -77,7 +73,6 @@ public class ListPartition {
     }
 
     private static class NodeComparator implements Comparator<Node> {
-
         @Override
         public int compare(Node o1, Node o2) {
             return o1.value - o2.value;

@@ -2,10 +2,6 @@ package linear.linkedlist;
 
 import java.util.*;
 
-/**
- * @author andy-liu
- * @date 2020/6/2 - 11:47 AM
- */
 public class RemoveDuplicate2 {
 
     /*
@@ -43,7 +39,6 @@ public class RemoveDuplicate2 {
                 map.put(head.val, map.get(head.val) + 1);
             }
             head = next;
-
         }
         Node h = null;
         Set<Integer> keys = map.keySet();

@@ -4,7 +4,6 @@ import java.util.Arrays;
 
 public class GetMaxInArray {
 
-
     public static int getMax(int[] arr, int l, int r) {
 
         if (arr.length < 1) {

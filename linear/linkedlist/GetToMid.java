@@ -2,10 +2,6 @@ package linear.linkedlist;
 
 import java.util.ArrayList;
 
-/**
- * @author andy-liu
- * @date 2020/6/3 - 8:00 PM
- */
 public class GetToMid {
 
 

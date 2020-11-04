@@ -1,11 +1,6 @@
 package linear.stackqueue;
 
-import java.util.Arrays;
 
-/**
- * @author andy-liu
- * @date 2020/5/14 - 3:50 PM
- */
 public class StackWithArray {
 
     private int[] stack;
@@ -19,17 +14,17 @@ public class StackWithArray {
         size = 0;
     }
 
-    public StackWithArray(int l) {
-        this.limit = l;
-        stack = new int[limit];
-        size = 0;
-    }
+//    public StackWithArray(int l) {
+//        this.limit = l;
+//        stack = new int[limit];
+//        size = 0;
+//    }
 
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return size == 0;
     }
 
-    public int size(){
+    public int size() {
         return size;
     }
 
@@ -76,6 +71,8 @@ public class StackWithArray {
         stack.push(1000);
         System.out.println(stack.size());
         System.out.println(stack);
+
+
 
     }
 }

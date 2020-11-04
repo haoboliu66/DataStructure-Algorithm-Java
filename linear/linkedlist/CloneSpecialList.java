@@ -4,10 +4,6 @@ import org.junit.Test;
 
 import java.util.HashMap;
 
-/**
- * @author andy-liu
- * @date 2020/6/3 - 8:06 PM
- */
 public class CloneSpecialList {
 
     /**

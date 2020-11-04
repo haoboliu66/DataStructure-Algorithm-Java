@@ -3,10 +3,6 @@ package linear.linkedlist;
 
 import java.util.*;
 
-/**
- * @author andy-liu
- * @date 2020/5/17 - 11:33 AM
- */
 public class PalindromeLinkedList {
 
     public static boolean isPalindromeWithStack1(Node head) {
