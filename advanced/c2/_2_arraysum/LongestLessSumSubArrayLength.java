@@ -1,9 +1,5 @@
 package advanced.c2.arraysum;
 
-/**
- * @author andy-liu
- * @date 2020/6/11 - 8:05 AM
- */
 public class LongestLessSumSubArrayLength {
 
     /*

@@ -1,48 +1,37 @@
 package advanced.c2.arraysum;
 
+import java.util.HashMap;
 
-/**
- * @author andy-liu
- * @date 2020/6/10 - 11:51 PM
- */
-public class LongestSumSubArrayLengthInPositiveArray {
-    // 类似问题 leetcode 209;
+public class LongestSumSubArrayLength {
+    //类似问题 leetcode 560;
     /*
-    Q:一个数组arr[] 都是正数, 一个累加和K, 求:累加和正好等于K的子数组最长是多长
-    滑动窗口
+    Q: 一个数组arr[] 有正数,有负数, 有0, 求累加和等于K的最长子数组
      */
     public static int getMaxLength(int[] arr, int K) {
-        if (arr == null || arr.length == 0 || K <= 0) {
+        if (arr == null || arr.length == 0) {
             return 0;
         }
-        int len = 0; //记录最大值, 返回的最终结果
-        int windowSum = arr[0];
-        int left = 0;
-        int right = 0;
-        while (right < arr.length) {
-
-            if (windowSum == K) {
-                len = Math.max(len, right - left + 1);
-                windowSum -= arr[left++];  //先移动L或R都可以
-
-            } else if (windowSum < K) {
-                right++;
-                if (right == arr.length) {
-                    break;
-                }
-                windowSum += arr[right];
-
-            } else { // windowSum > K
-                windowSum -= arr[left++];
+        int len = 0;
+        int sum = 0;
+        HashMap<Integer, Integer> map = new HashMap<>(); // key:sum, val:index
+        map.put(0, -1);
+        for (int i = 0; i < arr.length; i++) {
+            sum += arr[i]; //0...i的累加和, 假设是1000, 如果目标K是200, 需要找800最早出现的位置
+            if (map.containsKey(sum - K)) {
+                len = Math.max(len, i - map.get(sum - K));
+            }
+            if (!map.containsKey(sum)) {
+                map.put(sum, i);
             }
         }
 
         return len;
     }
 
+    //暴力方法
     public static int right(int[] arr, int K) {
-        int len = 0;
         int sum = 0;
+        int len = 0;
         for (int i = 0; i < arr.length; i++) {
             for (int j = i; j < arr.length; j++) {
                 sum += arr[j];
@@ -57,10 +46,10 @@ public class LongestSumSubArrayLengthInPositiveArray {
 
 
     // for test
-    public static int[] generatePositiveArray(int size, int value) {
-        int[] ans = new int[size];
-        for (int i = 0; i != size; i++) {
-            ans[i] = (int) (Math.random() * value) + 1;
+    public static int[] generateRandomArray(int size, int value) {
+        int[] ans = new int[(int) (Math.random() * size) + 1];
+        for (int i = 0; i < ans.length; i++) {
+            ans[i] = (int) (Math.random() * value) - (int) (Math.random() * value);
         }
         return ans;
     }
@@ -75,12 +64,13 @@ public class LongestSumSubArrayLengthInPositiveArray {
 
     public static void main(String[] args) {
         int len = 50;
-        int value = 1000;
-        int testTime = 5000000;
+        int value = 100;
+        int testTime = 500000;
+
         System.out.println("test begin");
         for (int i = 0; i < testTime; i++) {
-            int[] arr = generatePositiveArray(len, value);
-            int K = (int) (Math.random() * value) + 1;
+            int[] arr = generateRandomArray(len, value);
+            int K = (int) (Math.random() * value) - (int) (Math.random() * value);
             int ans1 = getMaxLength(arr, K);
             int ans2 = right(arr, K);
             if (ans1 != ans2) {
@@ -93,5 +83,12 @@ public class LongestSumSubArrayLengthInPositiveArray {
             }
         }
         System.out.println("test end");
+
+
+        boolean ok = false;
+
+        ok = ok || true;
+
     }
+
 }

@@ -2,10 +2,6 @@ package advanced.c2.arraysum;
 
 import java.util.HashMap;
 
-/**
- * @author andy-liu
- * @date 2020/6/11 - 8:06 AM
- */
 public class EqualNumberInArray {
 
     /*
