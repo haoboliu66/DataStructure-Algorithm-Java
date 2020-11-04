@@ -1,10 +1,9 @@
 package advanced.c1.morris;
 
-/**
- * @author andy-liu
- * @date 2020/6/8 - 8:53 PM
- */
 public class IsBSTUseMorris {
+    /*
+    Morris算法判断是不是BST
+     */
 
     public static class Node {
         public int val;

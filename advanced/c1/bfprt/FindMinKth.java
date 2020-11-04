@@ -6,10 +6,6 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 import java.util.TreeMap;
 
-/**
- * @author andy-liu
- * @date 2020/6/6 - 8:33 AM
- */
 public class FindMinKth {
 
     /*
@@ -64,7 +60,7 @@ public class FindMinKth {
         }
     }
 
-    //迭代写法
+    //iterative
 //    private static int process2(int[] arr, int L, int R, int index) {
 //        while (L < R) {
 //            int pivot = arr[L + (int) (Math.random() * (R - L + 1))];

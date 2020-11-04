@@ -4,10 +4,6 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 
-/**
- * @author andy-liu
- * @date 2020/6/3 - 10:02 AM
- */
 public class RotatedString {
 
     public static void main(String[] args) {

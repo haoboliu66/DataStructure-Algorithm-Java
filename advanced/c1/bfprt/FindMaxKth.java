@@ -2,10 +2,6 @@ package advanced.c1.bfprt;
 
 import java.util.PriorityQueue;
 
-/**
- * @author andy-liu
- * @date 2020/6/6 - 8:57 AM
- */
 public class FindMaxKth {
 
     public static int maxKth1(int[] nums, int k) {

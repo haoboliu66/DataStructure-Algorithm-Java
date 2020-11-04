@@ -1,9 +1,5 @@
 package advanced.c1.morris;
 
-/**
- * @author andy-liu
- * @date 2020/6/8 - 10:16 PM
- */
 public class MinHeight {
 
     public static class Node {

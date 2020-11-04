@@ -1,4 +1,4 @@
-package advanced.c2.arraysum;
+package advanced.c2._2_arraysum;
 
 public class LongestLessSumSubArrayLength {
 

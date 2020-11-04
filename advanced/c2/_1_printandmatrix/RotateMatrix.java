@@ -1,4 +1,4 @@
-package advanced.c2.printandmatrix;
+package advanced.c2._1_printandmatrix;
 
 /**
  * @author andy-liu

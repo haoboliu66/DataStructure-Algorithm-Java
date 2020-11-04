@@ -6,7 +6,7 @@ package advanced.c1.morris;
  */
 public class MorrisTraversal {
 
-    public static class Node {
+    private static class Node {
         public int val;
         Node left;
         Node right;
@@ -40,6 +40,7 @@ public class MorrisTraversal {
         }
     }
 
+    // pre-order
     public static void morrisPre(Node head) {
         if (head == null) {
             return;
@@ -54,19 +55,20 @@ public class MorrisTraversal {
                 }
                 if (mostRight.right == null) { //第一次查看cur的左树最右节点
                     mostRight.right = cur;
-                    System.out.println(cur.val);  //前序:第一次来到cur的左树最右节点就打印
+                    System.out.println(cur.val);  //pre-order:第一次来到cur的左树最右节点就打印
                     cur = cur.left;
                     continue;
-                } else {  ////第二次查看cur的左树最右节点
+                } else {  //第二次查看cur的左树最右节点
                     mostRight.right = null;
                 }
-            } else {  //前序: 左树为空的Node, 即只路过一次, 到了即打印
+            } else {  //pre-order: 左树为空的Node, 即只路过一次, 到了即打印
                 System.out.println(cur.val);
             }
             cur = cur.right;
         }
     }
 
+    // in-order
     public static void morrisIn(Node head) {
         if (head == null) {
             return;
@@ -92,6 +94,7 @@ public class MorrisTraversal {
         }
     }
 
+    // post-order
     public static void morrisPost(Node head) {
         if (head == null) {
             return;
