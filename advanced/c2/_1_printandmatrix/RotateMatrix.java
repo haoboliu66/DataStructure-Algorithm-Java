@@ -1,9 +1,5 @@
 package advanced.c2._1_printandmatrix;
 
-/**
- * @author andy-liu
- * @date 2020/6/11 - 2:39 PM
- */
 public class RotateMatrix {
 
     /*

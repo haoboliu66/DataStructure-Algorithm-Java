@@ -1,8 +1,75 @@
 package advanced.c2._2_arraysum;
 
 
+import java.util.Arrays;
+
 public class LongestSumSubArrayLengthInPositiveArray {
-    // 类似问题 leetcode 209;
+
+    // 类似问题 lc 209. Minimum Size Subarray Sum
+    private static class minSizeSubArray {
+
+        public static void main(String[] args) {
+            int[] arr1 = {2, 3, 1, 2, 4, 3};
+            int k1 = 7;
+            int[] arr2 = {1, 2, 3, 4, 5};
+            int k2 = 1;
+
+        }
+
+        // brute force
+        public int minSubArrayLen1(int s, int[] nums) {
+            if (nums == null || nums.length == 0) return 0;
+            int sum = 0;
+            for (int n : nums) {
+                sum += n;
+            }
+            if (sum < s) return 0;
+
+            int len = Integer.MAX_VALUE;
+            for (int i = 0; i < nums.length; i++) {
+                sum = 0;
+                for (int j = i; j < nums.length; j++) {
+                    sum += nums[j];
+                    if (sum >= s) {
+                        len = Math.min(len, j - i + 1);
+                        break;
+                    }
+                }
+            }
+            return len;
+        }
+
+        public int minSubArrayLen2(int s, int[] nums) {
+            if (nums == null || nums.length == 0) return 0;
+            int sum = 0;
+            for (int n : nums) {
+                sum += n;
+            }
+            if (sum < s) return 0;
+
+            int L = 0;
+            int R = 0;
+            int len = Integer.MAX_VALUE;
+            sum = nums[0];
+
+            while (L < nums.length) {
+                while (sum >= s) {
+                    len = Math.min(len, R - L + 1);
+                    if (len == 1) return 1;
+                    sum -= nums[L++];
+                }
+
+                // sum < s
+                R++;
+                if (R == nums.length) break;
+                sum += nums[R];
+            }
+
+            return len;
+        }
+    }
+
+
     /*
     Q:一个数组arr[] 都是正数, 一个累加和K, 求:累加和正好等于K的子数组最长是多长
     滑动窗口
@@ -13,23 +80,22 @@ public class LongestSumSubArrayLengthInPositiveArray {
         }
         int len = 0; //记录最大值, 返回的最终结果
         int windowSum = arr[0];
-        int left = 0;
-        int right = 0;
-        while (right < arr.length) {
-
+        int L = 0;
+        int R = 0;
+        while (R < arr.length) {
             if (windowSum == K) {
-                len = Math.max(len, right - left + 1);
-                windowSum -= arr[left++];  //先移动L或R都可以
+                len = Math.max(len, R - L + 1);
+                windowSum -= arr[L++];  //先移动L或R都可以
 
             } else if (windowSum < K) {
-                right++;
-                if (right == arr.length) {
+                R++;
+                if (R == arr.length) {
                     break;
                 }
-                windowSum += arr[right];
+                windowSum += arr[R];
 
             } else { // windowSum > K
-                windowSum -= arr[left++];
+                windowSum -= arr[L++];
             }
         }
 

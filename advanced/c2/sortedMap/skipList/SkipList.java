@@ -65,7 +65,7 @@ public class SkipList {
             //当next没到最后, 且next的值比key小, 在当前层就还能向右走
             while (next != null && next.isKeyLess(key)) { //在一层上的本质就是单链表遍历
                 cur = next;
-                next = cur.nextNodes.get(level);
+                next = cur.nextNodes.get(level); // next在当前level向右走
             }
             //出循环后, cur的值就是当前level层中比key小的最右节点
             return cur;

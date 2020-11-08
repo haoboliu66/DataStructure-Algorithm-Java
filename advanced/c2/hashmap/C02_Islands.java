@@ -4,15 +4,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Stack;
 
-/**
- * @author andy-liu
- * @date 2020/7/22 - 9:23 AM
- */
+
 public class C02_Islands {
 
-
     /*
-    200. Number of Islands
+    lc 200. Number of Islands
      */
 
     public static int numberOfIslands(int[][] grid) {

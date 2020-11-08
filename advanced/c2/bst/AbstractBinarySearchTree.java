@@ -1,9 +1,6 @@
 package advanced.c2.bst;
 
-/**
- * @author andy-liu
- * @date 2020/6/19 - 9:39 PM
- */
+
 public class AbstractBinarySearchTree {
 
     public Node root;

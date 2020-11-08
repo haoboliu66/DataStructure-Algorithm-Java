@@ -32,19 +32,19 @@ public class PrintMatrixSpiralOrder {
                     System.out.print(matrix[i][aC] + " ");
                 }
             } else {
-                int curX = aR;
-                int curY = aC;
-                while (curY != bC) {
-                    System.out.print(matrix[aR][curY++] + " ");
+                int curR = aR;
+                int curC = aC;
+                while (curC != bC) {
+                    System.out.print(matrix[aR][curC++] + " ");
                 }
-                while (curX != bR) {
-                    System.out.print(matrix[curX++][bC] + " ");
+                while (curR != bR) {
+                    System.out.print(matrix[curR++][bC] + " ");
                 }
-                while (curY != aC) {
-                    System.out.print(matrix[bR][curY--] + " ");
+                while (curC != aC) {
+                    System.out.print(matrix[bR][curC--] + " ");
                 }
-                while (curX != aR) {
-                    System.out.print(matrix[curX--][aC] + " ");
+                while (curR != aR) {
+                    System.out.print(matrix[curR--][aC] + " ");
                 }
 
             }

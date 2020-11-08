@@ -1,9 +1,12 @@
 package advanced.c2._2_arraysum;
 
+import com.sun.org.apache.xpath.internal.operations.Equals;
+
 import java.util.HashMap;
 
 public class LongestSumSubArrayLength {
-    //类似问题 leetcode 560;
+    // 325. Maximum Size Subarray Sum Equals k
+    //类似问题 leetcode 560.Subarray Sum Equals K;
     /*
     Q: 一个数组arr[] 有正数,有负数, 有0, 求累加和等于K的最长子数组
      */
