@@ -4,7 +4,6 @@ public class IsBSTUseMorris {
     /*
     Morris算法判断是不是BST
      */
-
     public static class Node {
         public int val;
         Node left;

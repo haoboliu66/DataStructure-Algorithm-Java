@@ -1,11 +1,5 @@
 package advanced.c1.manacher;
 
-
-/**
- * @author andy-liu
- * @date 2020/6/6 - 12:01 PM
- */
-
 // LPS - Longest Palindromic Substring
 public class Manacher {
 
@@ -51,7 +45,7 @@ public class Manacher {
         char[] res = new char[charArray.length * 2 + 1];
         int index = 0;
         for (int i = 0; i < res.length; i++) {
-            // 判断奇偶数采用:  (i & 1) == 0
+            // 判断奇偶数:  (i & 1) == 0
             res[i] = (i & 1) == 0 ? '#' : charArray[index++];
         }
         return res;

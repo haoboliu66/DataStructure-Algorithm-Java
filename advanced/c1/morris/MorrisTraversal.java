@@ -1,9 +1,5 @@
 package advanced.c1.morris;
 
-/**
- * @author andy-liu
- * @date 2020/6/8 - 5:36 PM
- */
 public class MorrisTraversal {
 
     private static class Node {

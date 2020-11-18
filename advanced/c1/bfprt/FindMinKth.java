@@ -1,10 +1,6 @@
 package advanced.c1.bfprt;
 
-import org.junit.Test;
-
-import java.util.Comparator;
 import java.util.PriorityQueue;
-import java.util.TreeMap;
 
 public class FindMinKth {
 
@@ -41,7 +37,7 @@ public class FindMinKth {
         return process2(arr, 0, arr.length - 1, k - 1);
     }
 
-    // 在L...R范围上, 如果排好序的话, 找到下标为index的值(index是人为指定的)
+    // 在L...R范围上, 如果排好序的话, 找到下标为index的值(index是指定的位置参数)
     // index一定在L...R范围上
     private static int process2(int[] arr, int L, int R, int index) {
         if (L == R) {
@@ -122,6 +118,7 @@ public class FindMinKth {
             return arr[L];
         }
         int pivot = medianOfMedians(arr, L, R);
+
         int[] range = partition(arr, L, R, pivot);
         if (index >= range[0] && index <= range[1]) {
             return arr[index];
@@ -133,11 +130,13 @@ public class FindMinKth {
     }
 
     private static int medianOfMedians(int[] arr, int L, int R) {
+        //分组
         int size = R - L + 1; // L...R的size
         int offset = size % 5 == 0 ? 0 : 1; // 总的size以5位单位划分有没有剩余
-        int[] mArr = new int[size / 5 + offset]; // m[]中位数数组
+        // 总组数: size /5 + offset
+        int[] mArr = new int[size / 5 + offset]; // mArr[]中位数数组
 
-        //arr中, 获取每个组的中位数, 并赋值给mArray
+        //arr中, 获取每个组的中位数, 并赋值给mArr
         for (int team = 0; team < mArr.length; team++) {
             int teamFirst = L + team * 5;
             mArr[team] = getMedian(arr, teamFirst, Math.min(R, teamFirst + 4));
@@ -146,6 +145,7 @@ public class FindMinKth {
         return bfprt(mArr, 0, mArr.length - 1, mArr.length / 2);
     }
 
+    // 数组长度为5, 复杂度O(1)
     public static int getMedian(int[] arr, int L, int R) {
         insertionSort(arr, L, R);
         return arr[(L + R) / 2]; //取中位数,奇数个取中点, 偶数个取上中点

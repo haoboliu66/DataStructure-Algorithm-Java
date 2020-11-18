@@ -5,7 +5,6 @@ import java.util.List;
 
 public class TreeEqual {
 
-
     public static class Node {
         int val;
         Node left;
@@ -20,6 +19,7 @@ public class TreeEqual {
     二叉树T1头head1, 二叉树T2头head2, 判断T2树的结构是不是和T1的一部分结构相等
      */
 
+    // 复杂度O(N * M)
     public static boolean containsTree1(Node head1, Node head2) {
         if (head2 == null) {// 任何树都包括空树
             return true;
@@ -68,7 +68,6 @@ public class TreeEqual {
         for (int i = 0; i < match.length; i++) {
             match[i] = l2.get(i);
         }
-
 
         return getIndexOf(str, match) != -1;
     }

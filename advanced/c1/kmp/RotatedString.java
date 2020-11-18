@@ -1,27 +1,44 @@
 package advanced.c1.kmp;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-
 public class RotatedString {
 
     public static void main(String[] args) {
-//        String s = "abcd123";
-//        String m = "123abc";
+        String s = "abcd123";
+        String m = "123abcd";
 //        String m1 = "asbcd123a";
 //        System.out.println(s + s);
 //        System.out.println(isRotatedString(s, m));
 //        System.out.println(isRotatedString(s, m1));
-        HashMap<Integer,Integer> map = new HashMap();
-        Collection<Integer> values = map.values();
-        HashSet<Integer> set = new HashSet<>(values);
+        System.out.println(isRotated(s, m));
+    }
 
+    public static boolean isRotated(String s1, String s2) {
+        if (s1.length() != s2.length()) return false;
+        char[] str1 = s1.toCharArray();
+        char[] str2 = s2.toCharArray();
+        int index1 = 0;
+        int index2 = 0;
+        for (; index2 < str2.length; ) {
+            while (str1[index1] != str2[index2]) {
+                index1 = next(str1, index1);
+            }
+            // [index1] == [index2]
+            while (index2 < str2.length && str1[index1] == str2[index2]) {
+                index1 = next(str1, index1);
+                index2++;
+            }
+            if (index2 != str2.length) return false;
+        }
+        return true;
+    }
+
+    public static int next(char[] str, int index) {
+        return index == str.length - 1 ? 0 : index + 1;
     }
 
     public static boolean isRotatedString(String s, String m) {
         String s1 = s + s;
-        System.out.println(getIndexOf(s1,m));
+        System.out.println(getIndexOf(s1, m));
         return getIndexOf(s1, m) != -1;
     }
 
