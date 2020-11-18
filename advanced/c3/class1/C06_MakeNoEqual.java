@@ -1,9 +1,5 @@
 package advanced.c3.class1;
 
-/**
- * @author andy-liu
- * @date 2020/6/25 - 8:14 PM
- */
 public class C06_MakeNoEqual {
 
     /*
@@ -74,7 +70,6 @@ public class C06_MakeNoEqual {
 
         System.out.println(isValid(makeNo(1042)));
         System.out.println(isValid(makeNo(2981)));
-
 
     }
 

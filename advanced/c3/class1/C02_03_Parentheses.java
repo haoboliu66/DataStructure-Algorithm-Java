@@ -2,11 +2,9 @@ package advanced.c3.class1;
 
 import org.junit.Test;
 
-/**
- * @author andy-liu
- * @date 2020/6/25 - 8:56 AM
- */
-public class C0203_Parentheses {
+import java.io.FileNotFoundException;
+
+public class C02_03_Parentheses {
 
     /*
     Q1:括号配对, 只有一种括号(), 判断是否valid
@@ -46,7 +44,7 @@ public class C0203_Parentheses {
 
 
     /*
-    Q: 求一个有效括号字符串内, 最大的括号嵌套层数
+    Q3: 求一个有效括号字符串内, 最大的括号嵌套层数
      */
     public static int parenthesesDeep(String s) {
         if ("".equals(s)) {
@@ -84,7 +82,7 @@ public class C0203_Parentheses {
     }
 
     /*
-    Q: 给定一个有效括号字符串, 最长有效括号子串长度
+    Q4: 给定一个有效括号字符串, 最长有效括号子串长度    lc 32
      */
     public static int maxLength(String s) {
         if (s == null || s.length() < 2) {
@@ -106,8 +104,12 @@ public class C0203_Parentheses {
             res = Math.max(res, dp[i]); //每个位置的值都跟max比
         }
 
-
         return res;
+    }
+
+    public static void main(String[] args) throws FileNotFoundException {
+
+
     }
 
 

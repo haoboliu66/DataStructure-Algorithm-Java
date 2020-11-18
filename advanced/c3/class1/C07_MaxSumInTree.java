@@ -1,15 +1,18 @@
 package advanced.c3.class1;
 
-import java.util.TreeMap;
 
-/**
- * @author andy-liu
- * @date 2020/6/25 - 9:41 PM
- */
+import java.util.ArrayList;
+import java.util.LinkedHashSet;
+import java.util.List;
+
 public class C07_MaxSumInTree {
 
     /*
-    LeetCode 112,113, 437
+    LeetCode
+    112. Path Sum
+    113. Path Sum II
+    129. Sum Root to Leaf Numbers
+    437. Path Sum III
      */
 
     public static class Node {
@@ -51,19 +54,107 @@ public class C07_MaxSumInTree {
     /*
     Q2:任意节点出发, 只能向下走, 返回最大路径和
      */
-//    public static int maxSum2(SBTNode head) {
-//        if (head == null) {
-//            return 0;
-//        }
-//
-//
-//    }
+    public static int maxSum2(Node head) {
+        if (head == null) {
+            return 0;
+        }
 
-//    public static
+        return process2(head).max;
+    }
+
+    public static Info process2(Node X) {
+        if (X == null) {
+            return null;
+        }
+        int maxWithHead;
+        int max = X.value;
+        Info leftInfo = process2(X.left);
+        Info rightInfo = process2(X.right);
+        if (leftInfo != null) {
+
+        }
+        maxWithHead = X.value + Math.max(leftInfo.maxWithHead, rightInfo.maxWithHead);
+        max = Math.max(leftInfo.max, rightInfo.max);
+
+        return new Info(maxWithHead, max);
+    }
+
+    public static class Info {
+        int maxWithHead;
+        int max;
+
+        public Info(int maxWithHead, int max) {
+            this.maxWithHead = maxWithHead;
+            this.max = max;
+        }
+    }
 
     /*
     Q3:任意节点出发, 到任意节点, 返回最大路径和
      */
+    public static int maxSum3(Node head) {
+        if (head == null) {
+            return 0;
+        }
+        return process3(head).allTreeMaxSum;
+    }
+
+    private static Info3 process3(Node X) {
+        if (X == null) {
+            return null;
+        }
+        Info3 leftInfo = process3(X.left);
+        Info3 rightInfo = process3(X.right);
+        int p1 = Integer.MIN_VALUE;
+        if (leftInfo != null) {
+            p1 = leftInfo.allTreeMaxSum;
+        }
+        int p2 = Integer.MIN_VALUE;
+        if (rightInfo != null) {
+            p2 = rightInfo.allTreeMaxSum;
+        }
+        int p3 = X.value;
+        int p4 = Integer.MIN_VALUE;
+        if (leftInfo != null) {
+            p4 = X.value + leftInfo.sumFromHead;
+        }
+        int p5 = Integer.MIN_VALUE;
+        if (rightInfo != null) {
+            p5 = X.value + rightInfo.sumFromHead;
+        }
+        int p6 = Integer.MIN_VALUE;
+        if (leftInfo != null && rightInfo != null) {
+            p6 = X.value + leftInfo.sumFromHead + rightInfo.sumFromHead;
+        }
+
+        int allTreeMaxSum = Math.max(p1, Math.max(p2, Math.max(p3, Math.max(p4, Math.max(p5, p6)))));
+        int sumFromHead = Math.max(p3, Math.max(p4, p5)); // 不能算p6
+
+        return new Info3(sumFromHead, allTreeMaxSum);
+    }
+
+    private static class Info3 {
+        int sumFromHead;
+        int allTreeMaxSum;
+
+        public Info3(int sumFromHead, int allTreeMaxSum) {
+            this.sumFromHead = sumFromHead;
+            this.allTreeMaxSum = allTreeMaxSum;
+        }
+    }
+
+    public static void main(String[] args) {
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(1);
+        list.add(2);
+        list.add(2);
+        list.add(3);
+        list.add(3);
+        System.out.println(list);
+        List<Integer> list1 = new ArrayList<>(new LinkedHashSet<>(list));
+        System.out.println(list1);
+    }
 
 }
 
