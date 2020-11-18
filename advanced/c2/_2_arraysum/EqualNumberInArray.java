@@ -54,5 +54,6 @@ public class EqualNumberInArray {
         System.out.println(len3);
         System.out.println(len4);
         System.out.println(len5);
+
     }
 }

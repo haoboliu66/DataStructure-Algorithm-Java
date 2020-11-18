@@ -3,7 +3,6 @@ package advanced.c2.sortedMap;
 
 public class SizeBalancedTree {
 
-
     public static class SBTNode<K, V> {
         K key;
         V value;

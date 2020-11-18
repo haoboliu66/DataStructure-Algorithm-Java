@@ -1,7 +1,5 @@
 package advanced.c2._2_arraysum;
 
-import com.sun.org.apache.xpath.internal.operations.Equals;
-
 import java.util.HashMap;
 
 public class LongestSumSubArrayLength {
@@ -31,7 +29,7 @@ public class LongestSumSubArrayLength {
         return len;
     }
 
-    //暴力方法
+    //brute force
     public static int right(int[] arr, int K) {
         int sum = 0;
         int len = 0;

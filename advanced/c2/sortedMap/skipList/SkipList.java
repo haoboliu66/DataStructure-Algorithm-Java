@@ -53,6 +53,7 @@ public class SkipList {
             while (level >= 0) {
                 //层数逐渐递减, 在每层中取到当前层的比key小的最右节点, 赋值给cur, 循环重新调用继续向下层走
                 cur = mostRightLessNodeInLevel(key, cur, level--);
+                System.out.println(cur.key + " " + cur.value);
 //                level--;
             }
             //出循环, cur已经拿到了0层的小于key的最右节点
@@ -75,7 +76,7 @@ public class SkipList {
             if (key == null) {
                 throw new RuntimeException("invalid paramter");
             }
-            //cur是0层的小于key的最右节点
+            //less是0层的小于key的最右节点
             SkipListNode<K, V> less = mostRightLessNodeInTree(key);
             //取到小于key的最右节点的下一个, 跟key比较
             SkipListNode<K, V> next = less.nextNodes.get(0);
@@ -163,6 +164,15 @@ public class SkipList {
         }
 
 
+    }
+
+
+    public static void main(String[] args) {
+        SkipListMap<Integer, Integer> skipList = new SkipListMap<>();
+        skipList.put(5, 1);
+        skipList.put(8, 2);
+        skipList.put(3, 3);
+        System.out.println(skipList.get(5));
 
     }
 

@@ -1,20 +1,10 @@
 package advanced.c2._2_arraysum;
 
 
-import java.util.Arrays;
-
 public class LongestSumSubArrayLengthInPositiveArray {
 
     // 类似问题 lc 209. Minimum Size Subarray Sum
     private static class minSizeSubArray {
-
-        public static void main(String[] args) {
-            int[] arr1 = {2, 3, 1, 2, 4, 3};
-            int k1 = 7;
-            int[] arr2 = {1, 2, 3, 4, 5};
-            int k2 = 1;
-
-        }
 
         // brute force
         public int minSubArrayLen1(int s, int[] nums) {
@@ -38,6 +28,7 @@ public class LongestSumSubArrayLengthInPositiveArray {
             }
             return len;
         }
+
 
         public int minSubArrayLen2(int s, int[] nums) {
             if (nums == null || nums.length == 0) return 0;
