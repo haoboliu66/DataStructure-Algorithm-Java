@@ -1,15 +1,9 @@
 package advanced.c3.class2;
 
-/**
- * @author andy-liu
- * @date 2020/6/27 - 8:41 AM
- */
 public class C04_TrappingRainWater {
-
     /*
     LeetCode 42 Trapping Rain Water
      */
-
     public static int trap(int[] arr) {
         if (arr == null || arr.length < 3) {
             return 0;

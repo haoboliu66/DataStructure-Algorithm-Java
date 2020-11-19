@@ -3,10 +3,6 @@ package advanced.c3.class2;
 import java.util.Arrays;
 import java.util.Comparator;
 
-/**
- * @author andy-liu
- * @date 2020/6/27 - 11:25 AM
- */
 public class C07_KthMinPair {
 
     public static class Pair {
@@ -20,7 +16,6 @@ public class C07_KthMinPair {
     }
 
     public static class PairComparator implements Comparator<Pair> {
-
         @Override
         public int compare(Pair p1, Pair p2) {
             return p1.x != p2.x ? p1.x - p2.x : p1.y - p2.y;
@@ -93,10 +88,8 @@ public class C07_KthMinPair {
             range = partition(arr, L, R, pivot);
             if (index >= range[0] && index <= range[1]) {
                 return arr[index];
-
             } else if (index < range[0]) {
                 R = range[0] - 1;
-
             } else {
                 L = range[0] + 1;
             }
@@ -128,7 +121,6 @@ public class C07_KthMinPair {
     }
 
 
-
     // Test
     public static int[] getRandomArray(int max, int len) {
         int[] arr = new int[(int) (Math.random() * len) + 1];
@@ -138,7 +130,7 @@ public class C07_KthMinPair {
         return arr;
     }
 
-    // 为了测试
+    // For Test
     public static int[] copyArray(int[] arr) {
         if (arr == null) {
             return null;

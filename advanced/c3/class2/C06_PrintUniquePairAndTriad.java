@@ -1,21 +1,15 @@
 package advanced.c3.class2;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-/**
- * @author andy-liu
- * @date 2020/6/27 - 10:30 AM
- */
-public class C06_PrintUniquePairAndTriad {
 
+public class C06_PrintUniquePairAndTriad {
     /*
     Q: 给定一个有序数组和arr, 一个正数aim
     (1)返回所有累加和为aim的不同二元组
     (2)返回所有累加和为aim的不同三元组
      */
-
     public static List<List<Integer>> printUniquePair(int[] arr, int k) {
         List<List<Integer>> ans = new ArrayList<>();
         if (arr == null || arr.length < 2) {
