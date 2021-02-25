@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
-public class Problem_0114_FlattenBinaryTreeToLinkedList {
+public class M_Problem_0114_FlattenBinaryTreeToLinkedList {
 
     private static class TreeNode {
         int val;
@@ -23,9 +23,11 @@ public class Problem_0114_FlattenBinaryTreeToLinkedList {
         }
     }
 
+    // Brute force
     public static void flatten(TreeNode root) {
         if (root == null) return;
         Queue<TreeNode> queue = new LinkedList<>();
+
         process(root, queue);
 //        System.out.println(queue);
         TreeNode cur = queue.poll();
