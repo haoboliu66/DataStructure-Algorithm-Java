@@ -1,9 +1,5 @@
 package advanced.c5.class2;
 
-/**
- * @author andy-liu
- * @date 2020/8/13 - 7:41 PM
- */
 public class C02_Candy {
 
     /*

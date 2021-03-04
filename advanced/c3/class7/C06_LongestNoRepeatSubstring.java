@@ -3,10 +3,6 @@ package advanced.c3.class7;
 
 import java.util.HashMap;
 
-/**
- * @author andy-liu
- * @date 2020/7/12 - 10:40 AM
- */
 public class C06_LongestNoRepeatSubstring {
 
     /*
@@ -23,8 +19,9 @@ public class C06_LongestNoRepeatSubstring {
         for (int i = 0; i < 256; i++) {
             map[i] = -1;
         }
-        int len = 0;
-        int pre = -1;
+
+        int len = 0; //收集最终答案
+        int pre = -1; // i - 1位置的左边界, 0位置起始pre就是-1
         int cur = 0;
         for (int i = 0; i < N; i++) {
             pre = Math.max(pre, map[str[i]]); //前一个字符的左边界, 和当前字符的左边界(上次出现的位置)

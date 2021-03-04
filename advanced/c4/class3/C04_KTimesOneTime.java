@@ -2,12 +2,6 @@ package advanced.c4.class3;
 
 import org.junit.Test;
 
-import java.util.Arrays;
-
-/**
- * @author andy-liu
- * @date 2020/7/23 - 8:32 AM
- */
 public class C04_KTimesOneTime {
 
     public static int onceNum(int[] arr, int k) {

@@ -63,7 +63,6 @@ public class C05_MaxOneBorderSize {
         return true;
     }
 
-
     // O(N^4)
     public static int maximalRectangle2(char[][] matrix) {
 
@@ -225,7 +224,7 @@ public class C05_MaxOneBorderSize {
 
         return true;
     }
-    /* -------------------------------------------------------------  */
+    /* ------     ------------    ----------   ----------  */
 
     // O(N^3)
     public static int maximalSquare2(char[][] matrix) {
@@ -537,8 +536,5 @@ public class C05_MaxOneBorderSize {
 
     }
 
-    public static void main(String[] args) {
-
-    }
 
 }

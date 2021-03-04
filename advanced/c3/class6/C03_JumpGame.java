@@ -1,9 +1,5 @@
 package advanced.c3.class6;
 
-/**
- * @author andy-liu
- * @date 2020/7/9 - 11:34 AM
- */
 public class C03_JumpGame {
 
     public static int jumpGame(int[] nums) {

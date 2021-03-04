@@ -1,9 +1,9 @@
-package advanced.top;
+package top;
 
 public class Problem_0079_WordSearch {
 
     /*
-    深度优先遍历, 增加现场, 避免走回头路
+    DFS, 增加现场, 避免走回头路
      */
 
     public boolean exist(char[][] board, String word) {
@@ -15,9 +15,7 @@ public class Problem_0079_WordSearch {
                 if (process(board, i, j, str, 0)) {
                     return true;
                 }
-
             }
-
         }
 
         return false;
@@ -26,20 +24,15 @@ public class Problem_0079_WordSearch {
 
     public boolean process(char[][] board, int i, int j, char[] str, int k) {
 
-        // 越界检查
-        if (i < 0 || i > board.length - 1 || j < 0 || j > board[i].length - 1) {
-            return false;
-        }
-
         // 走过str最后一个字符了, 说明都找到了
         if (k == str.length) {
             return true;
         }
 
-        //或者判断最后一个字符
-//        if(k == str.length - 1){
-//            return board[i][j] == str[k];
-//        }
+        // 越界检查
+        if (i < 0 || i > board.length - 1 || j < 0 || j > board[i].length - 1) {
+            return false;
+        }
 
         if (board[i][j] != str[k]) {
             return false;
@@ -57,6 +50,5 @@ public class Problem_0079_WordSearch {
         board[i][j] = tmp;
 
         return res;
-
     }
 }

@@ -1,9 +1,5 @@
 package advanced.c3.class8;
 
-/**
- * @author andy-liu
- * @date 2020/7/16 - 12:19 PM
- */
 public class C02_MoneyWays {
 
     public static int moneyWays(int[] arbitrary, int[] onlyone, int money) {

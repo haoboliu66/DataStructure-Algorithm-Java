@@ -94,7 +94,7 @@ public class PalindromeLinkedList {
             pre = slow;
             slow = post;
         }
-        Node help = pre;  // keep a record of the head of the second half
+        Node help = pre;  // keep a record.txt of the head of the second half
         Node cur = head;
         // check isPalindrome
         boolean res = true;

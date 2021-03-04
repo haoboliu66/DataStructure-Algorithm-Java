@@ -1,9 +1,5 @@
 package advanced.c4.class8;
 
-/**
- * @author andy-liu
- * @date 2020/8/11 - 9:22 AM
- */
 public class C04_HanoiProblem {
 
     public static int step1(int[] arr) {

@@ -1,6 +1,4 @@
-package advanced.top;
-
-import java.util.Stack;
+package top;
 
 public class Problem_0084_LargestRectangleInHistogram {
 //

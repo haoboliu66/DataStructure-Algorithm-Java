@@ -1,9 +1,5 @@
 package advanced.c3.class3;
 
-/**
- * @author andy-liu
- * @date 2020/6/30 - 8:11 AM
- */
 public class C04_LCSubsequence {
 
 /*
@@ -11,6 +7,8 @@ public class C04_LCSubsequence {
 
 583. Delete Operation for Two Strings
 可以转换成 求最长子序列
+
+空间压缩
  */
 
     public static int getLCS(String s1, String s2) {
@@ -28,13 +26,11 @@ public class C04_LCSubsequence {
         for (int j = 1; j < N; j++) {
             dp[0][j] = str1[0] == str2[j] ? 1 : dp[0][j - 1];
         }
-
-
         for (int i = 1; i < M; i++) {
             for (int j = 1; j < N; j++) {
                 //以i结尾，不以j结尾
                 //以j结尾，不以i结尾
-                dp[i][j] = Math.max(dp[i][j-1], dp[i - 1][j]);
+                dp[i][j] = Math.max(dp[i][j - 1], dp[i - 1][j]);
 
                 //不以i又不以j
                 //以i又以j结尾

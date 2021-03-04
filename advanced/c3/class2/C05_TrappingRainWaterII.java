@@ -7,16 +7,9 @@ public class C05_TrappingRainWaterII {
     /*
     LeetCode 407. Trapping Rain Water II
      */
-    public static class NodeComparator implements Comparator<Node> {
-
-        @Override
-        public int compare(Node o1, Node o2) {
-            return o1.val - o2.val;
-        }
-    }
 
     public static int trapRainWater(int[][] matrix) {
-
+        if (matrix == null || matrix.length == 0) return 0;
         int row = matrix.length;
         int col = matrix[0].length;
         PriorityQueue<Node> minHeap = new PriorityQueue<>(new NodeComparator() {
@@ -25,7 +18,7 @@ public class C05_TrappingRainWaterII {
         int max = Integer.MIN_VALUE;
         int water = 0;
 
-        // 矩阵四周一圈先加入堆
+        // 矩阵四周一圈先加入堆   four sides added to min-heap
         for (int c = 0; c < col; c++) {
             minHeap.add(new Node(matrix[0][c], 0, c));
             isEnter[0][c] = true;
@@ -44,10 +37,10 @@ public class C05_TrappingRainWaterII {
         }
 
         while (!minHeap.isEmpty()) {
-            Node first = minHeap.poll();
-            max = Math.max(first.val, max);
-            int r = first.row;
-            int c = first.col;
+            Node cur = minHeap.poll();
+            max = Math.max(cur.val, max);
+            int r = cur.row;
+            int c = cur.col;
             if (r > 0 && !isEnter[r - 1][c]) {
                 water += Math.max(0, max - matrix[r - 1][c]);
                 minHeap.add(new Node(matrix[r - 1][c], r - 1, c));
@@ -83,6 +76,14 @@ public class C05_TrappingRainWaterII {
             this.val = val;
             this.row = row;
             this.col = col;
+        }
+    }
+
+    private static class NodeComparator implements Comparator<Node> {
+
+        @Override
+        public int compare(Node o1, Node o2) {
+            return o1.val - o2.val;
         }
     }
 

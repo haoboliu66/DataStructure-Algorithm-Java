@@ -1,9 +1,5 @@
 package advanced.c3.class3;
 
-/**
- * @author andy-liu
- * @date 2020/6/30 - 8:11 AM
- */
 public class C02_SnacksWays {
 
     /*
@@ -33,7 +29,7 @@ public class C02_SnacksWays {
         return next1 + (next2 != -1 ? next2 : 0);
     }
 
-
+    //  i....i 严格累加成j, 有多少种方案
     public static int ways2(int[] v, int w) {
         if (w < 0 || v == null || v.length == 0) {
             return 0;

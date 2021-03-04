@@ -3,10 +3,6 @@ package advanced.c3.class5;
 
 import java.util.*;
 
-/**
- * @author andy-liu
- * @date 2020/7/5 - 4:30 PM
- */
 public class C05_WordMinPaths {
 
     /*

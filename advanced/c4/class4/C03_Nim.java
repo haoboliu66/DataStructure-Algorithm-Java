@@ -1,9 +1,5 @@
 package advanced.c4.class4;
 
-/**
- * @author andy-liu
- * @date 2020/7/26 - 11:57 AM
- */
 public class C03_Nim {
 
     // arr都是正数

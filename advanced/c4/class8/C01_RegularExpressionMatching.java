@@ -1,9 +1,5 @@
 package advanced.c4.class8;
 
-/**
- * @author andy-liu
- * @date 2020/8/2 - 3:33 PM
- */
 public class C01_RegularExpressionMatching {
 
     /*

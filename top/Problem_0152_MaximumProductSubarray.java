@@ -9,6 +9,8 @@ public class Problem_0152_MaximumProductSubarray {
         dpMax[0] = arr[0];
         dpMin[0] = arr[0];
         int max = arr[0];
+        // dpMax[i]: 0...i max Product
+        // dpMin[i]: 0...i min Product
         for (int i = 1; i < N; i++) {
             // {2, 3, -2, 4}
             dpMax[i] = Math.max(Math.max(arr[i], arr[i] * dpMax[i - 1]), dpMin[i - 1] * arr[i]);
@@ -18,6 +20,9 @@ public class Problem_0152_MaximumProductSubarray {
 
         return max;
     }
+
+
+
 
     public static int maxProduct2(int[] arr) {
         if (arr == null || arr.length == 0) {
@@ -38,11 +43,5 @@ public class Problem_0152_MaximumProductSubarray {
 
         return res;
     }
-
-    public static void main(String[] args) {
-        int[] arr = {2, 3, -2, 4};
-        System.out.println(maxProduct2(arr));
-    }
-
 
 }

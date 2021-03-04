@@ -4,10 +4,6 @@ import org.junit.Test;
 
 import java.util.Arrays;
 
-/**
- * @author andy-liu
- * @date 2020/7/20 - 2:46 PM
- */
 public class C01_MaxGap {
 
     /*

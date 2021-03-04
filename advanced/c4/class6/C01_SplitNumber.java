@@ -1,12 +1,5 @@
 package advanced.c4.class6;
 
-import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
-
-/**
- * @author andy-liu
- * @date 2020/7/28 - 12:12 PM
- */
 public class C01_SplitNumber {
 
 

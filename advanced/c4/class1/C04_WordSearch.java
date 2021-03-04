@@ -6,15 +6,11 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 
-/**
- * @author andy-liu
- * @date 2020/7/18 - 12:14 AM
- */
 public class C04_WordSearch {
 
     /*
-    79. Word Search
-    212. Word Search II
+    79. Word Search (Medium)
+    212. Word Search II (Hard)
      */
     private static class TrieNode {
         TrieNode[] nexts;
@@ -118,7 +114,7 @@ public class C04_WordSearch {
         return fix;
     }
 
-//----------------------------------------------------------------------------------------
+    //----------------------------------------------------------------------------------------
     public static boolean exist(char[][] board, String word) {
         TrieNode head = new TrieNode();
         fillWord(head, word);
@@ -154,6 +150,51 @@ public class C04_WordSearch {
         if (col + 1 < board[0].length && cur.nexts[board[row][col + 1] - 'a'] != null) {
             res |= process2(board, row, col + 1, cur);
         }
+        return res;
+    }
+
+
+    /*
+    79. Word Search
+     */
+    // Brute Force (Recursion)
+    public static boolean exist3(char[][] board, String word) {
+
+        int M = board.length, N = board[0].length;
+
+        char[] str = word.toCharArray();
+
+        boolean[][] visited = new boolean[M][N];
+        for (int i = 0; i < M; i++) {
+            for (int j = 0; j < N; j++) {
+                if (process3(board, i, j, str, 0, visited)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+
+    public static boolean process3(char[][] board, int i, int j, char[] str, int index, boolean[][] visited) {
+
+        if (index == str.length) {
+            return true;
+        }
+
+        if (i < 0 || j < 0 || i > board.length - 1 || j > board[0].length - 1) return false;
+
+        // index < str.length
+        if (visited[i][j]) return false;
+
+        if (board[i][j] != str[index]) return false;
+
+        visited[i][j] = true;
+
+        boolean res = process3(board, i + 1, j, str, index + 1, visited) || process3(board, i - 1, j, str, index + 1, visited) || process3(board, i, j - 1, str, index + 1, visited) || process3(board, i, j + 1, str, index + 1, visited);
+
+        visited[i][j] = false;
+
         return res;
     }
 

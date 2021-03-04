@@ -1,17 +1,11 @@
 package advanced.c3.class8;
 
-/**
- * @author andy-liu
- * @date 2020/7/14 - 11:46 AM
- */
 public class C06_MinInsertionMakeStringPalindrome {
 
     /*
     1312. Minimum Insertion Steps to Make a String Palindrome
      */
-
     public static int minInsertions(String s) {
-
         if(s == null || s.length() == 0 || s.length() == 1){
             return 0;
         }
@@ -28,7 +22,6 @@ public class C06_MinInsertionMakeStringPalindrome {
         for (int i = 0; i < N; i++) {
             dp[i][i] = 0;
         }
-
         for (int i = 0; i < N - 1; i++) {
             dp[i][i + 1] = str[i] == str[i + 1] ? 0 : 1;
         }

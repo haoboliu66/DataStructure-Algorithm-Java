@@ -1,9 +1,5 @@
 package advanced.c4.class2;
 
-/**
- * @author andy-liu
- * @date 2020/7/18 - 9:23 PM
- */
 public class C05_DungeonGame {
 
     /*

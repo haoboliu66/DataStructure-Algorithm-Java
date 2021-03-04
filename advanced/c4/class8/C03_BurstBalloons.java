@@ -1,9 +1,5 @@
 package advanced.c4.class8;
 
-/**
- * @author andy-liu
- * @date 2020/8/9 - 12:13 PM
- */
 public class C03_BurstBalloons {
 
     /*

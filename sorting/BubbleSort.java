@@ -4,13 +4,10 @@ package sorting;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-/**
- * @author andy-liu
- * @date 2020/5/7 - 7:48 PM
- */
 public class BubbleSort {
 
     public static void bubbleSort(int[] arr) {
+        //每次冒泡遇到相同或比自己大的数字, j会++表示用这个相同或比自己大的数字继续往后走
         for (int i = arr.length - 1; i >= 0; i--) {
             for (int j = 0; j < i; j++) {
                 if (arr[j] > arr[j + 1]) {

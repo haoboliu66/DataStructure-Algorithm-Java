@@ -3,10 +3,6 @@ package graph;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author andy-liu
- * @date 2020/5/21 - 12:15 AM
- */
 public class Node<V> {
 
     public V value;
@@ -25,7 +21,7 @@ public class Node<V> {
 
     @Override
     public String toString() {
-        return "Node{" +
+        return "SBTNode{" +
                 "value=" + value +
                 '}';
     }

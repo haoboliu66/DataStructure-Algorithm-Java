@@ -1,9 +1,6 @@
 package recursion.dp;
 
-/**
- * @author andy-liu
- * @date 2020/5/24 - 4:48 PM
- */
+
 public class RobotMove {
 
     public static int way1(int N, int M, int K, int P) {

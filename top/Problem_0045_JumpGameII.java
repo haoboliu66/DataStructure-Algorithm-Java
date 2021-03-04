@@ -1,7 +1,5 @@
-package advanced.top;
+package top;
 
-
-import java.util.function.Consumer;
 
 public class Problem_0045_JumpGameII {
 

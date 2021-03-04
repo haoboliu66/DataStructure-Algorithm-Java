@@ -3,10 +3,7 @@ package recursion.dp;
 import java.util.HashMap;
 import java.util.Stack;
 
-/**
- * @author andy-liu
- * @date 2020/5/27 - 7:12 AM
- */
+
 public class StickersSpellWord {
 
     public static void main(String[] args) {

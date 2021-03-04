@@ -1,8 +1,8 @@
 package advanced.c3.class4;
 
-/**
- * @author andy-liu
- * @date 2020/7/4 - 10:26 AM
+
+/*
+ lc 53 Maximum Subarray  easy
  */
 public class C06_SubArrayMaxSum {
 

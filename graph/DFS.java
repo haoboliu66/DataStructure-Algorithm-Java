@@ -4,10 +4,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Stack;
 
-/**
- * @author andy-liu
- * @date 2020/5/21 - 8:09 AM
- */
 public class DFS {
 
     public static <V> void depthFirstSearch(Node<V> node){
@@ -24,7 +20,7 @@ public class DFS {
             List<Node<V>> adjacents = cur.neighbours;
             for(Node<V> next: adjacents){
                 if(!set.contains(next)){
-                    stack.push(cur); // keep cur Node for backtracking
+                    stack.push(cur); // keep cur SBTNode for backtracking
                     stack.push(next);
                     set.add(next);
                     process(next);

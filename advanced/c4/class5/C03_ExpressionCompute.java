@@ -3,10 +3,6 @@ package advanced.c4.class5;
 import java.util.LinkedList;
 import java.util.Stack;
 
-/**
- * @author andy-liu
- * @date 2020/7/24 - 11:19 AM
- */
 public class C03_ExpressionCompute {
 
     /*

@@ -33,6 +33,7 @@ public class KMP {
         return y == match.length ? x - y : -1;
     }
 
+    // KMP
     public static int getIndexOf(String s, String m) {
         if (s.length() < m.length()) {
             return -1;

@@ -4,10 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Stack;
 
-/**
- * @author andy-liu
- * @date 2020/5/20 - 7:05 AM
- */
 public class DisjointSet {
 
     public static class Node<V>{
@@ -19,7 +15,7 @@ public class DisjointSet {
 
         @Override
         public String toString() {
-            return "Node{" +
+            return "SBTNode{" +
                     "value=" + value +
                     '}';
         }
@@ -34,23 +30,25 @@ public class DisjointSet {
             nodes = new HashMap<>();
             sizeMap = new HashMap<>();
             parents = new HashMap<>();
+
             for(V val : values){
                 Node node = new Node(val);
                 nodes.put(val,node);
                 parents.put(node,node);
                 sizeMap.put(node,1);
             }
+
         }
 
-        public Node<V> findFather(Node<V> cur){
+        private Node<V> findFather(Node<V> cur){
             Stack<Node<V>> stack = new Stack<>();
             while(cur != parents.get(cur)){
                 stack.push(cur);
-                cur = parents.get(cur);
+                cur = parents.get(cur);  //只有最上面节点的parent等于这个节点本身
             }
             // 长链扁平化(优化)
             while(!stack.isEmpty()){
-                parents.put(stack.pop(), cur);
+                parents.put(stack.pop(), cur); //此时的cur就是最上面的节点
             }
             return cur;
         }

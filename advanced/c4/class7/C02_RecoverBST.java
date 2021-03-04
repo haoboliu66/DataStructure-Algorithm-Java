@@ -3,12 +3,7 @@ package advanced.c4.class7;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
-import java.util.TreeSet;
 
-/**
- * @author andy-liu
- * @date 2020/8/6 - 10:42 AM
- */
 public class C02_RecoverBST {
 
     private static class TreeNode {

@@ -2,10 +2,6 @@ package graph;
 
 import java.util.*;
 
-/**
- * @author andy-liu
- * @date 2020/5/21 - 2:30 PM
- */
 public class Dijkstra {
 
     public static class minHeap<V>{
@@ -13,8 +9,6 @@ public class Dijkstra {
         V[] heap;
         int heapSize;
         HashMap<V, Integer> indexMap;
-
-
 
     }
 

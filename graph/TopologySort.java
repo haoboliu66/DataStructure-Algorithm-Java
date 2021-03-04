@@ -2,9 +2,8 @@ package graph;
 
 import java.util.*;
 
-/**
- * @author andy-liu
- * @date 2020/5/21 - 8:28 AM
+/*
+Graph的
  */
 public class TopologySort {
 
@@ -13,22 +12,22 @@ public class TopologySort {
         if (graph == null) {
             return new ArrayList<>();
         }
-        HashMap<Node<V>, Integer> inDegreeMap = new HashMap<>();
-        Queue<Node<V>> zeroInDegreeQueue = new LinkedList<>();
+        HashMap<Node<V>, Integer> inMap = new HashMap<>();
+        Queue<Node<V>> zeroQueue = new LinkedList<>();
         ArrayList<Node<V>> res = new ArrayList<>();
         for (Node<V> node : graph.nodes.values()) {
             if (node.in == 0) {
-                zeroInDegreeQueue.add(node);
+                zeroQueue.add(node);
             }
-            inDegreeMap.put(node, node.in);
+            inMap.put(node, node.in);
         }
-        while (!zeroInDegreeQueue.isEmpty()) {
-            Node<V> cur = zeroInDegreeQueue.poll();
+        while (!zeroQueue.isEmpty()) {
+            Node<V> cur = zeroQueue.poll();
             res.add(cur);
             for (Node<V> node : cur.neighbours) {
-                inDegreeMap.put(node, inDegreeMap.get(node) - 1);
-                if (inDegreeMap.get(node) == 0) {
-                    zeroInDegreeQueue.add(node);
+                inMap.put(node, inMap.get(node) - 1);
+                if (inMap.get(node) == 0) {
+                    zeroQueue.add(node);
                 }
             }
         }
@@ -40,19 +39,19 @@ public class TopologySort {
         if (graph == null) {
             return new ArrayList<>();
         }
-        Queue<Node<V>> zeroInDegreeQueue = new LinkedList<>();
+        Queue<Node<V>> zeroQueue = new LinkedList<>();
         ArrayList<Node<V>> res = new ArrayList<>();
         for (Node<V> node : graph.nodes.values()) {
             if (node.in == 0) {
-                zeroInDegreeQueue.add(node);
+                zeroQueue.add(node);
             }
         }
-        while (!zeroInDegreeQueue.isEmpty()) {
-            Node<V> cur = zeroInDegreeQueue.poll();
+        while (!zeroQueue.isEmpty()) {
+            Node<V> cur = zeroQueue.poll();
             res.add(cur);
             for (Node<V> node : cur.neighbours) {
                 if (--node.in == 0) {
-                    zeroInDegreeQueue.add(node);
+                    zeroQueue.add(node);
                 }
             }
         }
@@ -71,24 +70,24 @@ public class TopologySort {
         Node<Integer> node9 = new Node<>(9);
         Node<Integer> node10 = new Node<>(10);
 
-        Node[] nodess = {node1,node2,node3,node4,node5,node6,node7,node8,node9,node10};
+        Node[] nodes = {node1, node2, node3, node4, node5, node6, node7, node8, node9, node10};
         Graph<Integer> graph = new Graph<>();
-        for(int i=0; i<nodess.length;i++){
-            graph.nodes.put(i + 1,nodess[i]);
+        for (int i = 0; i < nodes.length; i++) {
+            graph.nodes.put(i + 1, nodes[i]);
         }
-        Edge<Integer> edge1 = new Edge<>(1,node1,node2);
-        Edge<Integer> edge2 = new Edge<>(1,node1,node3);
-        Edge<Integer> edge3 = new Edge<>(1,node2,node3);
-        Edge<Integer> edge4 = new Edge<>(1,node3,node4);
-        Edge<Integer> edge5 = new Edge<>(1,node3,node5);
-        Edge<Integer> edge6 = new Edge<>(1,node4,node5);
-        Edge<Integer> edge7 = new Edge<>(1,node5,node6);
-        Edge<Integer> edge8 = new Edge<>(1,node6,node7);
-        Edge<Integer> edge9 = new Edge<>(1,node8,node6);
-        Edge<Integer> edge10 = new Edge<>(1,node9,node1);
-        Edge<Integer> edge11 = new Edge<>(1,node10,node1);
-        Edge[] edges = {edge1,edge2,edge3,edge4,edge5,edge6,edge7,edge8,edge9,edge10,edge11};
-        for(int i=0; i<edges.length;i++){
+        Edge<Integer> edge1 = new Edge<>(1, node1, node2);
+        Edge<Integer> edge2 = new Edge<>(1, node1, node3);
+        Edge<Integer> edge3 = new Edge<>(1, node2, node3);
+        Edge<Integer> edge4 = new Edge<>(1, node3, node4);
+        Edge<Integer> edge5 = new Edge<>(1, node3, node5);
+        Edge<Integer> edge6 = new Edge<>(1, node4, node5);
+        Edge<Integer> edge7 = new Edge<>(1, node5, node6);
+        Edge<Integer> edge8 = new Edge<>(1, node6, node7);
+        Edge<Integer> edge9 = new Edge<>(1, node8, node6);
+        Edge<Integer> edge10 = new Edge<>(1, node9, node1);
+        Edge<Integer> edge11 = new Edge<>(1, node10, node1);
+        Edge[] edges = {edge1, edge2, edge3, edge4, edge5, edge6, edge7, edge8, edge9, edge10, edge11};
+        for (int i = 0; i < edges.length; i++) {
             graph.edges.add(edges[i]);
         }
         List<Node<Integer>> res1 = sortedTopology(graph);
@@ -97,7 +96,6 @@ public class TopologySort {
         System.out.println(res2);
 
     }
-
 
 
 }

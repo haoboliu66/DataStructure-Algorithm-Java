@@ -2,10 +2,6 @@ package advanced.c3.class4;
 
 import java.util.HashMap;
 
-/**
- * @author andy-liu
- * @date 2020/7/4 - 10:21 AM
- */
 public class C03_PreAndInArrayToPosArray {
 
     public static class Node {
@@ -17,7 +13,6 @@ public class C03_PreAndInArrayToPosArray {
             value = v;
         }
     }
-
 
     public static int[] preInToPos1(int[] pre, int[] in) {
         if (pre.length != in.length) {

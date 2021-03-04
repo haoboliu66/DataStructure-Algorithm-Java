@@ -1,9 +1,6 @@
 package advanced.c3.class6;
 
-/**
- * @author andy-liu
- * @date 2020/7/9 - 8:59 PM
- */
+
 public class C07_PMinParts {
     /*
     LeetCode 132. Palindrome Partitioning II

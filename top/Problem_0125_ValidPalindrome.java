@@ -1,7 +1,4 @@
-package advanced.top;
-
-import java.util.concurrent.Executor;
-import java.util.concurrent.Executors;
+package top;
 
 public class Problem_0125_ValidPalindrome {
 

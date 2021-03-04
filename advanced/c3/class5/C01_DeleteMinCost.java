@@ -2,10 +2,6 @@ package advanced.c3.class5;
 
 import java.util.*;
 
-/**
- * @author andy-liu
- * @date 2020/7/7 - 5:03 PM
- */
 public class C01_DeleteMinCost {
 
     /*

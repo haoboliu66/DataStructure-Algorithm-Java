@@ -1,13 +1,10 @@
 package advanced.c4.class2;
 
-/**
- * @author andy-liu
- * @date 2020/7/18 - 12:13 AM
- */
 public class C02_BestTimetoBuyandSellStock2 {
 
     /*
     122. Best Time to Buy and Sell Stock II
+    unlimited transactions
      */
 
     public int maxProfit(int[] prices) {

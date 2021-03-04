@@ -13,13 +13,13 @@ public class Problem_0149_MaxPointsOnALine {
         int res = 1;
         for (int i = 0; i < points.length; i++) {
             map.clear();
-            int sameX = 0;
-            int sameY = 0;
-            int samePosition = 1;
-            int sameSlope = 0;
+            int sameX = 0;   // same x points
+            int sameY = 0;      // same y points
+            int samePosition = 1;   // same x,y points
+            int sameSlope = 0;      // same slope points
             int x = points[i][0];
             int y = points[i][1];
-            // stand at one point(x,y) and compare each point after
+            // stand at one point(x,y) and compare each point after it
             for (int j = i + 1; j < points.length; j++) {
                 if (points[j][0] == x && points[j][1] == y) {
                     samePosition++;
@@ -42,7 +42,7 @@ public class Problem_0149_MaxPointsOnALine {
                     }
                     sameSlope = Math.max(map.get(slope), sameSlope);
                 }
-
+                // choose max from x or y or slope   +  same x,y
                 int total = Math.max(Math.max(sameX, sameY), sameSlope) + samePosition;
                 res = Math.max(res, total);
             }

@@ -1,11 +1,10 @@
 package advanced.c3.class4;
 
+import org.junit.Test;
+
+import java.util.Arrays;
 import java.util.TreeMap;
 
-/**
- * @author andy-liu
- * @date 2020/7/4 - 10:20 AM
- */
 public class C01_GetFolderTree {
 
     static class Node {
@@ -15,6 +14,25 @@ public class C01_GetFolderTree {
         public Node(String p) {
             path = p;
             nextMap = new TreeMap<>();
+        }
+
+        StringBuilder sb = new StringBuilder();
+
+        @Override
+        public String toString() {
+            print(this);
+            return sb.toString();
+        }
+
+        private void print(Node node) {
+            if (node.nextMap.size() == 0) {
+                sb.append(node.path);
+                return;
+            }
+
+            for (Node n : node.nextMap.values()) {
+                print(n);
+            }
         }
     }
 
@@ -27,7 +45,7 @@ public class C01_GetFolderTree {
     }
 
     private static Node generateFolderTree(String[] folderPaths) {
-        Node head = new Node("");
+        Node head = new Node("HEAD");
         for (String folderPath : folderPaths) {
             String[] paths = folderPath.split("\\\\");
             Node cur = head;
@@ -55,19 +73,31 @@ public class C01_GetFolderTree {
     }
 
     public static String get4nSpace(int n) {
-        String res = "";
+        StringBuilder res = new StringBuilder();
         for (int i = 1; i < n; i++) {
-            res += "    ";
+            res.append("    ");
         }
-        return res;
+        return res.toString();
     }
 
 
     public static void main(String[] args) {
         String[] paths = {"b\\st", "d\\", "a\\d\\e", "a\\b\\c"};
-        print(paths);
-
+//        print(paths);
+        Node head = generateFolderTree(paths);
+        System.out.println(head);
     }
 
 
+
+    @Test
+    public void testSplit() {
+        String path = "a\\d\\e";
+        String[] strs = path.split("\\\\");
+        System.out.println(Arrays.toString(strs));
+
+        String url = "www.baidu.com";
+        String[] strs2 = url.split("\\.");
+        System.out.println(Arrays.toString(strs2));
+    }
 }

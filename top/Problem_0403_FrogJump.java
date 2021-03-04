@@ -1,10 +1,7 @@
-package advanced.top;
-
-import org.omg.PortableInterceptor.INACTIVE;
+package top;
 
 import java.util.Deque;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.concurrent.*;
 import java.util.concurrent.locks.Condition;

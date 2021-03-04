@@ -3,10 +3,6 @@ package advanced.c4.class3;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @author andy-liu
- * @date 2020/7/20 - 4:26 PM
- */
 public class C03_LongestSumEqualK {
 
     /*

@@ -1,14 +1,14 @@
 package advanced.c3.class3;
 
-import org.junit.Test;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
-import java.util.*;
-
-/**
- * @author andy-liu
- * @date 2020/6/26 - 11:22 PM
- */
 public class C06_TopKTimes {
+    /*
+    347. Top K Frequent Elements
+    692. Top K Frequent Words
+     */
 
     public static class Node implements Comparable<Node> {
         public String str;
@@ -140,14 +140,6 @@ public class C06_TopKTimes {
 //        SBTNode n2 = new SBTNode("B",11);
 //        System.out.println(n1.compareTo(n2));
 
-    }
-
-    @Test
-    public void ttt() {
-        String s = "a\\b\\c";
-        System.out.println(s);
-        String s1 = "\\";
-        System.out.println(s1);
     }
 
 }

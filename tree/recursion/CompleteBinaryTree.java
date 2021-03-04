@@ -35,7 +35,6 @@ public class CompleteBinaryTree {
                 queue.add(cur.right);
             }
         }
-
         return true;
     }
 

@@ -1,5 +1,8 @@
 package advanced.c1.bfprt;
 
+import org.junit.Test;
+
+import java.util.Arrays;
 import java.util.PriorityQueue;
 
 public class FindMinKth {
@@ -111,12 +114,12 @@ public class FindMinKth {
         return bfprt(arr, 0, arr.length - 1, k - 1);
     }
 
-
     // 在arr中, L...R范围获取位于index位置的数
     public static int bfprt(int[] arr, int L, int R, int index) {
         if (L == R) {
             return arr[L];
         }
+        // 讲究在如何选择pivot
         int pivot = medianOfMedians(arr, L, R);
 
         int[] range = partition(arr, L, R, pivot);
@@ -185,5 +188,86 @@ public class FindMinKth {
         }
         System.out.println("test finish");
     }
+
+
+    // brush-up
+    public static int findKMin(int[] arr, int k) {
+        if (arr == null || arr.length == 0) return -1;
+        int N = arr.length;
+        int L = 0;
+        int R = N - 1;
+
+        // 第k小的, 排好序index是k-1
+        int res = process(arr, L, R, k - 1);
+
+        return res;
+    }
+
+    private static int process(int[] arr, int L, int R, int k) {
+        // random pivot
+        int pivot = arr[(int) (L + Math.random() * (R - L + 1))];
+        int[] range = getEqualRange(arr, L, R, pivot);
+        if (k < range[0]) {
+            // 在左边
+            return process(arr, L, range[0] - 1, k);
+        } else if (k > range[1]) {
+            // 在右边
+            return process(arr, range[1] + 1, R, k);
+        } else {
+            return arr[k];
+        }
+    }
+
+    @Test
+    public void testPartition() {
+        int[] arr = {2, 1, 5, 6, 1, 4, 8, 0, 2, -1, 5, 6, 8};
+        arr = generateRandomArray(50, 200);
+        int pivot = arr[(int) (Math.random() * arr.length)];
+        int k = findKMin(arr, arr.length / 2);
+        System.out.println("k: " + arr.length / 2);
+        System.out.println(Arrays.toString(arr));
+        System.out.println("answer1: " + k);
+        System.out.println("----------");
+        Arrays.sort(arr);
+        System.out.println("answer2: " +arr[arr.length / 2 - 1]);
+
+
+/*
+{2,1,5,6,1,4,8,0,2,-1,5,6,8}
+{2,1,(less)|5,8(index),1,4,8,0,2,-1,5,6|(more),6}
+{2,1,(less)|5,6(index),1,4,8,0,2,-1,5|(more),8,6}
+{2,1,1,(less)|5,5,4(index),8,0,2,-1|(more),6,8,6}
+{2,1,1,4,(less)|5,5,8(index),0,2,-1|(more),6,8,6}
+{2,1,1,4,(less)|5,5,-1(index),0,2|(more),8,6,8,6}
+{2,1,1,4,-1,(less)|5,5,0(index),2|(more),8,6,8,6}
+{2,1,1,4,-1,0,(less)|5,5,2(index)|(more),8,6,8,6}
+{2,1,1,4,-1,0,2,(less)|5,5|(index)(more),8,6,8,6}
+
+ */
+//        int[] range = getEqualRange(arr, 0, arr.length - 1, pivot);
+//        System.out.println(Arrays.toString(arr));
+//        System.out.println(Arrays.toString(range));
+
+    }
+
+    public static int[] getEqualRange(int[] arr, int L, int R, int pivot) {
+        int index = L;
+        int less = L - 1;
+        int more = R + 1;
+        while (index < more) {
+            if (arr[index] < pivot) {
+                swap(arr, index++, ++less);
+            } else if (arr[index] > pivot) {
+                swap(arr, index, --more);
+            } else {
+                index++;
+            }
+        }
+//        System.out.println("less: " + less);
+//        System.out.println("more: " + more);
+//        System.out.println("pivot: " + pivot);
+        return new int[]{less + 1, more - 1};
+    }
+
 
 }

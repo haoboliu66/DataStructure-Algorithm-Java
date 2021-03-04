@@ -1,4 +1,4 @@
-package advanced.top;
+package top;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,11 +18,6 @@ public class Problem_0094_BinaryTreeInorderTraversal {
             this.val = val;
         }
 
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
     }
 
     public List<Integer> inorderTraversal(TreeNode head) {

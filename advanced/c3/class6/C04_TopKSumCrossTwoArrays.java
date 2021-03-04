@@ -4,10 +4,6 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
-/**
- * @author andy-liu
- * @date 2020/7/9 - 8:58 PM
- */
 public class C04_TopKSumCrossTwoArrays {
     /*
     Q: 两个有序数组arr1,arr2,一定整数K, 求两个数累加和最大的前K个, 两个数必须分别来自arr1和arr2

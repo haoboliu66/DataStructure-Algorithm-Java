@@ -43,6 +43,7 @@ public class C01_CoverMaxPoint {
         return target;
     }
 
+    // test
     public static int rightMostSmaller1(int[] arr, int L, int R, int m) {
         int target = L;
         for (int i = R; i >= L; i--) {

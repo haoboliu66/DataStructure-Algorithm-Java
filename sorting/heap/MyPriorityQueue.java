@@ -1,8 +1,9 @@
 package sorting.heap;
 
-import org.junit.Test;
-
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author andy-liu
@@ -21,7 +22,7 @@ public class MyPriorityQueue {
         public PriorityQueue(Comparator<? super T> comparator) {
             heap = new ArrayList<>();
             heapSize = 0;
-            indexMap = new HashMap<>();
+            indexMap = new HashMap<>();  //记录数据在堆上的位置
             this.comparator = comparator;
         }
 
@@ -45,7 +46,7 @@ public class MyPriorityQueue {
 
         private void heapInsert(ArrayList<T> heap, int index) {
             while (comparator.compare(heap.get(index), heap.get((index - 1) / 2)) < 0) {
-                swap(index, (index - 1) / 2);
+                swap(index, (index - 1) / 2);  //调整堆, 交换父与子节点, 并需要更改indexMap的记录
                 index = (index - 1) / 2;
             }
         }
@@ -84,12 +85,12 @@ public class MyPriorityQueue {
         }
 
         public void resign(T val) {
-            if(!indexMap.containsKey(val)){
-                throw new RuntimeException("Wrong");
+            if (!indexMap.containsKey(val)) {
+                throw new RuntimeException("invalid parameter");
             }
             int index = indexMap.get(val);
-            heapInsert(heap,index);
-            heapify(heap,index,heapSize);
+            heapInsert(heap, index);
+            heapify(heap, index, heapSize);
         }
 
         @Override
@@ -130,23 +131,28 @@ public class MyPriorityQueue {
         queue.resign(s5);
         System.out.println(queue);
     }
-}
 
-class Student{
-    int age;
-    int height;
 
-    public Student(int age, int height) {
-        this.age = age;
-        this.height = height;
+    private static class Student {
+        int age;
+        int height;
+
+        public Student(int age, int height) {
+            this.age = age;
+            this.height = height;
+        }
+
+        @Override
+        public String toString() {
+            return "Student{" +
+                    "age=" + age +
+                    ", height=" + height +
+                    '}';
+        }
     }
 
-    @Override
-    public String toString() {
-        return "Student{" +
-                "age=" + age +
-                ", height=" + height +
-                '}';
-    }
+
 }
+
+
 

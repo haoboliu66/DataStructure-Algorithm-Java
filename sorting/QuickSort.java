@@ -6,10 +6,6 @@ import java.util.Arrays;
 
 import static sorting.BubbleSort.*;
 
-/**
- * @author andy-liu
- * @date 2020/5/7 - 9:19 PM
- */
 public class QuickSort {
 
     /**
@@ -32,7 +28,7 @@ public class QuickSort {
     }
 
     /**
-     * !!! Do not swap the same index of an array !!!
+     * !!! Do not swap the same index of an array with xor!!!
      */
     private static void swap(int[] arr, int index, int i) {
 //        arr[index] = arr[index] + arr[i];
@@ -51,6 +47,7 @@ public class QuickSort {
 
 
     /**
+     * 荷兰国旗问题
      * divide the array by num, numbers less than num on the left side,
      * numbers greater on the right side of the array, equal in the middle
      */
@@ -77,6 +74,7 @@ public class QuickSort {
 
     /**
      * 在left到right范围内进行荷兰国旗算法, 默认以arr[right]为pivot做partition, 返回相等区的两个边界index
+     * 荷兰国旗问题, 返回相等区两个边界
      */
     public static int[] netherlandsFlag(int[] arr, int left, int right) {
         if (left > right) {
@@ -216,6 +214,7 @@ public class QuickSort {
          choose a random index within left...right, and swap arr[index] with arr[right]
          so that the worse situation is a possibility
          */
+        // 这个数字的范围是 L + [0, R - L], 即 L...R的范围
         int random = left + (int) (Math.random() * (right - left + 1));
         swap(arr, random, right);
         int[] equalArea = netherlandsFlag(arr, left, right);

@@ -3,16 +3,12 @@ package sorting;
 
 import static sorting.BubbleSort.*;
 
-/**
- * @author andy-liu
- * @date 2020/5/7 - 9:17 PM
- */
 public class SelectionSort {
 
     public static void selectionSort(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             int minimum = i;
-            for (int j = i; j < arr.length; j++) {
+            for (int j = i + 1; j < arr.length; j++) {
                 minimum = (arr[j] < arr[minimum]) ? j : minimum;
             }
             swap(arr, i, minimum);

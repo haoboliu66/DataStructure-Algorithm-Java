@@ -2,10 +2,6 @@ package graph;
 
 import java.util.*;
 
-/**
- * @author andy-liu
- * @date 2020/5/21 - 9:38 AM
- */
 public class Kruskal {
 
     public static class UnionSet<V>{

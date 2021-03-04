@@ -1,9 +1,5 @@
 package advanced.c3.class5;
 
-/**
- * @author andy-liu
- * @date 2020/7/7 - 12:37 PM
- */
 public class C02_StringEditCost {
 
     /*

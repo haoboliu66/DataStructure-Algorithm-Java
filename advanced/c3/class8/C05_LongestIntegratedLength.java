@@ -5,10 +5,6 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.HashSet;
 
-/**
- * @author andy-liu
- * @date 2020/7/16 - 5:35 PM
- */
 public class C05_LongestIntegratedLength {
 
 /*

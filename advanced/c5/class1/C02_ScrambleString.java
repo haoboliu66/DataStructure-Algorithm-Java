@@ -1,9 +1,5 @@
 package advanced.c5.class1;
 
-/**
- * @author andy-liu
- * @date 2020/8/13 - 2:23 PM
- */
 public class C02_ScrambleString {
 
     /*

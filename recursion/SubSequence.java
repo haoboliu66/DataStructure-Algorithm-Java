@@ -2,10 +2,6 @@ package recursion;
 
 import java.util.*;
 
-/**
- * @author andy-liu
- * @date 2020/5/21 - 11:01 PM
- */
 public class SubSequence {
 
     public static void main(String[] args) {

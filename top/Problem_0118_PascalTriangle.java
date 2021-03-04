@@ -1,10 +1,6 @@
-package advanced.top;
+package top;
 
-import org.omg.PortableInterceptor.INACTIVE;
-
-import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Problem_0118_PascalTriangle {

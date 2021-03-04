@@ -1,17 +1,10 @@
-package advanced.top;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+package top;
 
 public class Problem_0004_MedianOfTwoSortedArray {
 
     /*
     c4 - class4 - C02
      */
-
-//    public static int
 
     // 2个有序等长数组, 求上中位数
     public static int getUpMedian(int[] arr1, int L1, int R1, int[] arr2, int L2, int R2) {

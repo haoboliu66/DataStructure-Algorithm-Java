@@ -1,19 +1,13 @@
 package advanced.c4.class4;
 
-import org.junit.Test;
-
 import java.util.Arrays;
 
-/**
- * @author andy-liu
- * @date 2020/7/26 - 1:41 PM
- */
 public class C02_FindKthMinNumber {
 
     /*
     4. Median of Two Sorted Arrays
+    算法原型: 假设两个有序数组,且长度相等, 求两个数组排序后的上中位数(奇数偶数情况不同)
     */
-
 
     //两个有序数组, 长度M和N, 找到第K小的数字
     public static int findKthNum(int[] arr1, int[] arr2, int k) {
@@ -25,11 +19,14 @@ public class C02_FindKthMinNumber {
         }
         int[] longs = arr1.length >= arr2.length ? arr1 : arr2;
         int[] shorts = longs == arr1 ? arr2 : arr1;
-        int l = longs.length;
-        int s = shorts.length;
+        int l = longs.length;  //长数组的长度
+        int s = shorts.length; //短数组的长度
+
+        //所求的k的范围, 三种情况
         if (k <= s) {
             return getUpMedian(shorts, 0, k - 1, longs, 0, k - 1);
         }
+
         if (k > l) {
             if (longs[k - s - 1] >= shorts[s - 1]) {
                 return longs[k - s - 1];
@@ -39,18 +36,17 @@ public class C02_FindKthMinNumber {
             }
             return getUpMedian(shorts, k - l, s - 1, longs, k - s, l - 1);
         }
+
         //   s < k <= l
         if (longs[k - s - 1] >= shorts[s - 1]) {
             return longs[k - s - 1];
         }
-
-        return getUpMedian(shorts, 0, s - 1, longs, k - s, l - 1);
-
+        return getUpMedian(shorts, 0, s - 1, longs, k - s, k - 1);
     }
 
 
     /*
-    算法原型: 假设两个有序数组长度相等, 求两个数组排序后的上中位数(奇数偶数情况不同)
+    算法原型: 假设两个有序数组,且长度相等, 求两个数组排序后的上中位数(奇数偶数情况不同)
      */
     public static int getUpMedian(int[] arr1, int L1, int R1, int[] arr2, int L2, int R2) {
         int mid1;
@@ -95,6 +91,7 @@ public class C02_FindKthMinNumber {
 
         return Math.min(arr1[R1], arr2[R2]);
     }
+
 
     public static int findKthMin2(int[] arr1, int[] arr2, int K) {
 
@@ -155,6 +152,8 @@ public class C02_FindKthMinNumber {
         return Math.min(arr1[L1], arr2[L2]);
     }
 
+
+    // for test ↓
     public static int right(int[] arr1, int[] arr2, int K) {
         int[] help = new int[arr1.length + arr2.length];
         int index = 0;

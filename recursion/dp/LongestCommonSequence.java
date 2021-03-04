@@ -1,9 +1,6 @@
 package recursion.dp;
 
-/**
- * @author andy-liu
- * @date 2020/5/27 - 9:32 AM
- */
+
 public class LongestCommonSequence {
 
     public static int getCommon(char[] str1, char[] str2) {

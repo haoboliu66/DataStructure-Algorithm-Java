@@ -74,9 +74,7 @@ public class C06_PrintUniquePairAndTriad {
             if (i == 0 || arr[i] != arr[i - 1]) {
                 int rest = k - arr[i];
                 List<List<Integer>> res = printUniquePair(arr, rest, i, i + 1, arr.length - 1);
-                for (List<Integer> list : res) {
-                    ans.add(list);
-                }
+                ans.addAll(res);
             }
         }
         return ans;

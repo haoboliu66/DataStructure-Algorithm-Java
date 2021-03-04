@@ -1,49 +1,47 @@
 package advanced.c3.class3;
 
 import java.util.HashMap;
+import java.util.Map;
 
-/**
- * @author andy-liu
- * @date 2020/6/30 - 8:12 AM
- */
 public class C07_TopKTimesRealTime {
 
     public static class Node {
         public String str;
         public int times;
 
-        public Node(String s, int t) {
-            str = s;
-            times = t;
+        public Node(String str, int times) {
+            this.str = str;
+            this.times = times;
         }
     }
 
     public static class Heap {
         int[] heap;
-        int size;
-        HashMap<Integer, Integer> indexMap;
+        int heapSize;
+        Map<String, Node> StringNodeMap;
+        Map<Node, Integer> nodeIndexMap;
 
         public Heap(int size) {
-            this.size = size;
+            this.heapSize = size;
             heap = new int[size];
-            indexMap = new HashMap<>();
+            StringNodeMap = new HashMap<>();
+            nodeIndexMap = new HashMap<>();
         }
 
 
         public void heapInsert(int val) {
-            heap[size] = val;
-            int parent = (size - 1) / 2;
+            heap[heapSize] = val;
+            int parent = (heapSize - 1) / 2;
             if (val > parent) {
-                swap(heap, size++, parent);
+                swap(heap, heapSize++, parent);
             }
         }
 
         public int pop() {
             int res = heap[0];
-            swap(heap, 0, size);
+            swap(heap, 0, heapSize);
             return res;
         }
-
 
 
         public void swap(int[] arr, int i, int j) {

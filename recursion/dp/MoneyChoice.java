@@ -1,9 +1,6 @@
 package recursion.dp;
 
-/**
- * @author andy-liu
- * @date 2020/5/25 - 10:32 PM
- */
+
 public class MoneyChoice {
 
     // 322. Coin Change 是问张数最少的取法
@@ -11,7 +8,6 @@ public class MoneyChoice {
     // 518. Coin Change 2 是问有多少种取法
 
     /*  Q: 一个数组中放不同面值的钱 [10,20,50,30] 每种可取任意数量, 给定目标aim = 1000, 问有多少种取法   */
-
 
     //暴力递归
     public static int getWays1(int[] arr, int aim) {

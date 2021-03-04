@@ -2,10 +2,6 @@ package advanced.c3.class8;
 
 import java.util.HashMap;
 
-/**
- * @author andy-liu
- * @date 2020/7/16 - 12:16 PM
- */
 public class C01_ReceiveAndPrintOrderLine {
 
     /*

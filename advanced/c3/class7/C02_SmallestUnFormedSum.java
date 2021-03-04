@@ -2,10 +2,6 @@ package advanced.c3.class7;
 
 import java.util.Arrays;
 
-/**
- * @author andy-liu
- * @date 2020/7/12 - 11:48 AM
- */
 public class C02_SmallestUnFormedSum {
 
     public static int unformedSum1(int[] arr) {

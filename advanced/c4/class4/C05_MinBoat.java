@@ -2,10 +2,6 @@ package advanced.c4.class4;
 
 import java.util.Arrays;
 
-/**
- * @author andy-liu
- * @date 2020/7/24 - 11:20 AM
- */
 public class C05_MinBoat {
 
     /*
@@ -30,7 +26,6 @@ public class C05_MinBoat {
                 break;
             }
         }
-
         //找到第一个<=limit/2重量的位置, 如果mid是-1, 说明每个人的重量都超过了limit/2
         if (mid == -1) {
             return N;

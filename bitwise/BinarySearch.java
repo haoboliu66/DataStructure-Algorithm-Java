@@ -4,12 +4,7 @@ import org.junit.Test;
 
 import java.util.Arrays;
 
-/**
- * @author andy-liu
- * @date 2020/7/4 - 12:32 PM
- */
 public class BinarySearch {
-
 
     //有序数组arr, 找到左边第一个 >= target 的值
     public static int findLeftMostGreater(int[] arr, int target) {

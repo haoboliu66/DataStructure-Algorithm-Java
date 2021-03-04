@@ -3,10 +3,6 @@ package sorting;
 
 import static sorting.BubbleSort.*;
 
-/**
- * @author andy-liu
- * @date 2020/5/7 - 7:32 PM
- */
 public class MergeSort {
 
     /**

@@ -3,12 +3,7 @@ package advanced.c3.class4;
 import java.util.LinkedList;
 import java.util.Queue;
 
-/**
- * @author andy-liu
- * @date 2020/6/30 - 5:42 PM
- */
 public class C02_BSTtoDoubleLinkedList {
-
 
     public static class Node {
         int val;
@@ -37,7 +32,6 @@ public class C02_BSTtoDoubleLinkedList {
         }
         Info leftInfo = process(X.left);
         Info rightInfo = process(X.right);
-
         Node start;
         Node end;
         if (leftInfo != null) {
@@ -70,7 +64,9 @@ public class C02_BSTtoDoubleLinkedList {
         }
     }
 
-    //方法二: 中序遍历Queue收集, 取出依次连接
+    /*
+    方法二: 中序遍历Queue收集, 取出依次连接  => leetcode跑不过
+     */
     public static Node BSTToLinkedList2(Node head) {
         Queue<Node> queue = new LinkedList<>();
         inOrder(head, queue);

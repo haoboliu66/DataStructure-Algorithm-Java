@@ -1,9 +1,5 @@
 package advanced.c3.class8;
 
-/**
- * @author andy-liu
- * @date 2020/7/16 - 3:02 PM
- */
 public class C04_MoneyGame {
 
     //方法1: 暴力递归

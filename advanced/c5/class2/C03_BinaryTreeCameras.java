@@ -1,9 +1,5 @@
 package advanced.c5.class2;
 
-/**
- * @author andy-liu
- * @date 2020/8/13 - 9:03 PM
- */
 public class C03_BinaryTreeCameras {
 
     /*
@@ -106,10 +102,7 @@ public class C03_BinaryTreeCameras {
 
 
     public static void main(String[] args) {
-        Object obj = new Object();
-        int i = 8;
-        i = ++i;
-        System.out.println(i);
+
     }
 
 }

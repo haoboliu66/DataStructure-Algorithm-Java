@@ -1,20 +1,13 @@
 package advanced.c3.class4;
 
-import org.junit.Test;
-
 import java.util.Arrays;
-import java.util.Comparator;
 
-/**
- * @author andy-liu
- * @date 2020/7/4 - 10:25 AM
- */
 public class C04_LIS {
 
-/*
-Longest Increasing Sequence
-LeetCode 300
- */
+    /*
+    Longest Increasing Sequence
+    LeetCode 300
+     */
 
     //  O(N^2)
     public static int longestIncreasingSequence1(int[] arr) {

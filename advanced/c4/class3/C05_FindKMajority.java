@@ -2,10 +2,6 @@ package advanced.c4.class3;
 
 import java.util.*;
 
-/**
- * @author andy-liu
- * @date 2020/7/23 - 8:32 AM
- */
 public class C05_FindKMajority {
 
     /*
@@ -45,7 +41,6 @@ public class C05_FindKMajority {
     /*
     229. Majority Element II
     */
-
     public static List<Integer> majorityElementII(int[] nums, int K) {
 
         HashMap<Integer, Integer> map = new HashMap<>();

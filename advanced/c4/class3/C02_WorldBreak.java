@@ -4,10 +4,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
-/**
- * @author andy-liu
- * @date 2020/7/20 - 2:47 PM
- */
 public class C02_WorldBreak {
 
     /*

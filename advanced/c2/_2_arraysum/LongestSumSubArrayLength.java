@@ -5,7 +5,11 @@ import java.util.HashMap;
 public class LongestSumSubArrayLength {
     // 325. Maximum Size Subarray Sum Equals k
     //类似问题 leetcode 560.Subarray Sum Equals K;
+
     /*
+
+    ----------------------------- 数组三连2 -----------------------------
+
     Q: 一个数组arr[] 有正数,有负数, 有0, 求累加和等于K的最长子数组
      */
     public static int getMaxLength(int[] arr, int K) {

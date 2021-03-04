@@ -1,12 +1,10 @@
 package sorting;
 
 
+import java.util.Arrays;
+
 import static sorting.BubbleSort.*;
 
-/**
- * @author andy-liu
- * @date 2020/5/7 - 7:49 PM
- */
 public class InsertionSort {
 
 
@@ -34,12 +32,14 @@ public class InsertionSort {
             int[] copyArr = copyArray(arr);
             insertionSort(arr, 0, arr.length - 1);
             comparator(copyArr);
+            System.out.println(Arrays.toString(arr));
             boolean res = isEqual(arr, copyArr);
             if (!res) {
                 System.out.println("Oops");
                 break;
             }
         }
+
         System.out.println("Done");
     }
 

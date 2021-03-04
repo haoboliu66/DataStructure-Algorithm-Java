@@ -1,7 +1,6 @@
 package advanced.c2.sortedMap.skipList;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class SkipList {
@@ -163,7 +162,6 @@ public class SkipList {
             return head.nextNodes.get(0) != null ? head.nextNodes.get(0).key : null;
         }
 
-
     }
 
 
@@ -173,7 +171,6 @@ public class SkipList {
         skipList.put(8, 2);
         skipList.put(3, 3);
         System.out.println(skipList.get(5));
-
     }
 
 

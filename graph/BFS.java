@@ -2,10 +2,6 @@ package graph;
 
 import java.util.*;
 
-/**
- * @author andy-liu
- * @date 2020/5/21 - 7:59 AM
- */
 public class BFS {
 
     public static <V> void BreathFirstSearch(Node<V> node){
@@ -18,7 +14,9 @@ public class BFS {
         set.add(node);
         while(!queue.isEmpty()){
             Node<V> cur = queue.poll();
+
             process(cur);  // some process;  e.g print
+
             List<Node<V>> adjacents = cur.neighbours;
             for(Node<V> next: adjacents){
                 if(!set.contains(next)){

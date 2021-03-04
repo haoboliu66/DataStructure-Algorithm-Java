@@ -1,4 +1,4 @@
-package advanced.top;
+package top;
 
 import java.util.HashMap;
 
@@ -16,11 +16,6 @@ public class Problem_0106_ConstructBinaryTreeFromInorderAndPostorderTraversal {
             this.val = val;
         }
 
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
     }
 
     public static TreeNode buildTree(int[] inorder, int[] postorder) {

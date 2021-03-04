@@ -1,10 +1,6 @@
 package advanced.c3.class5;
 
 
-/**
- * @author andy-liu
- * @date 2020/7/4 - 9:09 PM
- */
 public class C03_CompleteTreeNodeNumber {
 
     /*

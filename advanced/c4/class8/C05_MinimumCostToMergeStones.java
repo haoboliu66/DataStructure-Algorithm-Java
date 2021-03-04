@@ -1,17 +1,9 @@
 package advanced.c4.class8;
 
-import java.util.ArrayList;
-import java.util.List;
-
-/**
- * @author andy-liu
- * @date 2020/8/9 - 7:33 PM
- */
 public class C05_MinimumCostToMergeStones {
 
     /*
     1000. Minimum Cost to Merge Stones
-
 
     1167. Minimum Cost to Connect Sticks
      */

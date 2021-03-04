@@ -3,10 +3,7 @@ package advanced.c3.class4;
 import java.util.Arrays;
 import java.util.Comparator;
 
-/**
- * @author andy-liu
- * @date 2020/7/4 - 10:22 AM
- */
+
 public class C05_EnvelopesProblem {
 
     /*

@@ -1,9 +1,6 @@
 package recursion.dp;
 
-/**
- * @author andy-liu
- * @date 2020/5/27 - 10:30 AM
- */
+
 public class Coffee {
     // 题目
 // 数组arr代表每一个咖啡机冲一杯咖啡的时间，每个咖啡机只能串行的制造咖啡。
@@ -13,7 +10,6 @@ public class Coffee {
 // 洗杯子的机器洗完一个杯子时间为a，任何一个杯子自然挥发干净的时间为b。
 // 四个参数：arr, n, a, b
 // 假设时间点从0开始，返回所有人喝完咖啡并洗完咖啡杯的全部过程结束后，至少来到什么时间点。
-
 
     public static int wash(int[] drinks, int a, int b) {
         if (a >= b) {

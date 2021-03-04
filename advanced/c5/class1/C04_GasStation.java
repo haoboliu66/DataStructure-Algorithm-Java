@@ -1,9 +1,5 @@
 package advanced.c5.class1;
 
-/**
- * @author andy-liu
- * @date 2020/8/10 - 9:16 AM
- */
 public class C04_GasStation {
     /*
     134. Gas Station

@@ -25,4 +25,43 @@ public class C04_TrappingRainWater {
         }
         return water;
     }
+
+    public static void main(String[] args) {
+        int x = (int) (Math.random() * 10);
+        System.out.println("go");
+        for (int i = 0; i < 10000; i++) {
+            x = (int) (Math.random() * 10);
+            if (!Integer.toBinaryString(x).equals(getBinary(x))) {
+                System.out.println("x == " + x);
+                System.out.println(Integer.toBinaryString(x));
+                System.out.println(getBinary(x));
+                System.out.println("Oops");
+                break;
+            }
+        }
+        System.out.println("done");
+
+    }
+
+    public static String getBinary(int a) {
+        int[] bits = new int[32];
+        int index = bits.length - 1;
+        int i = 0;
+        while (i < 32) {
+            if ((a & 1) == 0) {
+                bits[index--] = 0;
+            } else {
+                bits[index--] = 1;
+            }
+            a = a >> 1;
+            i++;
+        }
+        StringBuilder res = new StringBuilder();
+        for (int b : bits) {
+            res.append(b);
+        }
+        return res.toString();
+    }
+
+
 }

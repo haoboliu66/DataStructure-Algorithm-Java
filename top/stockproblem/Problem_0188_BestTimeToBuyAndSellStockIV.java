@@ -1,4 +1,4 @@
-package advanced.top.stockproblem;
+package top.stockproblem;
 
 public class Problem_0188_BestTimeToBuyAndSellStockIV {
 

@@ -2,10 +2,6 @@ package advanced.c5.class1;
 
 import java.util.HashMap;
 
-/**
- * @author andy-liu
- * @date 2020/8/13 - 2:50 PM
- */
 public class C03_LFU {
     /*
     460. LFU Cache

@@ -4,10 +4,6 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-/**
- * @author andy-liu
- * @date 2020/7/5 - 4:30 PM
- */
 public class C04_LRU {
 
     public static class LRUCache<K, V> {

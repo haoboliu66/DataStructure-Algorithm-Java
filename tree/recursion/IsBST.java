@@ -43,7 +43,7 @@ public class IsBST {
             pre = cur;
             cur = cur.right;
         }
-        
+
         return true;
     }
 

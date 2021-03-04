@@ -1,4 +1,4 @@
-package advanced.top;
+package top;
 
 public class Problem_0014_LongestCommonPrefix {
 

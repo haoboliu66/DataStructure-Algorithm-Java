@@ -1,11 +1,10 @@
 package advanced.c3.class3;
 
-/**
- * @author andy-liu
- * @date 2020/6/30 - 8:12 AM
- */
 public class C05_LCSubstring {
 
+    /*
+    空间压缩
+     */
 
     public static int longestCommonSubstring1(String s1, String s2) {
         if (s1 == null || s2 == null || "".equals(s1) || "".equals(s2)) {
@@ -40,7 +39,7 @@ public class C05_LCSubstring {
         return max;
     }
 
-
+    // 空间压缩  复杂度O(M*N)   空间O(1)
     public static int longestCommonSubstring2(String s1, String s2) {
         if (s1 == null || s2 == null || "".equals(s1) || "".equals(s2)) {
             return 0;
@@ -52,8 +51,8 @@ public class C05_LCSubstring {
         int row = 0;
         int col = str2.length - 1;
 
-        int max = 0;
-        int end = 0;
+        int max = 0;   // 记录全局最大长度
+        int end = 0;   // 记录全局最大长度对应的结尾
 
         while (row < str1.length) {  //先向左走, 再向下走, 所以row是最后的边界
             int i = row;

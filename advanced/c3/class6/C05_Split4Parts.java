@@ -2,10 +2,6 @@ package advanced.c3.class6;
 
 import java.util.HashMap;
 
-/**
- * @author andy-liu
- * @date 2020/7/9 - 8:59 PM
- */
 public class C05_Split4Parts {
 
     /*

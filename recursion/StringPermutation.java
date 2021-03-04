@@ -2,11 +2,13 @@ package recursion;
 
 import java.util.*;
 
-/**
- * @author andy-liu
- * @date 2020/5/21 - 11:21 PM
- */
 public class StringPermutation {
+
+    private static void swap(char[] arr, int i, int j) {
+        char temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
 
     public static List<String> permutation(String str) {
         ArrayList<String> ans = new ArrayList<>();
@@ -14,6 +16,7 @@ public class StringPermutation {
         return ans;
     }
 
+    // abc
     private static void process(char[] str, int i, List<String> res) {
         if (i == str.length) {
             res.add(new String(str));
@@ -27,12 +30,7 @@ public class StringPermutation {
 
     }
 
-    private static void swap(char[] arr, int i, int j) {
-        char temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-    }
-
+    // no repeat
     public static ArrayList<String> permutationNoRepeat(String str) {
         ArrayList<String> ans = new ArrayList<>();
         process2(str.toCharArray(), 0, ans);

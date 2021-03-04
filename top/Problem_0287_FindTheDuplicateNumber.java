@@ -1,5 +1,11 @@
 package top;
 
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Problem_0287_FindTheDuplicateNumber {
 
     public int findDuplicate1(int[] nums) {
@@ -43,5 +49,6 @@ public class Problem_0287_FindTheDuplicateNumber {
         }
         return fast;
     }
+
 
 }

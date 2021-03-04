@@ -1,9 +1,13 @@
 package advanced.c2._2_arraysum;
 
 
+import org.junit.Test;
+
+import java.util.HashMap;
+
 public class LongestSumSubArrayLengthInPositiveArray {
 
-    // 类似问题 lc 209. Minimum Size Subarray Sum
+    /* ----------- 类似问题 lc 209. Minimum Size Subarray Sum ----------- */
     private static class minSizeSubArray {
 
         // brute force
@@ -28,7 +32,6 @@ public class LongestSumSubArrayLengthInPositiveArray {
             }
             return len;
         }
-
 
         public int minSubArrayLen2(int s, int[] nums) {
             if (nums == null || nums.length == 0) return 0;
@@ -60,11 +63,45 @@ public class LongestSumSubArrayLengthInPositiveArray {
         }
     }
 
-
+    /* ------------------------- 数组三连1 --------------------------------------- */
     /*
     Q:一个数组arr[] 都是正数, 一个累加和K, 求:累加和正好等于K的子数组最长是多长
     滑动窗口
      */
+
+    // My Solution
+    public static int maxSubArrayLength(int[] arr, int k) {
+        if (arr == null || arr.length == 0) return 0;
+        HashMap<Integer, Integer> map = new HashMap<>();
+        int len = 0;
+        map.put(0, -1);
+        int sum = 0;
+        for (int i = 0, j = 0; i < arr.length; ) {
+            sum += arr[i];
+            // 在i位置, 累加和到了sum
+            while(sum > k){
+                sum -= arr[j++];
+            }
+            if (sum > k) {
+
+            } else if (sum < k) {
+                i++;
+            } else {
+                len = Math.max(len, i - j + 1);
+            }
+        }
+
+        return len;
+    }
+
+    @Test
+    public void testMySolution(){
+        int[] arr = {1,2,3,4,5,5};
+        int sum = 10;
+        int len = maxSubArrayLength(arr, sum);
+        System.out.println(len);
+    }
+
     public static int getMaxLength(int[] arr, int K) {
         if (arr == null || arr.length == 0 || K <= 0) {
             return 0;

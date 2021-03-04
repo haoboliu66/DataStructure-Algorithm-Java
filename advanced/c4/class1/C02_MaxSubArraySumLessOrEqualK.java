@@ -2,10 +2,6 @@ package advanced.c4.class1;
 
 import java.util.*;
 
-/**
- * @author andy-liu
- * @date 2020/7/19 - 4:26 PM
- */
 public class C02_MaxSubArraySumLessOrEqualK {
     /*
     给定一个数组arr, 一个K值, 返回累加和小于等于K,但是离K最近的子数组累加和

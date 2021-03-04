@@ -1,9 +1,5 @@
 package advanced.c3.class7;
 
-/**
- * @author andy-liu
- * @date 2020/7/11 - 9:58 PM
- */
 public class C01_MinLengthForSort {
 
     public static int getMinLength(int[] arr) {

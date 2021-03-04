@@ -1,9 +1,5 @@
 package recursion;
 
-/**
- * @author andy-liu
- * @date 2020/5/24 - 11:54 AM
- */
 public class BackPack {
 
     public static int backPackProblem(int[] weights, int[] values, int bag) {
@@ -73,7 +69,7 @@ public class BackPack {
 
                 int p1 = dp[index + 1][rest];
                 int p2 = -1;
-                if(rest - w[index] >= 0){  // 要保证rest轴下标不越界
+                if (rest - w[index] >= 0) {  // 要保证rest轴下标不越界
                     p2 = v[index] + dp[index + 1][rest - w[index]];
                 }
 

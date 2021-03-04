@@ -1,4 +1,4 @@
-package advanced.top;
+package top;
 
 public class Problem_0098_ValidateBinarySearchTree {
 
@@ -7,17 +7,8 @@ public class Problem_0098_ValidateBinarySearchTree {
         TreeNode left;
         TreeNode right;
 
-        TreeNode() {
-        }
-
         TreeNode(int val) {
             this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
         }
 
         @Override
@@ -29,17 +20,15 @@ public class Problem_0098_ValidateBinarySearchTree {
     }
 
 
-    public static boolean isValidBST(TreeNode head) {
+    public static boolean isValidBST(TreeNode root) {
 
         TreeNode mostRight = null;
         TreeNode pre = null;
-        TreeNode cur = head;
+        TreeNode cur = root;
 
         while (cur != null) {
-
-            mostRight = cur.left;
-
-            if (mostRight != null) {
+            if (cur.left != null) {
+                mostRight = cur.left;
                 while (mostRight.right != null && mostRight.right != cur) {
                     mostRight = mostRight.right;
                 }
@@ -51,22 +40,30 @@ public class Problem_0098_ValidateBinarySearchTree {
                     mostRight.right = null;
                 }
             }
-            if (pre != null && cur.val <= pre.val) return false;
+//            if (pre != null && cur.val <= pre.val) return false;
+//            pre = cur;
+//            cur = cur.right;
+
             pre = cur;
             cur = cur.right;
-
-
+            System.out.println("pre: " + pre);
+            System.out.println("cur: " + cur);
+            if(pre.val >= cur.val) return false;
         }
         return true;
     }
 
     public static void main(String[] args) {
-        TreeNode t1 = new TreeNode(1);
-        TreeNode t2 = new TreeNode(2);
-        TreeNode t3 = new TreeNode(3);
-        t2.left = t1;
-        t2.right = t3;
-        boolean res = isValidBST(t2);
+        TreeNode t1 = new TreeNode(5);
+        TreeNode t2 = new TreeNode(1);
+        TreeNode t3 = new TreeNode(4);
+        TreeNode t4 = new TreeNode(3);
+        TreeNode t5 = new TreeNode(6);
+        t1.left = t2;
+        t1.right = t3;
+        t3.left = t4;
+        t4.right = t5;
+        boolean res = isValidBST(t1);
         System.out.println(res);
     }
 }

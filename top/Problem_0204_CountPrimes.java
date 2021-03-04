@@ -1,4 +1,6 @@
-package advanced.top;
+package top;
+
+import java.util.Arrays;
 
 public class Problem_0204_CountPrimes {
 
@@ -11,20 +13,26 @@ public class Problem_0204_CountPrimes {
 
      */
 
-    public int countPrimes(int n) {
-        if (n < 2) {
+    public static int countPrimes(int n) {
+        if (n <= 2) {
             return 0;
         }
-        // n >= 2
-        int count = 0;
-        for (int i = 2; i <= n; i++) {
-
-            for (int j = 2; j < Math.sqrt(i); j++) {
-                if (i % j == 0) count += 2;
-            }
-
+        // n > 2
+        int count = 1;
+        for (int i = 3; i <= n; i++) {  // i [3,4,5...n]
+            if (isPrime(i)) count++;
         }
-
         return count;
+    }
+
+    public static boolean isPrime(int n) {
+        for (int i = 2; i < n / 2; i++) {
+            if (n % i == 0) return false;
+        }
+        return true;
+    }
+
+
+    public static void main(String[] args) {
     }
 }

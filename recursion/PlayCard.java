@@ -1,11 +1,6 @@
 package recursion;
 
-/**
- * @author andy-liu
- * @date 2020/5/22 - 12:14 AM
- */
 public class PlayCard {
-
 
     public static int win1(int[] arr) {
         if (arr == null || arr.length == 0) {

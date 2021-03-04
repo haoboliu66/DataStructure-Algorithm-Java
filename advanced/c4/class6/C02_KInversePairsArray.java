@@ -1,10 +1,6 @@
 package advanced.c4.class6;
 
 
-/**
- * @author andy-liu
- * @date 2020/7/28 - 11:47 AM
- */
 public class C02_KInversePairsArray {
 
     /*

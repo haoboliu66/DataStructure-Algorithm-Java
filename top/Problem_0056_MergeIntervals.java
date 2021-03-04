@@ -1,8 +1,7 @@
-package advanced.top;
+package top;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 
 public class Problem_0056_MergeIntervals {
@@ -54,7 +53,6 @@ public class Problem_0056_MergeIntervals {
 //    }
 
     public static class Range {
-
         int start;
         int end;
 

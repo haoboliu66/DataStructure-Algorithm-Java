@@ -3,12 +3,7 @@ package advanced.c4.class7;
 
 import java.util.Stack;
 
-/**
- * @author andy-liu
- * @date 2020/8/1 - 3:23 PM
- */
 public class C03_VisibleMountains {
-
 
     public static class Record {
         int value;

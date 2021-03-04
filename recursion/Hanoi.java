@@ -3,10 +3,6 @@ package recursion;
 import java.util.*;
 import java.util.concurrent.Phaser;
 
-/**
- * @author andy-liu
- * @date 2020/5/20 - 4:46 PM
- */
 public class Hanoi {
 
     public static class HanoiTower{

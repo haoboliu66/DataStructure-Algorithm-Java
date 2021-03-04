@@ -10,7 +10,6 @@ public class C02_Islands {
     /*
     lc 200. Number of Islands
      */
-
     public static int numberOfIslands(int[][] grid) {
         if (grid == null || grid.length == 0) {
             return 0;

@@ -3,7 +3,7 @@ package advanced.c2._2_arraysum;
 public class LongestLessSumSubArrayLength {
     /*
     Q: 一个数组arr[] 有正数,有负数, 有0, 所有累加和小于等于K的子数组全达标, 求在这些子数组中最长的一个
-    数组三连最难的一题
+    数组三连3 - 最难的一题
      */
     public static int getMaxLength(int[] arr, int K) {
         if (arr == null || arr.length == 0) {

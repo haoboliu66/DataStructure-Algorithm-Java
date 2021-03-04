@@ -1,4 +1,4 @@
-package advanced.leetcode;
+package leetcode;
 
 public class Problem_0043_MultiplyStrings {
 

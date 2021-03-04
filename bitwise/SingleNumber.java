@@ -1,9 +1,5 @@
 package bitwise;
 
-/**
- * @author andy-liu
- * @date 2020/5/18 - 11:14 PM
- */
 public class SingleNumber {
 
     /**
@@ -20,25 +16,24 @@ public class SingleNumber {
 
     /*把一个int二进制最右侧的1提取出来 */
     public static int getRightMostOne(int num) {
-        return num & (~num + 1);   // num & -num
+        return num & (~num + 1);   // num & (-num)
     }
 
-    /* 一个数组中, 两个数字出现了奇数次, 其余数字都出现偶数次, 找到这两个数字 */
+    /* Q:一个数组中, 两个数字出现了奇数次, 其余数字都出现偶数次, 找到这两个数字 */
     public static int[] getTwo(int[] nums) {
-        int sum = 0;
+        int eor = 0;
         for (int i = 0; i < nums.length; i++) {
-            sum ^= nums[i];
+            eor ^= nums[i];
         }
         // if these two numbers are a,b, then sum =  a ^ b
-        int one = getRightMostOne(nums[0]); // 和nums[0]一样的为一种数, 其余的为另一种数
+        int one = getRightMostOne(eor); // 和nums[0]一样的为一种数, 其余的为另一种数
         int oneSide = 0;
         for (int i = 0; i < nums.length; i++) {
             if((nums[i] & one) != 0){
                 oneSide ^= nums[i];
             }
         }
-        return new int[]{oneSide, sum ^ oneSide};
-
+        return new int[]{oneSide, eor ^ oneSide};
     }
 
     /* Q:数出int中二进制1的个数  */
@@ -60,6 +55,11 @@ public class SingleNumber {
 //        int a = 131;
 //        int count = countOne(a);
 //        System.out.println(count);
+
+        int a = 3;
+        int b = 5;
+        System.out.println(getRightMostOne(a));
+        System.out.println(getRightMostOne(b));
 
 
     }
