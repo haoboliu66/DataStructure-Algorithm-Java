@@ -1,7 +1,5 @@
 package recursion;
 
-import org.omg.PortableInterceptor.INACTIVE;
-
 import java.util.Arrays;
 
 public class NumConvertToLetter {

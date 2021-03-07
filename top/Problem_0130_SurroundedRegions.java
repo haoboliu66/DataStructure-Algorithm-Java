@@ -2,18 +2,103 @@ package top;
 
 public class Problem_0130_SurroundedRegions {
 
-    public void solve(char[][] board) {
 
+    // Brute Force  -  intuitive solution
+    public void solve0(char[][] board) {
+        int m = board.length, n = board[0].length;
+
+        // check 4 egdes,  turn 'O' connected to edge into 'T' (resume later)
+        for (int i = 0; i < m; i++) {
+            if (board[i][0] == 'O') infectToTemp(board, i, 0, false);
+            if (board[i][n - 1] == 'O') infectToTemp(board, i, n - 1, false);
+        }
+        for (int j = 0; j < n - 1; j++) {
+            if (board[0][j] == 'O') infectToTemp(board, 0, j, false);
+            if (board[m - 1][j] == 'O') infectToTemp(board, m - 1, j, false);
+        }
+
+        // check position within 4 edges, and turn 'O' to 'X'
+        for (int i = 1; i < m - 1; i++) {
+            for (int j = 1; j < n - 1; j++) {
+                if (board[i][j] == 'O') {
+                    correctInfect(board, i, j);
+                }
+            }
+        }
+
+        // resume 'T' to 'O'
+        for (int i = 0; i < m; i++) {
+            if (board[i][0] == 'T') infectToTemp(board, i, 0, true);
+            if (board[i][n - 1] == 'T') infectToTemp(board, i, n - 1, true);
+        }
+        for (int j = 0; j < n - 1; j++) {
+            if (board[0][j] == 'T') infectToTemp(board, 0, j, true);
+            if (board[m - 1][j] == 'T') infectToTemp(board, m - 1, j, true);
+        }
+    }
+    public void infectToTemp(char[][] board, int i, int j, boolean resume) {
+        if (i >= 0 && i <= board.length - 1 && j >= 0 && j <= board[0].length - 1 && board[i][j] == (resume ? 'T' : 'O')) {
+            if (!resume) {
+                board[i][j] = 'T';
+                infectToTemp(board, i - 1, j, resume);
+                infectToTemp(board, i + 1, j, resume);
+                infectToTemp(board, i, j - 1, resume);
+                infectToTemp(board, i, j + 1, resume);
+            } else {
+                board[i][j] = 'O';
+                infectToTemp(board, i - 1, j, resume);
+                infectToTemp(board, i + 1, j, resume);
+                infectToTemp(board, i, j - 1, resume);
+                infectToTemp(board, i, j + 1, resume);
+            }
+        }
+    }
+    public void correctInfect(char[][] board, int i, int j) {
+        int m = board.length, n = board[0].length;
+        if (i == 0 || i == m - 1 || j == 0 || j == n - 1 || board[i][j] == 'X' || board[i][j] == 'T') return;
+        board[i][j] = 'X';
+        correctInfect(board, i - 1, j);
+        correctInfect(board, i + 1, j);
+        correctInfect(board, i, j - 1);
+        correctInfect(board, i, j + 1);
     }
 
-    public void process(char[][] board, int i, int j) {
+    /* turn invalid O to T, then resume when iterate the matrix  */
+    public void solveOptimized(char[][] board) {
+        int m = board.length, n = board[0].length;
 
+        // check 4 egdes,  turn 'O' connected to edge into 'T' (resume later)
+        for (int i = 0; i < m; i++) {
+            if (board[i][0] == 'O') infectT(board, i, 0);
+            if (board[i][n - 1] == 'O') infectT(board, i, n - 1);
+        }
+        for (int j = 0; j < n; j++) {
+            if (board[0][j] == 'O') infectT(board, 0, j);
+            if (board[m - 1][j] == 'O') infectT(board, m - 1, j);
+        }
 
-        process(board, i + 1, j);
-        process(board, i - 1, j);
-        process(board, i, j + 1);
-        process(board, i, j - 1);
+        // change valid O to X, resume invalid O from T
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (board[i][j] == 'O') {
+                    board[i][j] = 'X';
+                }
+                if(board[i][j] == 'T'){
+                    board[i][j] = 'O';
+                }
+            }
+        }
     }
+    public void infectT(char[][] board, int i, int j) {
+        if (i >= 0 && i <= board.length - 1 && j >= 0 && j <= board[0].length - 1 && board[i][j] == 'O') {
+            board[i][j] = 'T';
+            infectT(board, i - 1, j);
+            infectT(board, i + 1, j);
+            infectT(board, i, j - 1);
+            infectT(board, i, j + 1);
+        }
+    }
+
 
     public void solve1(char[][] board) {
         if (board == null || board.length == 0) {

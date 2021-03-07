@@ -2,6 +2,7 @@ package leetcode;
 
 public class M_Problem_0641_DesignCircularDeque {
 
+    // size decouples pushIndex & pollIndex
     public class MyCircularDeque {
 
         int[] arr;
