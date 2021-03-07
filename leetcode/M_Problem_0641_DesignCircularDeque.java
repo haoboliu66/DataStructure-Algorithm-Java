@@ -2,14 +2,15 @@ package leetcode;
 
 public class M_Problem_0641_DesignCircularDeque {
 
+
     // size decouples pushIndex & pollIndex
     public class MyCircularDeque {
 
         int[] arr;
-        int cap;
+        int cap;  // size limit of the circular queue
         int pushIndex;
         int pollIndex;
-        int size;
+        int size; // track remaining empty space
 
         /**
          * Initialize your data structure here. Set the size of the deque to be k.
