@@ -2,6 +2,7 @@ package leetcode;
 
 public class M_Problem_0678_ValidParenthesisString {
 
+    // incorrect solution
     public static boolean checkValidString(String s) {
 
         char[] str = s.toCharArray();
@@ -23,7 +24,7 @@ public class M_Problem_0678_ValidParenthesisString {
         return left == 0 || (left > 0 && star >= left) || (left < 0 && star >= -left);
     }
 
-
+    // Lee solution
     public static boolean checkValidString2(String s) {
         char[] str = s.toCharArray();
         int cmin = 0; // 最少需要的 ）

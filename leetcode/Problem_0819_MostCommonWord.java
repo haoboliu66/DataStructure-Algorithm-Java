@@ -14,9 +14,6 @@ public class Problem_0819_MostCommonWord {
        String s = "a, a, a, a, b,b,b,c, c";
         String sss = removePunctuation(s);
         System.out.println(sss);
-
-
-
     }
 
     public static String mostCommonWord(String paragraph, String[] banned) {

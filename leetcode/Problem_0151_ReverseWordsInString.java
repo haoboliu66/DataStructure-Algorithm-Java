@@ -79,8 +79,6 @@ public class Problem_0151_ReverseWordsInString {
                 sb.append(chars[i]);
             }
         }
-//        System.out.println(sb);
-//        System.out.println(sb.length());
         return sb.toString().trim().split(" ");
     }
 
