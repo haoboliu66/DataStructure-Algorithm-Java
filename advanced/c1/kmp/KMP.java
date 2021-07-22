@@ -9,9 +9,8 @@ public class KMP {
         String m1 = "12x";
         System.out.println(s + s);
         System.out.println(getIndexOfBruteForce(s + s, m));
-        System.out.println(getIndexOfBruteForce(s + s, m1));
+        System.out.println(getIndexOf(s + s, m1));
     }
-
 
     public static int getIndexOfBruteForce(String s, String m) {
         if (s.length() < m.length()) {
