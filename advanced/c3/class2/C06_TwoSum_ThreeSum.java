@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class C06_PrintUniquePairAndTriplet {
+public class C06_TwoSum_ThreeSum {
     /*  3Sum   */
 
     /*

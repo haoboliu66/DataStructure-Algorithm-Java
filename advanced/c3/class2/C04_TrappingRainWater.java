@@ -1,14 +1,15 @@
 package advanced.c3.class2;
 
 public class C04_TrappingRainWater {
+
     /*
-    LeetCode 42 Trapping Rain Water
+    https://leetcode.com/problems/trapping-rain-water/
      */
+
     public static int trap(int[] arr) {
         if (arr == null || arr.length < 3) {
             return 0;
         }
-        //int N = arr.length;
         int left = 1;
         int right = arr.length - 2;
         int leftMax = arr[0];
@@ -27,7 +28,7 @@ public class C04_TrappingRainWater {
     }
 
     public static void main(String[] args) {
-        int x = (int) (Math.random() * 10);
+        int x;
         System.out.println("go");
         for (int i = 0; i < 10000; i++) {
             x = (int) (Math.random() * 10);

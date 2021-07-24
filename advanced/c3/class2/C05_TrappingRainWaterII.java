@@ -5,7 +5,7 @@ import java.util.PriorityQueue;
 
 public class C05_TrappingRainWaterII {
     /*
-    LeetCode 407. Trapping Rain Water II
+    https://leetcode.com/problems/trapping-rain-water-ii/
      */
 
     public static int trapRainWater(int[][] matrix) {
@@ -18,7 +18,7 @@ public class C05_TrappingRainWaterII {
         int max = Integer.MIN_VALUE;
         int water = 0;
 
-        // 矩阵四周一圈先加入堆   four sides added to min-heap
+        // four sides added to min-heap
         for (int c = 0; c < col; c++) {
             minHeap.add(new Node(matrix[0][c], 0, c));
             isEnter[0][c] = true;

@@ -1,9 +1,9 @@
 package advanced.c3.class2;
 
-public class C02_PackingMachine {
+public class C02_SuperWashingMachine {
 
     /*
-    LeetCode 517. Super Washing Machines
+    https://leetcode.com/problems/super-washing-machines/
      */
 
     //要特别记忆, 贪心算法
