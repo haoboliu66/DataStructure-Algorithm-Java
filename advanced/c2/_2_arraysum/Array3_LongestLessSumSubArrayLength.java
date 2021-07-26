@@ -5,6 +5,7 @@ public class Array3_LongestLessSumSubArrayLength {
     Q: 一个数组arr[] 有正数,有负数, 有0, 所有累加和小于等于K的子数组全达标, 求在这些子数组中最长的一个
     数组三连3 - 最难的一题
      */
+
     public static int getMaxLength(int[] arr, int K) {
         if (arr == null || arr.length == 0) {
             return 0;
@@ -43,6 +44,12 @@ public class Array3_LongestLessSumSubArrayLength {
 
         return len;
     }
+
+
+    /* 另一种解法  */
+    // 维护一个只升不降的help数组, 便于查找 >= N 最早的位置, 可以二分查找
+    // 复杂度O(N*logN)
+
 
 
 }

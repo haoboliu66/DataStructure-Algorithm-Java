@@ -70,17 +70,30 @@ public class Array1_LongestSumSubArrayLengthInPositiveArray {
     // My Solution
     public static int maxSubArrayLength(int[] arr, int k) {
         if (arr == null || arr.length == 0) return 0;
-        int len = 0, sum = 0;
-
-
-
+        int len = 0, sum = 0, L = 0, R = 0;
+        for (; R < arr.length; ) {
+            sum += arr[R];
+            if (sum == k) {
+                len = Math.max(R - L + 1, len);
+            }
+            while (sum > k) {
+                sum -= arr[L++];
+                if (sum == k) {
+                    len = Math.max(R - L + 1, len);
+                }
+                if (L == R) {
+                    break;
+                }
+            }
+            R++;
+        }
 
         return len;
     }
 
     @Test
-    public void testMySolution(){
-        int[] arr = {1,2,3,4,5,5};
+    public void testMySolution() {
+        int[] arr = {1, 2, 3, 4, 5, 5};
         int sum = 10;
         int len = maxSubArrayLength(arr, sum);
         System.out.println(len);
@@ -91,9 +104,9 @@ public class Array1_LongestSumSubArrayLengthInPositiveArray {
             return 0;
         }
         int len = 0; //记录最大值, 返回的最终结果
-        int windowSum = arr[0];
+        int windowSum = 0;
         int L = 0;
-        int R = 0;
+        int R = -1;
         while (R < arr.length) {
             if (windowSum == K) {
                 len = Math.max(len, R - L + 1);

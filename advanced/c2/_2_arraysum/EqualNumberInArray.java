@@ -6,7 +6,10 @@ public class EqualNumberInArray {
 
     /*
     Q: 一个数组arr[] 有正数,有负数, 有0, 求含有1和2的数量相同的最长子数组长度
+
+    525. Contiguous Array
      */
+
     public static int getMaxLength(int[] arr, int a, int b) {
         if (arr == null || arr.length == 0 || a == b) {
             return 0;
