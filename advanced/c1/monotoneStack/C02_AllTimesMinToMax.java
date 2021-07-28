@@ -2,7 +2,7 @@ package advanced.c1.monotoneStack;
 
 import java.util.Stack;
 
-public class AllTimesMinToMax {
+public class C02_AllTimesMinToMax {
 
     /*
     给定一个只包含正整数的数组arr, arr中任何一个子数组sub, 一定都可以算出(sub累加和) * (sub中的最小值)是什么

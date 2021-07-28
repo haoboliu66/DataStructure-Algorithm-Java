@@ -5,9 +5,9 @@ import java.util.List;
 import java.util.Stack;
 
 
-public class MonotoneStack {
+public class C01_MonotoneStack {
 
-//    相似问题: 求一个数字两侧最近比他小/ 两侧最近比他大
+    // 解决问题: 求一个数字两侧最近比他小 或 两侧最近比他大
 
     //    给定一个数组arr[3,2,1,7,0,4,5,6], 求每一个数字左边最近的比它小的数,和右边最近比它小的数
     public static int[][] getNearLessNoDuplicate(int[] arr) {
@@ -56,7 +56,6 @@ public class MonotoneStack {
             ArrayList<Integer> list = new ArrayList<>();
             list.add(i);
             incrStack.push(list);
-
         }
         while (!incrStack.isEmpty()) {
             List<Integer> thisIndex = incrStack.pop();

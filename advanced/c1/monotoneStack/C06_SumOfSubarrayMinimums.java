@@ -3,13 +3,10 @@ package advanced.c1.monotoneStack;
 import java.util.Arrays;
 import java.util.Stack;
 
-public class SumOfSubarrayMinimums {
+// https://leetcode.com/problems/sum-of-subarray-minimums/
+//Similiar: https://leetcode.com/problems/number-of-valid-subarrays/
 
-
-    // https://leetcode.com/problems/sum-of-subarray-minimums/
-
-
-    //Similiar: https://leetcode.com/problems/number-of-valid-subarrays/
+public class C06_SumOfSubarrayMinimums {
 
 
     // for AC

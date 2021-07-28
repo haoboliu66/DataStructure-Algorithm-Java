@@ -4,15 +4,50 @@ import java.util.Arrays;
 import java.util.Deque;
 import java.util.LinkedList;
 
-
-public class SlidingWindowMaximum {
+// https://leetcode.com/problems/sliding-window-maximum/
+public class C01_SlidingWindowMaximum {
     /**
      * 给定一个数组arr, 一个固定大小为W的滑动窗口依次划过arr, 返回每次滑动后窗口内的最大值
      * 返回值是int[]
      */
-    /*
-    leetcode 239
-     */
+
+    public int[] maxSlidingWindow(int[] arr, int k) {
+        if (arr == null || arr.length == 0 || k < 1) {
+            return null;
+        }
+        int[] res = new int[arr.length - k + 1];// 8  k = 3
+        // (1 3 -1) -3 5 3 6 7
+        int L = 0, R = 0;
+        LinkedList<Integer> deque = new LinkedList<>();
+
+        int index = 0;
+        for (; R < arr.length; ) {
+            // 队列要保持头->尾递减
+            while (!deque.isEmpty() && arr[R] >= arr[deque.peekLast()]) {
+                deque.pollLast();
+            }
+            deque.addLast(R);
+
+            if (R - L + 1 == k) {
+                res[index++] = arr[deque.peekFirst()];
+
+                if (index == res.length) break;
+
+                // 在窗口向前移动之前, 检查L位置是不是最大值
+                if (L == deque.peekFirst()) {
+                    deque.pollFirst();
+                }
+                L++;
+                R++;
+
+            } else {  // 窗口还未形成,需要R向右走
+                R++;
+            }
+        }
+        return res;
+    }
+
+
     public static int[] getMax(int[] arr, int W) {
         if (arr == null || W > arr.length || W < 1) {
             return null;

@@ -2,7 +2,7 @@ package advanced.c1.slidingwindow;
 
 import java.util.LinkedList;
 
-public class MaxMinusMin {
+public class C02_CountMaxMinusMin {
 
     /**
      * 给定一个整数数组arr, 和一个整数num
@@ -36,20 +36,17 @@ public class MaxMinusMin {
     public static int subArrayNum(int[] arr, int num) {
         LinkedList<Integer> qmax = new LinkedList<>(); //双向队列保存最大值
         LinkedList<Integer> qmin = new LinkedList<>(); //双向队列保存最小值
-        int res = 0;
-        int L = 0;
-        int R = 0;
+        int count = 0;
+        int L = 0, R = 0;
 
-        while (L < arr.length) { //尝试每一个L
+        for (; L < arr.length; ) { //尝试每一个L
             while (R < arr.length) {
-                //更新最大值
-                while (!qmax.isEmpty() && arr[R] >= arr[qmax.peekLast()]) {
+                while (!qmax.isEmpty() && arr[R] >= arr[qmax.peekLast()]) { //更新最大值
                     qmax.pollLast();
                 }
                 qmax.addLast(R);
 
-                //更新最小值
-                while (!qmin.isEmpty() && arr[R] <= arr[qmin.peekLast()]) {
+                while (!qmin.isEmpty() && arr[R] <= arr[qmin.peekLast()]) { //更新最小值
                     qmin.pollLast();
                 }
                 qmin.addLast(R);
@@ -61,7 +58,7 @@ public class MaxMinusMin {
             }
             // R已经越界 或者 触发了break, R已经来到了第一个违规的位置,
             // 所以不能包含R的位置subArray总个数是R - L
-            res += R - L;
+            count += R - L;
 
             // 检查当前最大值和最小值是否会在窗口左移后过期, 如果会, 就直接弹出
             if (qmax.peekFirst() == L) {
@@ -72,7 +69,7 @@ public class MaxMinusMin {
             }
             L++;
         }
-        return res;
+        return count;
     }
 
 
@@ -104,9 +101,9 @@ public class MaxMinusMin {
 //        int[] arr = {4, 1, 6, 6, 7, 8, 1, 2, 9, 5};
         int num = 5;
 //        printArray(arr);
-        for(int i = 0; i < 100000; i++){
+        for (int i = 0; i < 100000; i++) {
             arr = getRandomArray(30);
-            if(subArrayNum(arr, num) != subArrayBruteForce(arr, num)){
+            if (subArrayNum(arr, num) != subArrayBruteForce(arr, num)) {
                 System.out.println("Oops");
                 break;
             }
