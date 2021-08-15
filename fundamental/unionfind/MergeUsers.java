@@ -1,4 +1,4 @@
-package fundamental.graph;
+package fundamental.unionfind;
 
 
 import java.util.HashMap;
@@ -18,7 +18,6 @@ public class MergeUsers {
             this.c = c;
         }
     }
-
 
     private static class Node<V> {
         V value;

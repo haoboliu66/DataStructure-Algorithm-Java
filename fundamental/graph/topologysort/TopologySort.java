@@ -1,4 +1,6 @@
-package fundamental.graph;
+package fundamental.graph.topologysort;
+
+import fundamental.graph.Graph;
 
 import java.util.*;
 
