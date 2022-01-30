@@ -41,12 +41,12 @@ public class Manacher {
     }
 
     public static char[] manacherString(String s) {
-        char[] charArray = s.toCharArray();
-        char[] res = new char[charArray.length * 2 + 1];
+        char[] str = s.toCharArray();
+        char[] res = new char[str.length * 2 + 1];
         int index = 0;
         for (int i = 0; i < res.length; i++) {
             // 判断奇偶数:  (i & 1) == 0
-            res[i] = (i & 1) == 0 ? '#' : charArray[index++];
+            res[i] = (i & 1) == 0 ? '#' : str[index++];
         }
         return res;
     }

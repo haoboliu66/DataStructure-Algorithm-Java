@@ -2,7 +2,6 @@ package fundamental.bitwise;
 
 public class Arithmetic {
 
-
     public static void main(String[] args) {
         short s = 10;
         s += 1;

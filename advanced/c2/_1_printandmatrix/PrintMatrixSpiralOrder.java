@@ -1,14 +1,68 @@
 package advanced.c2._1_printandmatrix;
 
-/**
- * @author andy-liu
- * @date 2020/6/11 - 1:30 PM
- */
+import java.util.ArrayList;
+import java.util.List;
+
 public class PrintMatrixSpiralOrder {
     /*
     54. Spiral Matrix
     59. Spiral Matrix II
      */
+
+    public List<Integer> spiralOrder(int[][] matrix) {
+        int m = matrix.length, n = matrix[0].length;
+        int ar = 0, ac = 0, br = m - 1, bc = n - 1;
+
+        List<Integer> res = new ArrayList<>();
+        /**
+            1  2  3) 4
+         -> 5  6  7  8 <-
+            9 (10 11 12
+         *
+         *
+         */
+        while (ar < br && ac < bc) {
+            print(matrix, ar++, ac++, br--, bc--, res);
+        }
+
+        if (ac == bc) {
+             /*
+            a
+            b
+            c
+            */
+            while (ar <= br) {
+                res.add(matrix[ar++][ac]);
+            }
+        }
+        if (ar == br) {
+            /*  a b c */
+            while (ac <= bc) {
+                res.add(matrix[ar][ac++]);
+            }
+        }
+
+        return res;
+    }
+
+    public void print(int[][] matrix, int ar, int ac, int br, int bc, List<Integer> res) {
+
+        int Ar = ar, Ac = ac; // store for later reference
+
+        while (ac < bc) {
+            res.add(matrix[ar][ac++]);
+        }
+        while (ar < br) {
+            res.add(matrix[ar++][bc]);
+        }
+        while (bc > Ac) {
+            res.add(matrix[br][bc--]);
+        }
+        while (br > Ar) {
+            res.add(matrix[br--][Ac]);
+        }
+    }
+
 
     private static class SpiralMatrix {
         //54. Spiral Matrix
@@ -60,7 +114,6 @@ public class PrintMatrixSpiralOrder {
 
         }
     }
-
 
 
     private static class SpiralMatrixII {

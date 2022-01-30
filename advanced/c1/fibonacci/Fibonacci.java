@@ -1,22 +1,10 @@
 package advanced.c1.fibonacci;
 
 
-import org.junit.Test;
 
 public class Fibonacci {
 
-    public static int fibonacci1(int N) {
-        if (N < 1) {
-            return 0;
-        }
-        if (N == 1 || N == 2) {
-            return 1;
-        }
-        return fibonacci1(N - 1) + fibonacci1(N - 2);
-    }
-
-
-    public static int fibonacci2(int N) {
+    public static int fibonacci(int N) {
         if (N < 1) {
             return 0;
         }
@@ -33,7 +21,7 @@ public class Fibonacci {
     }
 
     // log(N)
-    public static int fibonacci3(int N) {
+    public static int fibonacci1(int N) {
         if (N < 1) {
             return 0;
         }
@@ -94,7 +82,7 @@ public class Fibonacci {
         int testTime = 1000;
         for (int i = 0; i < testTime; i++) {
             int N = (int) (Math.random() * 1000);
-            if (fibonacci2(N) != fibonacci3(N)) {
+            if (fibonacci(N) != fibonacci1(N)) {
                 System.out.println("Oops");
                 break;
             }

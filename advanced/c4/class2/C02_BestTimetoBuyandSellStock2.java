@@ -7,6 +7,15 @@ public class C02_BestTimetoBuyandSellStock2 {
     unlimited transactions
      */
 
+    public static void main(String[] args) {
+        String s = "abcabcabcabcabcabcabc";
+        String s1 = s + "-----";
+        System.out.println(s == s1);
+
+        String replace = s.replace("abc", "cba");
+        System.out.println(s == replace);
+    }
+
     public int maxProfit(int[] prices) {
         if (prices == null || prices.length < 2) {
             return 0;

@@ -1,12 +1,12 @@
 package advanced.c2._2_arraysum;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class Array2_LongestSumSubArrayLength {
 
     // 325. Maximum Size Subarray Sum Equals k
     //类似问题 leetcode 560.Subarray Sum Equals K;
-
     /*
 
     ----------------------------- 数组三连2 -----------------------------
@@ -19,7 +19,7 @@ public class Array2_LongestSumSubArrayLength {
         }
         int len = 0;
         int sum = 0;
-        HashMap<Integer, Integer> map = new HashMap<>(); // key:sum, val:index
+        Map<Integer, Integer> map = new HashMap<>(); // key:sum, val:index
         map.put(0, -1);
         for (int i = 0; i < arr.length; i++) {
             sum += arr[i]; //0...i的累加和, 假设是1000, 如果目标K是200, 需要找800最早出现的位置

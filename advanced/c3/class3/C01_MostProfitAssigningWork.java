@@ -16,12 +16,10 @@ import java.util.*;
     返回int类型的数组，表示每个人按照标准选工作后所能获得的最高报酬
 
  */
-public class C01_ChooseWork {
-    /* 826. Most Profit Assigning Work  */
-//    static class Job {
-//        int hard;
-//        int money;
-//    }
+public class C01_MostProfitAssigningWork {
+    /* 826. Most Profit Assigning Work
+    https://leetcode.com/problems/most-profit-assigning-work/
+    */
 
     public static int maxProfitAssignment(int[] difficulty, int[] profit, int[] worker) {
         int n = profit.length;
@@ -29,14 +27,22 @@ public class C01_ChooseWork {
         for (int i = 0; i < n; i++) {
             jobs.add(new Job(difficulty[i], profit[i]));
         }
+        /*
+         工作排序原则:
+         难度:小->大; 难度相同的, 钱:大->小
+         */
         Collections.sort(jobs, (a, b) -> a.hard != b.hard ? a.hard - b.hard : b.profit - a.profit);
 
         TreeMap<Integer, Integer> jobMap = new TreeMap<>();
 
-        // hard去重, 只保留profit高的
+        /*
+         hard去重, 相同hard只保留profit高的, 且要保证: hard升高, profit一定多
+         */
         jobMap.put(jobs.get(0).hard, jobs.get(0).profit);
         Job pre = jobs.get(0);
         for (int i = 1; i < jobs.size(); i++) {
+            // 1.如果[i]和pre的hard相同, 那么根据排序原则, 意味着: [i]的钱一定 <= pre, 直接忽略[i]
+            // 2.保证hard变高, profit也要多
             if (jobs.get(i).hard != pre.hard && jobs.get(i).profit > pre.profit) {
                 jobMap.put(jobs.get(i).hard, jobs.get(i).profit);
                 pre = jobs.get(i);
@@ -56,8 +62,6 @@ public class C01_ChooseWork {
 //                jobMap.put(curHard, curProfit);
 //            }
 //        }
-
-        //System.out.println(jobMap);
         int max = 0;
         for (int i = 0; i < worker.length; i++) {
             int curAbility = worker[i];
@@ -68,6 +72,8 @@ public class C01_ChooseWork {
         }
         return max;
     }
+
+
 
     private static class Job {
         int hard;

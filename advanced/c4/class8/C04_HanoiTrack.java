@@ -1,6 +1,6 @@
 package advanced.c4.class8;
 
-public class C04_HanoiProblem {
+public class C04_HanoiTrack {
 
     public static int step1(int[] arr) {
         if (arr == null || arr.length == 0) {

@@ -2,7 +2,7 @@ package advanced.c4.class4;
 
 import java.util.Arrays;
 
-public class C02_FindKthMinNumber {
+public class C02_KthMinInTwoSortedArray {
 
     /*
     4. Median of Two Sorted Arrays
@@ -69,7 +69,7 @@ public class C02_FindKthMinNumber {
 
             } else {    // odd length
                 if (arr1[mid1] > arr2[mid2]) {
-                    if (arr2[mid2] >= arr1[mid1 - 1]) { //奇数需要额外一步手动验证
+                    if (arr2[mid2] > arr1[mid1 - 1]) { //奇数需要额外一步手动验证
                         return arr2[mid2];
                     } else {
                         R1 = mid1 - 1;
@@ -77,7 +77,7 @@ public class C02_FindKthMinNumber {
                     }
 
                 } else {
-                    if (arr1[mid1] >= arr2[mid2 - 1]) {
+                    if (arr1[mid1] > arr2[mid2 - 1]) {
                         return arr1[mid1];
                     } else {
                         L1 = mid1 + 1;

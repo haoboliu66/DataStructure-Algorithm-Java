@@ -7,9 +7,7 @@ import java.util.PriorityQueue;
 
 public class FindMinKth {
 
-    /*
-    找到一个数组中第k小的数
-     */
+    /* 找到一个数组中第k小的数 */
 
     /*
     方法一:

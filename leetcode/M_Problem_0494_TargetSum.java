@@ -8,10 +8,8 @@ public class M_Problem_0494_TargetSum {
         return process(nums, 0, S);
     }
 
-
     public int process(int[] arr, int index, int rest) {
         if (index == arr.length) return rest == 0 ? 1 : 0;
-
 
         int p1 = process(arr, index + 1, rest - arr[index]);
         int p2 = process(arr, index + 1, rest + arr[index]);

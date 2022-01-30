@@ -72,7 +72,6 @@ public class C01_CoverMaxPoint {
         System.out.println("done");
     }
 
-
     /*
     方法一: O(N*log(N))
     以每一个位置为绳子末端, 找到绳子左端L, 对左边有序数组进行二分查找, 找到最左侧>=L的数的index
@@ -117,7 +116,7 @@ public class C01_CoverMaxPoint {
             while (right < N && (arr[right] - arr[left]) <= K) {
                 right++;
             }
-            max = Math.max(max, right - (left));
+            max = Math.max(max, right - left);
             left++;
         }
         return max;

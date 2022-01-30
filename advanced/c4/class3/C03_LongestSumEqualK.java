@@ -25,9 +25,9 @@ public class C03_LongestSumEqualK {
             return 0;
         }
         ans = 0;
-        Map<Integer, Integer> sumMap = new HashMap<>();
-        sumMap.put(0, -1); //前缀和方法必预处理内容
-        process(head, 0, 0, K, sumMap);
+        Map<Integer, Integer> preSumMap = new HashMap<>();
+        preSumMap.put(0, -1); //前缀和方法必预处理内容
+        process(head, 0, 0, K, preSumMap);
         return ans;
     }
 
@@ -52,9 +52,5 @@ public class C03_LongestSumEqualK {
     }
 
 
-    public static void main(String[] args) {
-
-
-    }
 
 }

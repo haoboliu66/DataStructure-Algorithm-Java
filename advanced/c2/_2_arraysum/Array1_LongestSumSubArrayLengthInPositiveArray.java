@@ -1,6 +1,5 @@
 package advanced.c2._2_arraysum;
 
-
 import org.junit.Test;
 
 public class Array1_LongestSumSubArrayLengthInPositiveArray {
@@ -168,7 +167,7 @@ public class Array1_LongestSumSubArrayLengthInPositiveArray {
         for (int i = 0; i < testTime; i++) {
             int[] arr = generatePositiveArray(len, value);
             int K = (int) (Math.random() * value) + 1;
-            int ans1 = getMaxLength(arr, K);
+            int ans1 = maxSubArrayLength(arr, K);
             int ans2 = right(arr, K);
             if (ans1 != ans2) {
                 System.out.println("Oops!");

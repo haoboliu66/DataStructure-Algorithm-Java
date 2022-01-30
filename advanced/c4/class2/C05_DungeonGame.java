@@ -6,22 +6,52 @@ public class C05_DungeonGame {
     174. Dungeon Game
      */
 
+    public static void main(String[] args) {
+        int[][] matrix = {{-2, -3, 3}, {-5, -10, 1}, {10, 30, -5}};
+        int res = calculateMinimumHP0(matrix);
+        System.out.println(res);
+    }
+
+    // 2021/04/29
+    public static int calculateMinimumHP0(int[][] matrix) {
+        return process0(matrix, 0, 0);
+    }
+
+    // 当前位置在i,j, 走到 m-1,n-1需要的最少HP
+    public static int process0(int[][] matrix, int i, int j) {
+        int m = matrix.length;
+        int n = matrix[0].length;
+        // 如果i,j来到最后, 他能登上这个点所需的最小HP是
+        if (i == m - 1 && j == n - 1) {
+            return matrix[i][j] <= 0 ? 1 - matrix[i][j] : 1;
+        }
+        // 普遍位置i,j
+        int cur = matrix[i][j];
+        int min;
+        int down = Integer.MAX_VALUE;
+        int right = Integer.MAX_VALUE;
+        if (i + 1 < m) {
+            down = process0(matrix, i + 1, j);
+        }
+        if (j + 1 < n) {
+            right = process0(matrix, i, j + 1);
+        }
+        // 当前i,j位置要走一个所需HP小的路径
+        min = Math.min(down, right);
+        // 如果cur < 0, 后续需要的HP就是 min + (-cur)
+        // 如果cur > 0 且cur >= 后续需要的min, 那么为了登上cur所在位置, 只要1 HP
+        // 如果cur > 0 且cur < 后续需要的min, 那么为了登上cur和后续, 需要补上 min-cur 的HP量
+                // 假设min是5, cur是3, 为了能走后面的路, 当前持有的HP至少要是2才可以
+        return Math.max(min - cur, 1);
+    }
+
     public static int calculateMinimumHP1(int[][] matrix) {
         if (matrix == null) {
             return 0;
         }
-
         return process(matrix, matrix.length, matrix[0].length, 0, 0);
     }
 
-    /**
-     * @param matrix 固定参数
-     * @param M      固定参数
-     * @param N      固定参数
-     * @param row    当前来到位置row
-     * @param col    当前来到位置col
-     * @return 最少需要的HP
-     */
     private static int process(int[][] matrix, int M, int N, int row, int col) {
         if (row == M - 1 && col == N - 1) { //到最后一个位置
             return matrix[row][col] < 0 ? 1 - matrix[row][col] : 1;

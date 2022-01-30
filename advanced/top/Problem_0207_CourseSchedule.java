@@ -4,6 +4,13 @@ import java.util.*;
 
 public class Problem_0207_CourseSchedule {
 
+
+    public static void main(String[] args) {
+        int mask = 0x55555555;
+        System.out.println(Integer.toBinaryString(mask));
+        System.out.println(mask);
+    }
+
     // fundamental.graph
     public boolean canFinish(int numCourses, int[][] prerequisites) {
 
@@ -105,7 +112,7 @@ public class Problem_0207_CourseSchedule {
         return total == 0;
     }
 
-    private class Course {
+    private static class Course {
         int id;
         int in;
         List<Integer> nexts;

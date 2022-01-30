@@ -20,7 +20,6 @@ public class C02_RecoverBST {
     }
 
     public static void recoverTree(TreeNode root) {
-
         if (root == null) {
             return;
         }
@@ -53,7 +52,6 @@ public class C02_RecoverBST {
 
     }
 
-
     public static void inOrder(TreeNode head, List<TreeNode> list) {
 
         Stack<TreeNode> stack = new Stack<>();
@@ -70,7 +68,6 @@ public class C02_RecoverBST {
 
 
     public static void process(TreeNode node, List<TreeNode> list) {
-
         if (node == null) {
             return;
         }

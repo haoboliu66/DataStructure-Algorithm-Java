@@ -1,12 +1,10 @@
 package advanced.c3.class4;
 
-import java.util.Arrays;
-
 public class C04_LIS {
 
     /*
-    Longest Increasing Sequence
-    LeetCode 300
+    lc 300 Longest Increasing Sequence
+    https://leetcode.com/problems/longest-increasing-subsequence/
      */
 
     //  O(N^2)
@@ -31,8 +29,6 @@ public class C04_LIS {
             }
             max = Math.max(max, dp[i]);
         }
-
-        System.out.println(Arrays.toString(dp));
         return max;
     }
 

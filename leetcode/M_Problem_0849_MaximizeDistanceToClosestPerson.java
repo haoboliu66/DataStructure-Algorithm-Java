@@ -1,8 +1,5 @@
 package leetcode;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class M_Problem_0849_MaximizeDistanceToClosestPerson {
 
     /*
@@ -21,13 +18,6 @@ public class M_Problem_0849_MaximizeDistanceToClosestPerson {
      */
 
     public int maxDistToClosest(int[] seats) {
-        if (seats == null || seats.length < 2) return 0;
-        List<Integer> people = new ArrayList<>();
-        for (int i = 0; i < seats.length; i++) {
-            if (seats[i] == 1) {
-                people.add(i);
-            }
-        }
 
         return 0;
 

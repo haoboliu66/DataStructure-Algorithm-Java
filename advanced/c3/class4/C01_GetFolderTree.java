@@ -3,9 +3,38 @@ package advanced.c3.class4;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.TreeMap;
 
 public class C01_GetFolderTree {
+
+    static class TrieNode {
+        public String path;
+        public Map<String, TrieNode> nextMap;
+
+        public TrieNode(String s) {
+            path = s;
+            nextMap = new HashMap<>();
+        }
+    }
+    // 生成Trie
+    public TrieNode printFolder(String[] paths) {
+        TrieNode head = new TrieNode("");
+        for (String p : paths) {
+            String[] nodes = p.split("////");
+            TrieNode cur = head;
+            for (String s : nodes) {
+                if (!cur.nextMap.containsKey(s)) {
+                    TrieNode next = new TrieNode(s);
+                    cur.nextMap.put(s, next);
+                }
+                TrieNode nextNode = cur.nextMap.get(s);
+            }
+        }
+        return head;
+    }
+
 
     static class Node {
         public String path;
@@ -29,7 +58,6 @@ public class C01_GetFolderTree {
                 sb.append(node.path);
                 return;
             }
-
             for (Node n : node.nextMap.values()) {
                 print(n);
             }
@@ -87,7 +115,6 @@ public class C01_GetFolderTree {
         Node head = generateFolderTree(paths);
         System.out.println(head);
     }
-
 
 
     @Test

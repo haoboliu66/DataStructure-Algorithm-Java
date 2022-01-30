@@ -21,7 +21,7 @@ public class E_Problem_0225_ImplementStackUsingQueues {
             in.offer(x);
         }
 
-        /** Removes the element on top of the stack and returns that element. */
+        /** Removes the element on advanced.top of the stack and returns that element. */
         public int pop() {
             while(in.size() != 1){
                 out.offer(in.poll());
@@ -31,7 +31,7 @@ public class E_Problem_0225_ImplementStackUsingQueues {
             return res;
         }
 
-        /** Get the top element. */
+        /** Get the advanced.top element. */
         public int top() {
             while(in.size() != 1){
                 out.offer(in.poll());

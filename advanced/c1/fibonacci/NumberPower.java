@@ -1,5 +1,8 @@
 package advanced.c1.fibonacci;
 
+
+ // 543, 501
+
 public class NumberPower {
 
     // 如何计算一个数字的N次方尽量快, 2分法

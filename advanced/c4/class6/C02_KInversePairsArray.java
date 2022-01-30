@@ -9,7 +9,6 @@ public class C02_KInversePairsArray {
      */
 
     //样本做行做列模型
-
     public static int kInversePairs(int n, int k) {
         if (n < 1 || k < 0) {
             return 0;
@@ -38,11 +37,6 @@ public class C02_KInversePairsArray {
 
         return dp[n][k];
     }
-
-
-
-
-
 
 
     /*

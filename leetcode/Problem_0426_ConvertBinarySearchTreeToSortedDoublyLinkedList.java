@@ -21,7 +21,7 @@ public class Problem_0426_ConvertBinarySearchTreeToSortedDoublyLinkedList {
 
         @Override
         public String toString() {
-            return "Node{" +
+            return "TreeNode{" +
                     "val=" + val +
                     '}';
         }

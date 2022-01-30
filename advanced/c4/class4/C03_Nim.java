@@ -6,14 +6,14 @@ public class C03_Nim {
 
     //当先手面对异或和为0的情况, 他一定赢不了, 因为他不论怎么拿一定会破坏异或和为0的情况,
     //后手操作之后都一定会让他再次面对异或和为0的情况
-    public static void printWinner(int[] arr){
-        int eor = 0;
-        for(int num: arr){
-            eor ^= num;
+    public static void printWinner(int[] arr) {
+        int xor = 0;
+        for (int num : arr) {
+            xor ^= num;
         }
-        if(eor == 0){
+        if (xor == 0) {
             System.out.println("后手赢");
-        }else{
+        } else {
             System.out.println("先手赢");
         }
     }

@@ -6,44 +6,75 @@ public class M_Problem_0735_AsteroidCollision {
 
     /* stack */
 
-    // not done yet
-
-    // 5,10,-5
     public int[] asteroidCollision(int[] arr) {
         Stack<Integer> stack = new Stack<>();
-        stack.add(arr[0]);
-        for(int i = 1; i < arr.length; i++){
-            int cur = arr[i];
-            int front = stack.peek();
-            if(front < 0 && cur < 0 || front > 0 && cur > 0 || front < 0 && cur > 0){
-                stack.push(front);
-                stack.push(cur);
-            }
-            //  -5
-            if(front > 0 && cur < 0){
-                while(!stack.isEmpty() && stack.peek() > 0){
-                    front = stack.pop();
-                    int t = Math.abs(front) == Math.abs(cur)? 0: Math.abs(front) > Math.abs(cur)? front: cur;
-                    if(t > 0){
-                        stack.push(t);
-                        break;
-                    }else if(t == 0){
-                        break;
-                    }else{
-                        cur = t;
-                    }
+        int n = arr.length;
+        int cur = 0;
+        for (int i = 0; i < n; ) {
 
+            if (stack.isEmpty() || neverHit(cur, arr[i])) {
+                stack.push(arr[i++]);
+                cur = stack.peek();
+
+            } else {
+                // cur > 0 && arr[i] < 0
+                if (cur + arr[i] == 0) {
+                    stack.pop();
+                    i++;
+                } else if (cur + arr[i] < 0) {
+                    stack.pop();
+                } else {
+                    i++;
                 }
-
+                // move cur to the next element to compare
+                if (!stack.isEmpty()) {
+                    cur = stack.peek();
+                }
             }
-
-
         }
-        int n = stack.size();
-        int[] res = new int[n];
-        for(int i = n - 1; i >= 0; i--){
-            res[i] = stack.pop();
+
+        int size = stack.size();
+        int[] res = new int[size];
+        int index = size - 1;
+        while (size != 0) {
+            res[index--] = stack.pop();
+            size--;
         }
         return res;
     }
+
+    private boolean neverHit(int a, int b) {
+        return (a == b) || (a > 0 && b > 0) || (a < 0 && b < 0) || (a < 0 && b > 0);
+    }
+
+    /* ---------------------------------------  */
+
+    public int[] asteroidCollision2(int[] asteroids) {
+        if (asteroids.length <= 1) return asteroids;  // Handling Corner cases
+
+        Stack<Integer> stack = new Stack<>();
+        for (int asteriod : asteroids) {
+            if (asteriod > 0) { // Pushing all +ve asteroids
+                stack.push(asteriod);
+            } else {
+                // Remove all positive asteroids before our current asteroid
+                while (!stack.isEmpty() && stack.peek() > 0 && Math.abs(stack.peek()) < Math.abs(asteriod))
+                    stack.pop();
+                // Checking if the stack is empty or the recent asteriod is negative!
+                if (stack.isEmpty() || stack.peek() < 0)
+                    stack.push(asteriod);
+                    // If recent asteriod <= our asteriod, We broke our outer loop if equal we pop it.
+                else if (stack.peek() == Math.abs(asteriod))
+                    stack.pop();
+            }
+        }
+
+        int[] output = new int[stack.size()];
+        for (int i = output.length - 1; i >= 0; i--)
+            output[i] = stack.pop();
+
+        return output;
+    }
+
+
 }

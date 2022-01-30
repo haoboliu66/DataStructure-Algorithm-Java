@@ -1,12 +1,8 @@
 package advanced.c3.class3;
 
 public class C03_MinPathSum {
-
-
-
     /*
     64. Minimum Path Sum
-
     空间压缩
      */
 
@@ -63,7 +59,6 @@ public class C03_MinPathSum {
         dp[i][j] = Math.min(right, down) + grid[i][j];
         return dp[i][j];
     }
-
 
     // DP
     public static int minPathSum2(int[][] grid) {

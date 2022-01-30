@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import java.util.Arrays;
 
-public class C04_KTimesOneTime {
+public class C04_AmongKTimesFindOneTime {
 
     public static int onceNum(int[] arr, int k) {
 

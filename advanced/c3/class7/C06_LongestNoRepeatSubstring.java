@@ -2,11 +2,12 @@ package advanced.c3.class7;
 
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class C06_LongestNoRepeatSubstring {
 
     /*
-    LeetCode 3 Longest Substring Without Repeating Characters
+    LC 3 Longest Substring Without Repeating Characters
      */
 
     public static int maxUnique(String s) {
@@ -53,6 +54,32 @@ public class C06_LongestNoRepeatSubstring {
             map.put(str[i], i);
         }
         return len;
+    }
+
+    // my solution with Map
+    public int lengthOfLongestSubstring(String s) {
+        if (s == null || "".equals(s)) return 0;
+        char[] str = s.toCharArray();
+        int max = Integer.MIN_VALUE, pre = -1;
+        Map<Character, Integer> map = new HashMap<>();
+        for (int i = 0; i < str.length; i++) {
+            if (!map.containsKey(str[i])) {
+                map.put(str[i], i);
+                // 1.以当前字符为界
+                // 2. 以i-1的字符为界
+                // 当前字符首先的边界:
+                // 10(lastIndex) 11 12 13(pre) 14 15 16 17
+                max = Math.max(max, i - pre);
+            } else {
+                // 10 11 12 13 14 15 16 17
+                // 1.以当前字符为界
+                // 2. 以i-1的字符为界
+                pre = Math.max(map.get(str[i]), pre);
+                max = Math.max(max, i - pre);
+                map.put(str[i], i);
+            }
+        }
+        return max;
     }
 
 

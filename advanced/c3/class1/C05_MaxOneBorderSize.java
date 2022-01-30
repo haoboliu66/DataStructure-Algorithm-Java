@@ -371,6 +371,8 @@ public class C05_MaxOneBorderSize {
 
     /* --------------------------------↓ Class1 - C05 Code ↓--------------------------------------------- */
 
+    // 1139. Largest 1-Bordered Square
+
     // zuo code
     public static void setBorderMap(int[][] m, int[][] right, int[][] down) {
         int r = m.length;

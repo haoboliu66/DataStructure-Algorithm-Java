@@ -2,9 +2,7 @@ package advanced.c3.class3;
 
 public class C05_LCSubstring {
 
-    /*
-    空间压缩
-     */
+    /* 空间压缩 */
 
     public static int longestCommonSubstring1(String s1, String s2) {
         if (s1 == null || s2 == null || "".equals(s1) || "".equals(s2)) {

@@ -4,6 +4,38 @@ import java.util.Arrays;
 
 public class C02_SmallestUnFormedSum {
 
+    // 背包 solution
+    public static int unformedSum0(int[] arr) {
+        int n = arr.length;
+        int max = 0, min = Integer.MAX_VALUE;
+        for (int i = 0; i < n; i++) {
+            min = Math.min(arr[i], min);
+            max += arr[i];
+        }
+        // range -> [min, max]
+        // 0...i 自由选择, 是否可以组成[min...max]
+        boolean[][] dp = new boolean[n][max + 1]; // 1...5 => [1,2,3,4,5]
+        for (int j = min; j <= max; j++) {
+            for (int i = 0; i < n; i++) {
+                dp[i][j] = arr[i] == j;
+            }
+        }
+        // dp[i][j] => dp[i-1][j] | dp[i-1][j-arr[i]]
+        for (int i = 1; i < n; i++) {
+            for (int j = min; j <= max; j++) {
+                dp[i][j] |= dp[i - 1][j];
+                if (j - arr[i] >= min) {
+                    dp[i][j] |= dp[i - 1][j - arr[i]];
+                }
+            }
+        }
+        for (int j = min; j <= max; j++) {
+            if (!dp[n - 1][j]) return j;
+        }
+        return max + 1;
+    }
+
+
     public static int unformedSum1(int[] arr) {
         if (arr == null || arr.length == 0) {
             return 0;
@@ -38,7 +70,6 @@ public class C02_SmallestUnFormedSum {
                 return j;
             }
         }
-
         return sum + 1;
     }
 
@@ -59,7 +90,6 @@ public class C02_SmallestUnFormedSum {
                 return range + 1;
             }
         }
-
         return range + 1;
     }
 
@@ -81,29 +111,25 @@ public class C02_SmallestUnFormedSum {
     }
 
     public static void main(String[] args) {
-        int len = 27;
-        int max = 30;
+        int len = 27, max = 30, times = 10000;
         int[] arr = generateArray(len, max);
-        printArray(arr);
-
-        long start = System.currentTimeMillis();
-        System.out.println(unformedSum1(arr));
-        long end = System.currentTimeMillis();
-        System.out.println("cost time: " + (end - start) + " ms");
-        System.out.println("======================================");
-
+        //printArray(arr);
+        for (int i = 0; i < times; i++) {
+            arr = generateArray(len, max);
+            int res1 = unformedSum0(arr);
+            int res2 = unformedSum1(arr);
+            if (res1 != res2) {
+                System.out.println("Oops");
+                break;
+            }
+        }
+        System.out.println("Done");
 //        start = System.currentTimeMillis();
 //        System.out.println(unformedSum2(arr));
 //        end = System.currentTimeMillis();
 //        System.out.println("cost time: " + (end - start) + " ms");
 //        System.out.println("======================================");
 
-        System.out.println("set arr[0] to 1");
-        arr[0] = 1;
-        start = System.currentTimeMillis();
-        System.out.println(unformedSum2(arr));
-        end = System.currentTimeMillis();
-        System.out.println("cost time: " + (end - start) + " ms");
 
     }
 }

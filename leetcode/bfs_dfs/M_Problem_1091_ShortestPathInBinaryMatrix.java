@@ -5,10 +5,10 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class M_Problem_1091_ShortestPathInBinaryMatrix {
-    /*  lattice graph */
+    /*  lattice fundamental.graph */
 
 
-    /* To find the shortest path in a graph, use BFS ! */
+    /* To find the shortest path in a fundamental.graph, use BFS ! */
 
     private static class Pair {
         int x;

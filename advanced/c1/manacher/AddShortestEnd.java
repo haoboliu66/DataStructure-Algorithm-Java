@@ -1,18 +1,10 @@
 package advanced.c1.manacher;
 
-/**
- * @author andy-liu
- * @date 2020/6/9 - 9:25 AM
- */
 
-
-/*
-    Leetcode 214
- */
 public class AddShortestEnd {
-
     /*
-    Shortest Palindrome
+    214. Shortest Palindrome
+    https://leetcode.com/problems/shortest-palindrome/
      */
     public static String shortestEnd(String s) {
         if (s == null || s.length() == 0) {

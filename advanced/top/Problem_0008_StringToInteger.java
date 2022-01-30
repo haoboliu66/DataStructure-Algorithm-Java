@@ -19,7 +19,6 @@ public class Problem_0008_StringToInteger {
 
         s = keepDigit(s1);
 
-
         boolean isNegative = false;
         if (s.charAt(0) == '-') {
             isNegative = true;

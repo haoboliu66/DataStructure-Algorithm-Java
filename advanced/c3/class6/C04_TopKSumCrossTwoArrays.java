@@ -1,16 +1,99 @@
 package advanced.c3.class6;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.PriorityQueue;
+import java.util.*;
 
 public class C04_TopKSumCrossTwoArrays {
-    /*
-    Q: 两个有序数组arr1,arr2,一定整数K, 求两个数累加和最大的前K个, 两个数必须分别来自arr1和arr2
 
-    大根堆 + 二维表
+    /*
+    Q: 两个有序数组arr1,arr2,一整数K, 求两个数累加和最大的前K个, 两个数必须分别来自arr1和arr2
+
+    大根堆 + 二维表 Set
+
+    https://www.nowcoder.com/practice/7201cacf73e7495aa5f88b223bbbf6d1
      */
 
+    private static class SumNode {
+        int index1;
+        int index2;
+        int sum;
+
+        public SumNode(int i, int j, int s) {
+            index1 = i;
+            index2 = j;
+            sum = s;
+        }
+    }
+
+
+    public static int[] topKSumInTwoSortedArrays(int[] arr1, int[] arr2, int K) {
+        int[] res = new int[K];
+        int i = 0;
+        PriorityQueue<SumNode> maxHeap = new PriorityQueue<>((SumNode n1, SumNode n2) -> {
+            return n2.sum - n1.sum;
+        });
+        int index1 = arr1.length - 1, index2 = arr2.length - 1;
+        SumNode cur = new SumNode(index1, index2, arr1[index1] + arr2[index2]);
+        maxHeap.offer(cur);
+        Set<Long> visited = new HashSet<>();
+        visited.add(index(index1, index2, arr1.length));
+        while (!maxHeap.isEmpty()) {
+            cur = maxHeap.poll();
+            res[i++] = cur.sum;
+            index1 = cur.index1;
+            index2 = cur.index2;
+            visited.remove(index(index1, index2, arr1.length));
+            if (i == K) {
+                break;
+            }
+            if (index1 > 0 && !visited.contains(index(index1 - 1, index2, arr1.length))) {
+                maxHeap.offer(new SumNode(index1 - 1, index2, arr1[index1 - 1] + arr2[index2]));
+                visited.add(index(index1 - 1, index2, arr1.length));
+            }
+            if (index2 > 0 && !visited.contains(index(index1, index2 - 1, arr1.length))) {
+                maxHeap.offer(new SumNode(index1, index2 - 1, arr1[index1] + arr2[index2 - 1]));
+                visited.add(index(index1, index2 - 1, arr1.length));
+            }
+        }
+        return res;
+    }
+
+    // 二维 转 一维
+    private static long index(int index1, int index2, int N) {
+        return (long) (index1 * N + index2);
+    }
+
+
+
+    public static int[] topKSumInTwoArrays(int[] arr1, int[] arr2, int K) {
+        int m = arr1.length, n = arr2.length, index = 0;
+        int[] res = new int[K];
+        PriorityQueue<SumNode> maxHeap = new PriorityQueue<>((n1, n2) -> n2.sum - n1.sum);
+        boolean[][] used = new boolean[m][n];
+        maxHeap.add(new SumNode(m - 1, n - 1, arr1[m - 1] + arr2[n - 1]));
+        used[m - 1][n - 1] = true;
+        while (!maxHeap.isEmpty()) {
+            SumNode cur = maxHeap.poll();
+            int index1 = cur.index1;
+            int index2 = cur.index2;
+            res[index++] = cur.sum;
+            if (index >= K) break;
+            if (index1 - 1 >= 0 && !used[index1 - 1][index2]) {
+                maxHeap.offer(new SumNode(index1 - 1, index2, arr1[index1 - 1] + arr2[index2]));
+                used[index1 - 1][index2] = true;
+            }
+            if (index2 - 1 >= 0 && !used[index1][index2 - 1]) {
+                maxHeap.offer(new SumNode(index1, index2 - 1, arr1[index1] + arr2[index2 - 1]));
+                used[index1][index2 - 1] = true;
+            }
+        }
+        return res;
+    }
+
+
+
+
+
+    /* ---------------------------- */
     static class Node {
         int index1;
         int index2;
@@ -76,7 +159,7 @@ public class C04_TopKSumCrossTwoArrays {
         return res;
     }
 
-    // For test, this method is inefficient but absolutely right
+    // For test
     public static int[] topKSumTest(int[] arr1, int[] arr2, int topK) {
         int[] all = new int[arr1.length * arr2.length];
         int index = 0;
@@ -94,7 +177,7 @@ public class C04_TopKSumCrossTwoArrays {
         return res;
     }
 
-    public static int[] generateRandomSortArray(int len) {
+    private static int[] generateRandomSortArray(int len) {
         int[] res = new int[len];
         for (int i = 0; i != res.length; i++) {
             res[i] = (int) (Math.random() * 50000) + 1;
@@ -123,22 +206,26 @@ public class C04_TopKSumCrossTwoArrays {
     }
 
     public static void main(String[] args) {
-        int a1Len = 5000;
-        int a2Len = 4000;
-        int k = 20000000;
-        int[] arr1 = generateRandomSortArray(a1Len);
-        int[] arr2 = generateRandomSortArray(a2Len);
-        long start = System.currentTimeMillis();
-        int[] res = topKSum(arr1, arr2, k);
-        long end = System.currentTimeMillis();
-        System.out.println(end - start + " ms");
-
-        start = System.currentTimeMillis();
-        int[] absolutelyRight = topKSumTest(arr1, arr2, k);
-        end = System.currentTimeMillis();
-        System.out.println(end - start + " ms");
-
-        System.out.println(isEqual(res, absolutelyRight));
+        int a1Len = 10;
+        int a2Len = 12;
+        int k = 7;
+        int[] arr1, arr2;
+        System.out.println("Go");
+        for (int i = 0; i < 10000; i++) {
+            arr1 = generateRandomSortArray(a1Len);
+            arr2 = generateRandomSortArray(a2Len);
+            int[] res = topKSum(arr1, arr2, k);
+            int[] res2 = topKSumInTwoArrays(arr1, arr2, k);
+            int[] absolutelyRight = topKSumTest(arr1, arr2, k);
+            if (!isEqual(res, res2) || !isEqual(res2, absolutelyRight)) {
+                System.out.println("res: " + Arrays.toString(res));
+                System.out.println("res2: " + Arrays.toString(res2));
+                System.out.println("right: " + Arrays.toString(absolutelyRight));
+                System.out.println("Oops");
+                break;
+            }
+        }
+        System.out.println("Done");
 
     }
 

@@ -3,7 +3,7 @@ package advanced.c4.class1;
 public class C01_LongestIncreasingPath {
 
     /*
-    leetcode 329. Longest Increasing Path in a Matrix
+    lc 329. Longest Increasing Path in a Matrix
      */
 
     //方法一: 暴力递归
@@ -28,7 +28,6 @@ public class C01_LongestIncreasingPath {
         if (row < 0 || row == matrix.length || col < 0 || col == matrix[0].length) {
             return 0;
         }
-
         int up = 0;
         int down = 0;
         int left = 0;
@@ -50,7 +49,7 @@ public class C01_LongestIncreasingPath {
             right += process1(matrix, row, col + 1);
         }
 
-        int res = 0;
+        int res;
         res = 1 + Math.max(Math.max(up, down), Math.max(left, right));
 
         return res;

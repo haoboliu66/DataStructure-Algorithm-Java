@@ -15,6 +15,7 @@ public class C04_DistinctSubsequences {
         int[][] dp = new int[M][N];// dp[i][j]: str1 0...i删成str2的 0...j有几种方法
 
         dp[0][0] = str1[0] == str2[0] ? 1 : 0;//第一行其余位置都是0
+        // 相等的话, 有一种方案, 叫什么也不删
 
         int t = dp[0][0];
         for (int i = 1; i < M; i++) { //填第一列

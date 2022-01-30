@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.string;
 
 public class M_Problem_0926_FlipStringToMonotoneIncreasing {
 

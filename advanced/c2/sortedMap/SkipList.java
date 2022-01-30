@@ -12,7 +12,7 @@ import java.util.TreeMap;
 
 public class SkipList {
 
-    // SkipList Node
+    // SkipList TreeNode
     public static class SkipListNode<K extends Comparable<K>, V> {
         public K key;
         public V val;

@@ -3,10 +3,11 @@ package advanced.c3.class5;
 
 import java.util.*;
 
-public class C05_WordMinPaths {
+public class C05_WordLadder {
 
     /*
-    LeetCode 126. Word Ladder II
+    https://leetcode.com/problems/word-ladder/
+    https://leetcode.com/problems/word-ladder-ii/
      */
 
     public static List<List<String>> findMinPaths(String start, String end, List<String> list) {
@@ -90,14 +91,14 @@ public class C05_WordMinPaths {
         distances.put(start, 0);
         Queue<String> queue = new LinkedList<>();
         queue.add(start);
-        HashSet<String> set = new HashSet<>();
-        set.add(start);
+        HashSet<String> visited = new HashSet<>();
+        visited.add(start);
         while (!queue.isEmpty()) {
             String cur = queue.poll();
             for (String next : nexts.get(cur)) {
-                if (!set.contains(next)) {
+                if (!visited.contains(next)) {
                     queue.add(next);
-                    set.add(next);
+                    visited.add(next);
                     distances.put(next, distances.get(cur) + 1);
                 }
             }
@@ -118,8 +119,6 @@ public class C05_WordMinPaths {
         list.add("cog");
         List<List<String>> res = findMinPaths(start, end, list);
         System.out.println(res);
-
-
     }
 
 

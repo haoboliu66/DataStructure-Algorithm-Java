@@ -1,37 +1,92 @@
 package advanced.c4.class5;
 
+import java.lang.String;
+
 import java.util.LinkedList;
 import java.util.Stack;
 
-public class C03_ExpressionCompute {
+public class C03_BasicCalculator {
 
     /*
     227. Basic Calculator II - medium
     224. Basic Calculator - hard
+
+    类似https://leetcode.com/problems/number-of-atoms/
      */
 
-    public static int calculate(String s) {
-
-        char[] str = shedSpace(s);
-        return value(str, 0)[0];
+    // no '('  and  ')'
+    public static int calculateII(String s) {
+        Stack<String> stack = new Stack<>();
+        char[] str = shedSpace0(s);
+        int cur;
+        for (int i = 0; i < str.length; ) {
+            cur = 0;
+            if (isOperator(str[i])) {
+                stack.push(String.valueOf(str[i++]));
+                continue;
+            }
+            char c;
+            while (i < str.length && (c = str[i]) >= '0' && c <= '9') {
+                cur = cur * 10 + (c - '0');
+                i++;
+            }
+            if (!stack.isEmpty() && (stack.peek().equals("*") || stack.peek().equals("/"))) {
+                String operator = stack.pop();
+                String operand = stack.pop();
+                String tmp = multiplyOrDivide(operand, String.valueOf(cur), operator);
+                stack.push(tmp);
+            } else {
+                stack.push(String.valueOf(cur));
+            }
+        }
+        return addOrSubtract(stack);
     }
 
-    public static char[] shedSpace(String s) {
-        char[] s1 = s.toCharArray();
-        int space = 0;
-        for (int i = 0; i < s1.length; i++) {
-            if (s1[i] == ' ') {
-                space++;
+    private static boolean isOperator(char c) {
+        return c == '+' || c == '-' || c == '*' || c == '/';
+    }
+
+    private static int addOrSubtract(Stack<String> stack) {
+        int cur = 0;
+        while (stack.size() != 1) {
+            String num = stack.pop();
+            String operator = stack.pop();
+            cur += operator.equals("+") ? Integer.parseInt(num) : Integer.parseInt(num) * (-1);
+        }
+        cur += Integer.parseInt(stack.pop());
+        return cur;
+    }
+
+    private static String multiplyOrDivide(String c1, String c2, String operator) {
+        int n1 = Integer.parseInt(c1);
+        int n2 = Integer.parseInt(c2);
+        if ("*".equals(operator)) {
+            return String.valueOf(n1 * n2);
+        } else {
+            return String.valueOf(n1 / n2);
+        }
+    }
+
+    public static char[] shedSpace0(String ss) {
+        StringBuilder sb = new StringBuilder();
+        char[] str = ss.toCharArray();
+        for (char c : str) {
+            if (c != ' ') {
+                sb.append(c);
             }
         }
-        char[] str = new char[s1.length - space];
-        int index = 0;
-        for (int i = 0; i < s1.length; i++) {
-            if (s1[i] != ' ') {
-                str[index++] = s1[i];
-            }
-        }
-        return str;
+        return sb.toString().toCharArray();
+    }
+
+    public static void main(String[] args) {
+        String s = "  3 / 2";
+        System.out.println(calculateII(s));
+    }
+
+
+    public static int calculate(String s) {
+        char[] str = shedSpace(s);
+        return value(str, 0)[0];
     }
 
     // 请从str[i...]往下算，遇到字符串终止位置或者右括号，就停止
@@ -67,7 +122,7 @@ public class C03_ExpressionCompute {
     //把一个数字num加入队列(根据栈顶内容情况看是否需要整合)
     private static void addNum(LinkedList<String> queue, int num) {
         if (!queue.isEmpty()) {
-            int cur = 0;
+            int cur;
             String top = queue.pollLast();
             if ("+".equals(top) || "-".equals(top)) {
                 queue.addLast(top);
@@ -99,6 +154,24 @@ public class C03_ExpressionCompute {
         return res;
     }
 
+    public static char[] shedSpace(String s) {
+        char[] s1 = s.toCharArray();
+        int space = 0;
+        for (int i = 0; i < s1.length; i++) {
+            if (s1[i] == ' ') {
+                space++;
+            }
+        }
+        char[] str = new char[s1.length - space];
+        int index = 0;
+        for (int i = 0; i < s1.length; i++) {
+            if (s1[i] != ' ') {
+                str[index++] = s1[i];
+            }
+        }
+        return str;
+    }
+
     /*------------------------------------------------------------------------------------  */
 
     public static int calculate2(String s) {
@@ -106,7 +179,6 @@ public class C03_ExpressionCompute {
             return 0;
         }
         char[] str = shedSpace(s);
-
         LinkedList<String> queue = new LinkedList<>();
 
         int res = 0;
@@ -168,10 +240,5 @@ public class C03_ExpressionCompute {
         return re;
     }
 
-
-    public static void main(String[] args) {
-        String s = "3+2*2";
-        System.out.println(calculate2(s));
-    }
 
 }

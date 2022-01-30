@@ -7,7 +7,6 @@ public class C01_DeleteMinCost {
     /*
     Q: 给定s1和s2, 问s2最少删多少个字符能变成s1的子串
      */
-
     // 方法一: 找到所有的s2的子序列, 按长度由大到小排序, 依次去和s1做KMP
     public static int minCost1(String s1, String s2) {
         ArrayList<String> subStrings = new ArrayList<>();

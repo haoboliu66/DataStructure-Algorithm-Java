@@ -8,6 +8,8 @@ public class C06_TopKTimes {
     /*
     347. Top K Frequent Elements
     692. Top K Frequent Words
+
+    数组中求topK 大/小 -> 快排改写 / bfprt
      */
 
     public static class Node implements Comparable<Node> {

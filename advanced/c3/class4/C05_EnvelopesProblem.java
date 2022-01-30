@@ -7,26 +7,8 @@ import java.util.Comparator;
 public class C05_EnvelopesProblem {
 
     /*
-    LeetCode 354
+    LeetCode 354. Russian Doll Envelopes
      */
-
-    public static class Envelope {
-        int width;
-        int height;
-
-        public Envelope(int width, int height) {
-            this.width = width;
-            this.height = height;
-        }
-    }
-
-    public static class EnvelopeComparator implements Comparator<Envelope> {
-        @Override
-        public int compare(Envelope o1, Envelope o2) {
-            return o1.width != o2.width ? o1.width - o2.width : o2.height - o1.height;
-        }
-    }
-
 
     public static int maxEnvelopes(int[][] envelopes) {
         if (envelopes == null || envelopes.length < 1) {
@@ -62,6 +44,23 @@ public class C05_EnvelopesProblem {
         }
 
         return right + 1;
+    }
+
+    public static class Envelope {
+        int width;
+        int height;
+
+        public Envelope(int width, int height) {
+            this.width = width;
+            this.height = height;
+        }
+    }
+
+    public static class EnvelopeComparator implements Comparator<Envelope> {
+        @Override
+        public int compare(Envelope o1, Envelope o2) {
+            return o1.width != o2.width ? o1.width - o2.width : o2.height - o1.height;
+        }
     }
 
 

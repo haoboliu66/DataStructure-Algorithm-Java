@@ -38,7 +38,7 @@ public class C02_Islands {
     }
 
 
-    public static class Node<V> {
+    private static class Node<V> {
         V value;
 
         public Node(V val) {
@@ -93,8 +93,8 @@ public class C02_Islands {
             if (!nodes.containsKey(value1) || !nodes.containsKey(value2)) {
                 return;
             }
-//            Node<V> head1 = nodes.get(value1);
-//            Node<V> head2 = nodes.get(value2);
+//            TreeNode<V> head1 = nodes.get(value1);
+//            TreeNode<V> head2 = nodes.get(value2);
             Node<V> head1 = parents.get(value1);
             Node<V> head2 = parents.get(value2);
             Node<V> larger = sizeMap.get(head1) >= sizeMap.get(head2) ? head1 : head2;
@@ -103,7 +103,6 @@ public class C02_Islands {
             parents.put(smaller, larger);
             sizeMap.put(larger, sizeMap.get(larger) + sizeMap.get(smaller));
             parents.remove(smaller);
-
         }
 
 

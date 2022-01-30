@@ -1,10 +1,11 @@
 package advanced.c3.class6;
 
 
-public class C06_StringCross {
+public class C06_InterleavingString {
 
     /*
     lc 97. Interleaving String
+    https://leetcode.com/problems/interleaving-string/
      */
 
     public static boolean isCross1(String s1, String s2, String s3) {

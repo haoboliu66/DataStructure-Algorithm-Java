@@ -3,7 +3,7 @@ package advanced.top;
 public class Problem_0003_LongestSubstringWithoutRepeatingCharacters {
 
     /*
-    c3 - class7 - C06讲过
+    c3 - class7
      */
 
     public int lengthOfLongestSubstring(String s) {

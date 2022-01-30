@@ -4,6 +4,8 @@ import java.util.Stack;
 
 public class M_Problem_1381_DesignStackWithIncrementOperation {
 
+    /* Lazy Increment */
+
     // My Solution
     private class CustomStack {
 

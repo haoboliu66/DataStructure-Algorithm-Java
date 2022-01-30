@@ -2,28 +2,34 @@ package advanced.c4.class3;
 
 import java.util.*;
 
-public class C02_WorldBreak {
+public class C02_WordBreak {
 
-    public static boolean wordBreak0(String s, List<String> wordDict) {
-        return process0(s, 0, new HashSet<>(wordDict));
+    // TLE
+    public static boolean wordBreak(String s, List<String> wordDict) {
+        Set<String> set = new HashSet<>(wordDict);
+        return process(s, 0, set);
     }
 
-    public static boolean process0(String s, int index, Set<String> wordDict) {
+    public static boolean process(String s, int index, Set<String> set) {
         if (index == s.length()) {
             return true;
         }
-        boolean ans = false;
+        boolean res = false;
         for (int end = index; end < s.length(); end++) {
             String prefix = s.substring(index, end + 1);
-            if (wordDict.contains(prefix)) {
-                ans |= process0(s, end + 1, wordDict);
+            if (set.contains(prefix)) {
+                res |= process(s, end + 1, set);
+                if (res) {
+                    break;
+                }
             }
         }
-        return ans;
+        return res;
     }
 
     public static boolean wordBreakMemo(String s, List<String> wordDict) {
         int[] dp = new int[s.length() + 1];
+        // 以i位置结尾的子串能不能被搞定
         Arrays.fill(dp, -1);
         return processMemo(s, 0, new HashSet<>(wordDict), dp);
     }
@@ -48,6 +54,7 @@ public class C02_WorldBreak {
         dp[index] = ans ? 1 : 0;
         return ans;
     }
+
 
     public static class Node {
         Node[] nexts = new Node[128];
@@ -104,7 +111,6 @@ public class C02_WorldBreak {
         for (String word : wordDict) {
             trie.add(word);
         }
-
         int n = s.length();
         int[] dp = new int[n + 1];
         dp[n] = 1;

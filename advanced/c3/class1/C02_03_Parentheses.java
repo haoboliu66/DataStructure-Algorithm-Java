@@ -1,9 +1,5 @@
 package advanced.c3.class1;
 
-import org.junit.Test;
-
-import java.io.FileNotFoundException;
-
 public class C02_03_Parentheses {
 
     /*
@@ -74,16 +70,79 @@ public class C02_03_Parentheses {
         return max;
     }
 
-    @Test
-    public void test() {
-        String s = "((((()))(((())))))";
-        System.out.println(parenthesesDeep(s));
-        System.out.println(deep(s));
+    /*
+    Q4: 给定一个括号字符串, 求最长有效括号子串长度
+    lc 32 https://leetcode.com/problems/longest-valid-parentheses/
+     */
+    public static int longestValidParentheses(String s) {
+        if (s == null || s.length() < 2) {
+            return 0;
+        }
+        char[] str = s.toCharArray();
+        int[] dp = new int[str.length];
+        int max = 0;
+        for (int i = 1; i < str.length; i++) {
+            if (str[i] == ')') {
+                // str[i] == ')'
+                // i >= 1
+                int preIndex = i - 1 - dp[i - 1];
+                if (preIndex >= 0 && str[preIndex] == '(') {
+                    dp[i] = 2 + dp[i - 1];
+                    dp[i] += (preIndex - 1 > 0 ? dp[preIndex - 1] : 0);
+                }
+            }
+            max = Math.max(dp[i], max);
+        }
+        return max;
     }
 
-    /*
-    Q4: 给定一个有效括号字符串, 最长有效括号子串长度    lc 32
-     */
+    public static void main(String[] args) {
+        int len = 200, times = 100000;
+        String s;
+        System.out.println("Started");
+        for (int i = 0; i < times; i++) {
+            s = generateRandomParenthesis(len);
+            int res1 = longestValidParentheses(s);
+            int res2 = longestValidParenthesesRight(s);
+            if (res1 != res2) {
+                System.out.println("Oops");
+                System.out.println(s);
+                break;
+            }
+        }
+        System.out.println("Done");
+    }
+
+    public static int longestValidParenthesesRight(String s) {
+        if (s == null || s.length() < 2) {
+            return 0;
+        }
+        char[] str = s.toCharArray();
+        int max = 0;
+        int count;
+        for (int i = 0; i < str.length; i++) {
+            count = 0;
+            for (int j = i; j < str.length; j++) {
+                if (str[j] == '(') count++;
+                if (str[j] == ')') count--;
+                if (count < 0) break;
+                if (count == 0) {
+                    max = Math.max(max, j - i + 1);
+                }
+            }
+        }
+        return max;
+    }
+
+    private static String generateRandomParenthesis(int len) {
+        char[] str = new char[(int) ((Math.random() + 1) * len)];
+        for (int i = 0; i < str.length; i++) {
+            str[i] = (Math.random() > 0.5 ? ')' : '(');
+        }
+        return new String(str);
+    }
+
+
     public static int maxLength(String s) {
         if (s == null || s.length() < 2) {
             return 0;
@@ -103,14 +162,7 @@ public class C02_03_Parentheses {
             }
             res = Math.max(res, dp[i]); //每个位置的值都跟max比
         }
-
         return res;
     }
-
-    public static void main(String[] args) throws FileNotFoundException {
-
-
-    }
-
 
 }

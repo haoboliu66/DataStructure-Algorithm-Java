@@ -1,11 +1,9 @@
 package advanced.c3.class6;
 
+/*  LC 132. Palindrome Partitioning II */
+public class C07_PalindromePartitioningII {
 
-public class C07_PMinParts {
-    /*
-    LC 131. Palindrome Partitioning
-    LC 132. Palindrome Partitioning II
-    */
+    /* LC 131. Palindrome Partitioning  */
 
     /*
     LC 647. Palindromic Substrings  => 判断String [i...j] 上是不是回文

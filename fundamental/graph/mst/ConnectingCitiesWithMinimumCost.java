@@ -4,6 +4,57 @@ import java.util.*;
 
 public class ConnectingCitiesWithMinimumCost {
 
+    public int minimumCost0(int n, int[][] connections) {
+
+        // map a -> (b, c)  a->b  c(cost)
+        Map<Integer, Map<Integer, Integer>> graph = new HashMap<>();
+        Set<Integer> nodeSet = new HashSet<>();
+        for (int[] conn : connections) {
+            int from = conn[0];
+            int to = conn[1];
+            int cost = conn[2];
+            if (!graph.containsKey(from)) {
+                graph.put(from, new HashMap<>());
+            }
+            graph.get(from).put(to, cost);
+        }
+        PriorityQueue<int[]> minHeap = new PriorityQueue<>((a, b) -> a[2] - b[2]);
+        Set<int[]> result = new HashSet<>();
+        // start from a random node
+        for (Integer cur : graph.keySet()) {
+
+            if (!nodeSet.contains(cur)) {
+                nodeSet.add(cur);
+                Map<Integer, Integer> curAdjs = graph.get(cur);
+                // 解锁这个node的相邻边, 放入堆
+                for (Integer to : curAdjs.keySet()) {
+                    minHeap.add(new int[]{cur, to, curAdjs.get(to)});
+                }
+                while (!minHeap.isEmpty()) {
+                    int[] curEdge = minHeap.poll();
+                    int to = curEdge[1];
+                    if (!nodeSet.contains(to)) {
+                        nodeSet.add(to);
+                        result.add(curEdge);
+                        Map<Integer, Integer> nexts = graph.get(to);
+                        for (Integer next : nexts.keySet()) {
+                            minHeap.add(new int[]{cur, to, curAdjs.get(to)});
+                        }
+                    }
+                }
+
+            }
+        }
+        if (nodeSet.size() != n) return -1;
+        int sum = 0;
+        for (int[] edge : result) {
+            sum += edge[2];
+        }
+
+        return sum;
+    }
+
+
     public int minimumCost(int n, int[][] connections) {
 
         List<Edge> conns = new ArrayList<>();

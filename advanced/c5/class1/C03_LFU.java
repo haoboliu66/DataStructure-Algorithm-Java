@@ -3,9 +3,197 @@ package advanced.c5.class1;
 import java.util.HashMap;
 
 public class C03_LFU {
-    /*
-    460. LFU Cache
-     */
+
+
+//    static class LFUCache {
+//
+//        Bucket headBucket;
+//        Bucket tailBucket;
+//        Map<Integer, BucketNode> nodeMap;
+//        Map<Integer, Bucket> bucketCountMap;
+//        int size;
+//        int cap;
+//
+//        public LFUCache(int capacity) {
+//            cap = capacity;
+//            nodeMap = new HashMap<>();
+//            bucketCountMap = new HashMap<>(); // 1 <-> Bucket
+//        }
+//
+//        public int get(int key) {
+//            if (!nodeMap.containsKey(key)) {
+//                return -1;
+//            }
+//
+//            BucketNode oldNode = nodeMap.get(key);
+//
+//            move(oldNode);
+//        }
+//
+//        public void put(int key, int value) {
+//            if (!nodeMap.containsKey(key)) {
+//
+//                if (size == cap) { // 需要移除节点
+//                    BucketNode removedNode = evict();
+//                    nodeMap.remove(removedNode.key);
+//                }
+//                BucketNode newNode = new BucketNode(key, value);
+//                if(headBucket.times > newNode.times){
+//                    // 头表不是times为1
+//                    Bucket newBucket = new Bucket(newNode, 1);
+//                    bucketCountMap.put(1, newBucket);
+//                    headBucket.prev = newBucket;
+//                    newBucket.next = headBucket;
+//                    headBucket = newBucket;
+//                }else{
+//                    // headBucket.times == newNode.times
+//
+//                }
+//
+//            }
+//
+//
+//        }
+//
+//        // 从headBucket中移除 头节点
+//        private BucketNode evict() {
+//            BucketNode removedHead = headBucket.removeHead();
+//            if (headBucket.isEmpty()) {
+//                headBucket = headBucket.next;
+//                bucketCountMap.remove(headBucket.times);
+//            }
+//            return removedHead;
+//        }
+//
+//
+//        private void move(BucketNode oldNode) {
+//
+//        }
+//
+//
+//    }
+//
+//
+//    private static class Bucket {
+//        BucketNode head;
+//        BucketNode tail;
+//        Bucket prev;
+//        Bucket next;
+//        private int size = 0;
+//        int times;
+//
+//        public Bucket() {
+//        }
+//
+//        public Bucket(BucketNode node) {
+//            this.head = node;
+//            this.tail = node;
+//            size++;
+//        }
+//
+//        public Bucket(BucketNode node, int times) {
+//            this.head = node;
+//            this.tail = node;
+//            this.times = times;
+//            size++;
+//        }
+//
+//
+//        public boolean isEmpty() {
+//            return size == 0;
+//        }
+//
+//        // bucket中新增节点, 永远都是加在尾部
+//        public void add(BucketNode node) {
+//            size++;
+//            if (head == null) {
+//                head = node;
+//                tail = node;
+//            } else {
+//                tail.next = node;
+//                node.prev = tail;
+//                tail = node;
+//            }
+//        }
+//
+//        // bucket删除节点, 返回被删除的节点
+//        public BucketNode remove(BucketNode node) {
+//            BucketNode tmp = node;
+//            if (head == tail) {
+//                head = null;
+//                tail = null;
+//                return tmp;
+//            }
+//            if (node == head) {
+//                head = head.next;
+//                head.prev = null;
+//                node.next = null;
+//            } else if (node == tail) {
+//                tail = tail.prev;
+//                tail.next = null;
+//                node.prev = null;
+//            } else {
+//                // 普通中间节点
+//                node.prev.next = node.next;
+//                node.next.prev = node.prev;
+//            }
+//            size--;
+//            return tmp;
+//        }
+//
+//        //  删除头节点, 返回被删除的头
+//        public BucketNode removeHead() {
+//            size--;
+//            BucketNode tmp = head;
+//            if (head == tail) {
+//                head = null;
+//                tail = null;
+//            } else {
+//                head = head.next;
+//                head.prev = null;
+//                tmp.next = null;
+//            }
+//            return tmp;
+//        }
+//
+//
+//        @Override
+//        public String toString() {
+//            return "Bucket{" +
+//                    "head=" + head +
+//                    ", tail=" + tail +
+//                    '}';
+//        }
+//    }
+//
+//
+//    private static class BucketNode {
+//        int key;
+//        int value;
+//        int times;
+//        BucketNode next;
+//        BucketNode prev;
+//
+//        public BucketNode(int key, int value) {
+//            this.key = key;
+//            this.value = value;
+//            times = 1;
+//        }
+//
+//        @Override
+//        public String toString() {
+//            return "BucketNode{" +
+//                    "key=" + key +
+//                    ", value=" + value +
+//                    ", time=" + times +
+//                    '}';
+//        }
+//    }
+
+
+
+
+    /* --------------------------- */
 
     //双向链表的Node
     private static class Node {
@@ -23,7 +211,7 @@ public class C03_LFU {
 
         @Override
         public String toString() {
-            return "Node{" +
+            return "TreeNode{" +
                     "key=" + key +
                     ", value=" + value +
                     ", times=" + times +

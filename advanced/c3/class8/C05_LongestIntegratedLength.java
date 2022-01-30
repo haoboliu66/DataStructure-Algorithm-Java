@@ -8,13 +8,15 @@ import java.util.HashSet;
 public class C05_LongestIntegratedLength {
 
 /*
-可整合数组定义: 如果一个数字在排序之后, 每相邻两个数差的绝对值都为1, 则该数组为可整合数组。
-例如[5,3,4,6,2]为可整合数组。
-给定一个int数组arr, 返回其中最大可整合子数组的长度。
-例如[5,5,3,2,6,4,3], 最大的子数组为[5,3,2,6,4],返回其长度5
+    可整合数组定义: 如果一个数组在排序之后, 每相邻两个数差的绝对值都为1, 则该数组为可整合数组。
+    例如[5,3,4,6,2]为可整合数组。
+    给定一个int数组arr, 返回其中最大可整合子数组的长度。
+    例如[5,5,3,2,6,4,3], 最大的子数组为[5,3,2,6,4],返回其长度5
  */
 
-
+    /*
+    枚举每一个子数组, 并把这部分子数组进行排序, 再检查是否为可整合数组
+     */
     // O(N^3 * logN)
     public static int getLIL1(int[] arr) {
         if (arr == null || arr.length == 0) {
@@ -41,7 +43,6 @@ public class C05_LongestIntegratedLength {
                 return false;
             }
         }
-
         return true;
     }
 
@@ -84,10 +85,11 @@ public class C05_LongestIntegratedLength {
                 }
             }
         }
-
         return len;
     }
 
+
+    // for test
     public static int[] generateArray(int len, int max) {
         int[] ans = new int[(int) (Math.random() * len) + 1];
         for (int i = 0; i < ans.length; i++) {
@@ -103,8 +105,8 @@ public class C05_LongestIntegratedLength {
         int times = 100000;
         int[] arr = generateArray(len, max);
         System.out.println("Started");
-        for(int i = 0; i < times; i++){
-            if(getLIL1(arr) != getLIL2(arr)){
+        for (int i = 0; i < times; i++) {
+            if (getLIL1(arr) != getLIL2(arr)) {
                 System.out.println("Oops");
                 break;
             }

@@ -6,6 +6,36 @@ public class C06_MakeNoEqual {
     给定一个正整数M, 请构造出一个长度为M的数组arr,
     要求对于任意的三个位置: i<j<k, 都有arr[i]+arr[k] != 2*arr[j], 返回构造出的arr
      */
+    public static int[] generateArray(int N) {
+        if (N < 3) {
+            return null;
+        }
+        // 1 + 4 =>
+        // 11 -> 12,
+        int len = N % 2 == 0 ? N : N + 1;
+        int[] baseArray = getBase(len);
+        int[] res = new int[N];
+        System.arraycopy(baseArray, 0, res, 0, N);
+
+        return res;
+    }
+
+    public static int[] getBase(int n) {
+        if (n == 1) {
+            return new int[]{1};
+        }
+        n = n % 2 == 0 ? n : n + 1;
+        int[] res = new int[n];
+        int[] base = getBase(n / 2);
+        for (int i1 = 0, i2 = n / 2; i2 < n; i1++, i2++) {
+            res[i1] = 2 * base[i1];
+            res[i2] = 2 * base[i1] + 1;
+        }
+        return res;
+    }
+
+
+
     public static int[] makeNo(int size) {
         if (size == 1) {
             return new int[]{1};

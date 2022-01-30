@@ -48,6 +48,8 @@ public class C03_PreAndInArrayToPosArray {
         process1(pre, L1 + leftSize + 1, R1, in, mid + 1, R2, pos, L3 + leftSize, R3 - 1);
     }
 
+
+    // 递归过程中查找坐标的过程使用Map优化
     public static int[] preInToPos2(int[] pre, int[] in) {
         if (pre.length != in.length) {
             return null;

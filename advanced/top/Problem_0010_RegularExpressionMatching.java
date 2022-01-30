@@ -4,7 +4,7 @@ package advanced.top;
 public class Problem_0010_RegularExpressionMatching {
 
     /*
-    c4 - class8 - C01
+    c4 - class8
      */
 
     public static boolean isMatch(String s, String p) {

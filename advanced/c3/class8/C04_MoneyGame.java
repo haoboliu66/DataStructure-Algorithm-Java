@@ -2,6 +2,8 @@ package advanced.c3.class8;
 
 public class C04_MoneyGame {
 
+    /*  数据量决定解法   */
+
     //方法1: 暴力递归
     public static long func1(int[] d, int[] p) {
         return process(d, p, 0, 0);
