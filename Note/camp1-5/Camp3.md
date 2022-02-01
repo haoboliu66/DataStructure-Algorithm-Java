@@ -634,7 +634,7 @@ end[i]: 长度为i+1结尾的最长递增子序列的最小结尾  e.g. end[0] =
 
 > 673.Number of Longest Increasing Subsequence
 
-https://leetcode.com/problems/number-of-longest-increasing-subsequence/
+https://src.main.java.leetcode.com/problems/number-of-longest-increasing-subsequence/
 
 
 
@@ -925,7 +925,7 @@ arr=[3,2,5]。子集{2}相加产生 2 为 min，子集{3,2,5}相加产生 10 为
 
 ## 3. MinPatches
 
-> 330.Patching Array https://leetcode.com/problems/patching-array/
+> 330.Patching Array https://src.main.java.leetcode.com/problems/patching-array/
 
 3.给定一个有序的正数数组arr和一个正数range，如果可以自由选择arr中的数字，想累加得 到 1~range 范围上所有的数，返回arr最少还缺几个数。
 
@@ -973,7 +973,7 @@ range从0开始, 因为第一个满足的范围必须要是[ 1, 1 ]才可以, �
 
 ## 4. Largest-Component-Size-by-Common-Factor
 
-https://leetcode.com/problems/largest-component-size-by-common-factor/
+https://src.main.java.leetcode.com/problems/largest-component-size-by-common-factor/
 
 4.一个数组中，如果两个数的最小公共因子有大于大1，则认为这两个数之间有通路, 返回数组中，有多少个独立的域
 
@@ -1019,7 +1019,7 @@ e.g   20的因子有 1, 20   2, 10   4, 5 一共6个因子, 当其他数字有�
 
 ## 5. 删除多余字符,字典序最小
 
-https://leetcode.com/problems/remove-duplicate-letters/
+https://src.main.java.leetcode.com/problems/remove-duplicate-letters/
 
 5.给定一个全是小写字母的字符串str，删除多余字符，使得每种字符只保留一个，并让 最终结果字符串的字典序最小
 

@@ -44,7 +44,7 @@ matrix =
 
 ## 3. 累加和<=k的子矩阵累加和
 
-> 363   https://leetcode.com/problems/max-sum-of-rectangle-no-larger-than-k/
+> 363   https://src.main.java.leetcode.com/problems/max-sum-of-rectangle-no-larger-than-k/
 
 3.给定一个二维数组matrix，再给定一个k值, 返回累加和小于等于k，但是离k最近的子矩阵累加和
 
@@ -457,9 +457,9 @@ B是长度为n、元素从小到大排好序了
 
 ## 4.约瑟夫环问题
 
-> https://leetcode.com/problems/find-the-winner-of-the-circular-game/
+> https://src.main.java.leetcode.com/problems/find-the-winner-of-the-circular-game/
 >
-> https://leetcode.com/problems/find-the-winner-of-the-circular-game/discuss/1152705/JavaC%2B%2BPython-4-lines-O(n)-time-O(1)-space
+> https://src.main.java.leetcode.com/problems/find-the-winner-of-the-circular-game/discuss/1152705/JavaC%2B%2BPython-4-lines-O(n)-time-O(1)-space
 
 约瑟夫环问题: 循环链表, 整数K, 数到K个节点, 移除该节点, 继续数K个节点, 移除; 如此往复, 最后只剩下一个节点, 返回该节点
 
@@ -600,7 +600,7 @@ s是被杀的编号, 每次数到m被杀 =>
 
 ## 1.最长回文子序列长度
 
-> https://leetcode.com/problems/longest-palindromic-subsequence/
+> https://src.main.java.leetcode.com/problems/longest-palindromic-subsequence/
 >
 > 回文: 范围尝试
 
@@ -634,7 +634,7 @@ s是被杀的编号, 每次数到m被杀 =>
 
 ## 3. Basic Calculator
 
->  类似题: https://leetcode.com/problems/number-of-atoms/
+>  类似题: https://src.main.java.leetcode.com/problems/number-of-atoms/
 
 3.给定一个字符串str，str表示一个公式，公式里可能有整数、加减乘除符号和左右 括号，返回公式的计算结果。
 
@@ -751,15 +751,15 @@ dp [i] [j] => [1...i] 组成 j 个逆序对
 
 ## 4. 完美洗牌问题
 
-https://leetcode.com/problems/wiggle-sort/
+https://src.main.java.leetcode.com/problems/wiggle-sort/
 
-https://leetcode.com/problems/wiggle-sort-ii/
+https://src.main.java.leetcode.com/problems/wiggle-sort-ii/
 
 
 
 4.给定一个长度为偶数的数组arr，长度记为2*N。前N个为左部分，后N个为右部分。 arr就可以表示为{L1,L2,..,Ln,R1,R2,..,Rn}， 请将数组调整成{R1,L1,R2,L2,..,Rn,Ln}的样子。
 
-https://leetcode.com/problems/shuffle-the-array/
+https://src.main.java.leetcode.com/problems/shuffle-the-array/
 
 **使用额外空间**的做法: 两个指针, 数据拷贝进一个新数组返回
 
@@ -791,7 +791,7 @@ i <= N时 =>  i * 2
 
 插入另一个涉及的算法原型 **Rotate Array**:
 
-https://leetcode.com/problems/rotate-array/ 
+https://src.main.java.leetcode.com/problems/rotate-array/ 
 
 abcde fgh  k = 5  表示 左半部分是5的长度, 要把数组变成 fgh abcde
 
@@ -943,7 +943,7 @@ int[][] programs = { { 1, 1, 1, 2 }, { 1, 2, 1, 1 }, { 1, 3, 2, 2 }, { 2, 1, 1, 
 
 ## 2. Recovery BST
 
-> 99.Recover Binary Search Tree  https://leetcode.com/problems/recover-binary-search-tree/
+> 99.Recover Binary Search Tree  https://src.main.java.leetcode.com/problems/recover-binary-search-tree/
 
 2.一棵二叉树原本是搜索二叉树，但是其中有两个节点调换了位置，使得这棵二叉树不再 是搜索二叉树，请找到这两个错误节点并返回。 已知二叉树中所有节点的值都不一样，给定二叉树的头节点 head，返回一个长度为2的 二叉树节点类型的数组errs，errs[0]表示一个错误节点， errs[1]表示另一个错误节 点。
 
