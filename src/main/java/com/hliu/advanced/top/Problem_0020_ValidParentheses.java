@@ -48,11 +48,11 @@ public class Problem_0020_ValidParentheses {
                         return false;
                     }
 
-                    char src.main.java.advanced.top = stack.pop();
+                    char src.main.java.com.hliu.advanced.top = stack.pop();
                     if(!(
-                        str[i] == ']' && src.main.java.advanced.top == '[' ||
-                     str[i] == ')' && src.main.java.advanced.top == ')'||
-                     str[i] == '}' && src.main.java.advanced.top == '}')){
+                        str[i] == ']' && src.main.java.com.hliu.advanced.top == '[' ||
+                     str[i] == ')' && src.main.java.com.hliu.advanced.top == ')'||
+                     str[i] == '}' && src.main.java.com.hliu.advanced.top == '}')){
                         return false;
                      }
 

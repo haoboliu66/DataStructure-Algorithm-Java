@@ -1,4 +1,4 @@
-package advanced.top;
+package com.hliu.advanced.top;
 
 import org.junit.Test;
 

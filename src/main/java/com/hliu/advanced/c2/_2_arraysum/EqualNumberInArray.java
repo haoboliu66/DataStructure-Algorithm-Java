@@ -1,4 +1,4 @@
-package src.main.java.advanced.c2._2_arraysum;
+package com.hliu.advanced.c2._2_arraysum;
 
 import java.util.HashMap;
 

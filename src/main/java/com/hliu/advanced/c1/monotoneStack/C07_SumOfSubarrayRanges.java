@@ -1,96 +1,112 @@
 package com.hliu.advanced.c1.monotoneStack;
 
-import java.util.Arrays;
 import java.util.Stack;
 
 // https://leetcode.com/problems/sum-of-subarray-ranges/
+/*
+假设数组arr有4个subarray,a1,b1,c1,d1是每个subarray的max, a2,b2,c2,d2是每个subarray的min
+要求的是 a1-a2+b1-b2+c1-c2+d1-d2
+subA, subB, subC, subD
+a1,a2 b1,b2 c1,c2 d1,d2
+===> a1-a2+b1-b2+c1-c2+d1-d2 = (a1+b1+c1+d1) - (a2+b2+c2+d2)
+
+找每个subarray的max - min 然后求sum, 转化为 sum(max(b)) - sum(min(b)), b是所有子数组
+即 => 每个子数组的最大值的累加和 - 每个子数组的最小值的累加和
+
+复用 https://leetcode.com/problems/sum-of-subarray-minimums/ 的答案
+
+ */
 public class C07_SumOfSubarrayRanges {
 
-  // 1 2 2 2 3
-
-  public static void main(String[] args) {
-    C07_SumOfSubarrayRanges obj = new C07_SumOfSubarrayRanges();
-
-    int[] arr = {1, 2, 3};
-    obj.subArrayRanges(arr);
-  }
-
   public long subArrayRanges(int[] arr) {
+    long minSum = 0;
+    long maxSum = 0;
 
-    long sum = 0;
+    int[] leftLess = getLeftLess(arr);
+    int[] rightLessOrEqual = getRightLessOrEqual(arr);
 
-    int[] leftLessThan = getLeftMoreThan(arr);
-    int[] rightLessThanOrEqual = getRightMoreThanOrEqual(arr);
-
-    System.out.println(Arrays.toString(leftLessThan));
-    System.out.println(Arrays.toString(rightLessThanOrEqual));
+    int[] leftGreater = getLeftGreater(arr);
+    int[] rightGreaterOrEqual = getRightGreaterOrEqual(arr);
 
     for (int i = 0; i < arr.length; i++) {
+      long leftLessIndex = leftLess[i];
+      long rightLessOrEqualIndex = rightLessOrEqual[i];
 
-      int leftLessIndex = leftLessThan[i];
-      int rightLessOrEqualIndex = rightLessThanOrEqual[i];
+      long leftGreaterIndex = leftGreater[i];
+      long rightGreaterOrEqualIndex = rightGreaterOrEqual[i];
 
-      int larger = arr[i];
-      if (leftLessIndex == -1 && rightLessOrEqualIndex == arr.length) {
-        continue;
-      } else if (leftLessIndex != -1 && rightLessOrEqualIndex != arr.length) {
-        larger = Math.max(arr[leftLessIndex], arr[rightLessOrEqualIndex]);
-      } else if (leftLessIndex != -1) {
-        larger = arr[leftLessIndex];
-      } else {
-        larger = arr[rightLessOrEqualIndex];
-      }
-      System.out.println("larger number: " + larger);
-      sum += (larger - arr[i]);
+      minSum += (i - leftLessIndex) * (rightLessOrEqualIndex - i) * arr[i];
+      maxSum += (i - leftGreaterIndex) * (rightGreaterOrEqualIndex - i) * arr[i];
     }
-
-    return sum;
+    return maxSum - minSum;
   }
 
-  public int[] getLeftMoreThan(int[] arr) {
-    int[][] res = new int[2][arr.length];
-    int[] maxValues = new int[arr.length];
-    Arrays.fill(maxValues, Integer.MIN_VALUE);
-
-    int[] leftMoreThan = new int[arr.length];
+  public int[] getLeftLess(int[] arr) {
+    int[] leftLess = new int[arr.length];
     Stack<Integer> stack = new Stack<>();
 
     for (int i = arr.length - 1; i >= 0; i--) {
-      while (!stack.isEmpty() && arr[i] > arr[stack.peek()]) {
-        leftMoreThan[stack.pop()] = i;
+      while (!stack.isEmpty() && arr[i] < arr[stack.peek()]) {
+        leftLess[stack.pop()] = i;
       }
       stack.push(i);
     }
     while (!stack.isEmpty()) {
-      leftMoreThan[stack.pop()] = -1;
+      leftLess[stack.pop()] = -1;
     }
-
-    return leftMoreThan;
+    return leftLess;
   }
 
 
-  public int[] getRightMoreThanOrEqual(int[] arr) {
-    int[][] res = new int[2][arr.length];
-
-    int[] maxValues = new int[arr.length];
-    Arrays.fill(maxValues, Integer.MIN_VALUE);
-
-    int[] rightMoreThanOrEqual = new int[arr.length];
+  public int[] getRightLessOrEqual(int[] arr) {
+    int[] rightLessOrEqual = new int[arr.length];
     Stack<Integer> stack = new Stack<>();
 
     for (int i = 0; i < arr.length; i++) {
       while (!stack.isEmpty() && arr[i] <= arr[stack.peek()]) {
-        rightMoreThanOrEqual[stack.pop()] = i;
-
-
-
+        rightLessOrEqual[stack.pop()] = i;
       }
       stack.push(i);
     }
     while (!stack.isEmpty()) {
-      rightMoreThanOrEqual[stack.pop()] = arr.length;
+      rightLessOrEqual[stack.pop()] = arr.length;
     }
-    return rightMoreThanOrEqual;
+    return rightLessOrEqual;
   }
+
+  public int[] getLeftGreater(int[] arr) {
+    int[] leftMore = new int[arr.length];
+    Stack<Integer> stack = new Stack<>();
+
+    for (int i = arr.length - 1; i >= 0; i--) {
+      while (!stack.isEmpty() && arr[i] > arr[stack.peek()]) {
+        leftMore[stack.pop()] = i;
+      }
+      stack.push(i);
+    }
+    while (!stack.isEmpty()) {
+      leftMore[stack.pop()] = -1;
+    }
+
+    return leftMore;
+  }
+
+
+  public int[] getRightGreaterOrEqual(int[] arr) {
+    int[] rightMoreOrEqual = new int[arr.length];
+    Stack<Integer> stack = new Stack<>();
+
+    for (int i = 0; i < arr.length; i++) {
+      while (!stack.isEmpty() && arr[i] >= arr[stack.peek()]) {
+        rightMoreOrEqual[stack.pop()] = i;
+      }
+      stack.push(i);
+    }
+    while (!stack.isEmpty()) {
+      rightMoreOrEqual[stack.pop()] = arr.length;
+    }
+    return rightMoreOrEqual;
+  }
+
 
 }

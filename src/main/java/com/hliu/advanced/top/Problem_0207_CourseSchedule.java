@@ -11,7 +11,7 @@ public class Problem_0207_CourseSchedule {
         System.out.println(mask);
     }
 
-    // src.main.java.fundamental.graph
+    // src.main.java.com.hliu.fundamental.graph
     public boolean canFinish(int numCourses, int[][] prerequisites) {
 
         HashMap<Integer, Node> map = new HashMap<>();

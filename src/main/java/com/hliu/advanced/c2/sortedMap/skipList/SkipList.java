@@ -1,4 +1,4 @@
-package src.main.java.advanced.c2.sortedMap.skipList;
+package com.hliu.advanced.c2.sortedMap.skipList;
 
 import java.util.ArrayList;
 

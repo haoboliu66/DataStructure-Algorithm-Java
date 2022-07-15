@@ -1,30 +1,31 @@
-package src.main.java.advanced.c2.bst;
+package com.hliu.advanced.c2.bst;
 
 public class Problem_0285_InorderSuccessorInBST {
 
-    private static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
+  private static class TreeNode {
 
-        TreeNode(int x) {
-            val = x;
-        }
+    int val;
+    TreeNode left;
+    TreeNode right;
+
+    TreeNode(int x) {
+      val = x;
     }
+  }
 
 
-    public static TreeNode inorderSuccessor(TreeNode root, TreeNode p) {
-        TreeNode successor = null;
-        while (root != null) {
-            if (p.val >= root.val) {
-                // successor must exist in the right tree
-                root = root.right;
-            } else { // p < cur.val
-                // search p in the left tree, current root can be the answer
-                successor = root;
-                root = root.left;
-            }
-        }
-        return successor;
+  public static TreeNode inorderSuccessor(TreeNode root, TreeNode p) {
+    TreeNode successor = null;
+    while (root != null) {
+      if (p.val >= root.val) {
+        // successor must exist in the right tree
+        root = root.right;
+      } else { // p < cur.val
+        // search p in the left tree, current root can be the answer
+        successor = root;
+        root = root.left;
+      }
     }
+    return successor;
+  }
 }

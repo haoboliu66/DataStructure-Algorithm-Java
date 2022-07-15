@@ -1,4 +1,4 @@
-package src.main.java.advanced.c2.hashmap;
+package com.hliu.advanced.c2.hashmap;
 
 import java.util.HashMap;
 import java.util.List;

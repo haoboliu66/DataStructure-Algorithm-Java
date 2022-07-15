@@ -1,4 +1,4 @@
-package src.main.java.advanced.c2._2_arraysum;
+package com.hliu.advanced.c2._2_arraysum;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,7 +6,7 @@ import java.util.Map;
 public class Array2_LongestSumSubArrayLength {
 
     // 325. Maximum Size Subarray Sum Equals k
-    //类似问题 src.main.java.leetcode 560.Subarray Sum Equals K;
+    //类似问题 src.main.java.com.hliu.leetcode 560.Subarray Sum Equals K;
     /*
 
     ----------------------------- 数组三连2 -----------------------------
