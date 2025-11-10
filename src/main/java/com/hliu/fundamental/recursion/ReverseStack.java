@@ -1,10 +1,9 @@
-package src.main.java.fundamental.recursion;
+package com.hliu.fundamental.recursion;
 
 import java.util.Stack;
 
-
+/* reverse a stack only by recursion  */
 public class ReverseStack {
-    /* reverse a stack only by src.main.java.fundamental.recursion  */
 
     public static void reverse(Stack<Integer> stack) {
         if (stack.isEmpty()) {

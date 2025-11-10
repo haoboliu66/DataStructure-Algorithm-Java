@@ -1,4 +1,4 @@
-package src.main.java.fundamental.linear.stackqueue;
+package com.hliu.fundamental.linear.stackqueue;
 
 
 public class StackWithArray {

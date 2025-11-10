@@ -1,4 +1,4 @@
-package src.main.java.fundamental.recursion.dp;
+package com.hliu.fundamental.recursion.dp;
 
 
 public class MoneyChoice {

@@ -1,9 +1,13 @@
-package src.main.java.fundamental.linear.stackqueue;
+package com.hliu.fundamental.linear.stackqueue;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
 public class StackWithQueue {
+
+    /*
+    https://leetcode.com/problems/implement-stack-using-queues/
+     */
 
     public static class MyStack {
         Queue<Integer> queue;

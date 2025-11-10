@@ -1,10 +1,19 @@
-package fundamental.graph;
+package com.hliu.fundamental.graph;
 
 import java.util.*;
 
+/*
+
+建图 (Directed):
+1. matrix => int[][] node数量不能过多, 因为matrix占用空间O(N^2)
+2. adjacency list  => unweighted: List<List<Integer>>; weighted: List<List<int[]>>
+3. edge list
+
+ */
+
 public class Graph<V> {
 
-    public HashMap<V, Node<V>> nodes;
+    public Map<V, Node<V>> nodes;
     public Set<Edge<V>> edges;
 
     public Graph() {
@@ -13,7 +22,6 @@ public class Graph<V> {
     }
 
     public static class Node<V> {
-
         public V value;
         public int in;
         public int out;

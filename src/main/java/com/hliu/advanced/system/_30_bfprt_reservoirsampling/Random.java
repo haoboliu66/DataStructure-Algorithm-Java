@@ -2,6 +2,9 @@ package com.hliu.advanced.system._30_bfprt_reservoirsampling;
 
 public class Random {
 
+  // Rejection Sampling
+
+  // 已知一个随机函数f等概率生成1-7, 编写一个函数随机生成1-10
   private static class Rand10 {
 
     // [0,9] + 1
@@ -10,6 +13,7 @@ public class Random {
       int num = generateNum(bits);
       // [0...15]
       while (num >= 10 && num <= 15) {
+        // 我需要 num 在 [0...9], 如果不是, 就重新生成
         num = generateNum(bits);
       }
       // [0...9]
@@ -17,6 +21,7 @@ public class Random {
     }
 
     // [0...15]
+    // 等概率生成 0 - (2^bits-1)
     public int generateNum(int bits) {
       int times = bits;
       int res = 0;
@@ -29,6 +34,7 @@ public class Random {
       return res;
     }
 
+    // 等概率返回0和1
     public int getOneOrZero() {
       // [1,2,3],(4,5,6) ,7
       int res;
@@ -40,7 +46,7 @@ public class Random {
 
     public int rand7() {
       // [0, 1) => [0, 7) + 1 => [1,8)
-      return (int) (Math.random() * 7);
+      return (int) (Math.random() * 7) + 1;
     }
 
   }

@@ -1,7 +1,10 @@
-package fundamental.graph.mst;
+package com.hliu.fundamental.graph.mst;
 
-import fundamental.graph.Graph;
-import java.util.*;
+import java.util.HashSet;
+import java.util.PriorityQueue;
+import java.util.Set;
+
+import com.hliu.fundamental.graph.Graph;
 
 public class Prim {
 

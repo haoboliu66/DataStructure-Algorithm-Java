@@ -6,16 +6,16 @@ public class NumberPower {
   // 如何计算一个数字的N次方尽量快, 2分法
 
   //  10 ^ 75    75 ==> 1 0 0 1 0 1 1
-  public static double pow(int base, int p) {
+  public static double pow(int base, int power) {
     double res = 1;
     double t = base;
-    while (p != 0) {
-      boolean lastDigitIsZero = (p & 1) != 0;
+    while (power != 0) {
+      boolean lastDigitIsZero = (power & 1) != 0;
       if (lastDigitIsZero) {
         res *= t;
       }
       t *= t; // 每次t和自己相乘   1次方--2次方--4次方--8次方--16次方的增长
-      p >>= 1; // get rid of the last bit
+      power >>= 1; // get rid of the last bit
     }
 
     return res;

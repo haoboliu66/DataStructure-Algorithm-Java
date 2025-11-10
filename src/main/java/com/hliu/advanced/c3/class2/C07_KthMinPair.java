@@ -3,6 +3,7 @@ package com.hliu.advanced.c3.class2;
 import java.util.Arrays;
 import java.util.Comparator;
 
+// https://leetcode.com/problems/find-k-th-smallest-pair-distance/
 public class C07_KthMinPair {
 
   public static class Pair {
@@ -67,7 +68,7 @@ public class C07_KthMinPair {
     if (k > N * N) {
       return null;
     }
-    //不需要真正的排序, 找到第K小的数 (bfprt, partition)
+    //不需要真正的排序, 找到第K小的数 (bfprt or partition)
     int firstNum = getMinKth(arr, (k - 1) / N); //找到第 (k-1)/N 小的数
     int lessNumSize = 0;
     int equalNumSize = 0;

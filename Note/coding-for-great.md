@@ -197,7 +197,7 @@ coding技巧: a / x 向上取整 => (a + (x - 1) ) / x
 
 > 1029.Two City Scheduling
 >
-> https://src.main.java.leetcode.com/problems/two-city-scheduling/
+> https://src.main.java.com.hliu.leetcode.com/problems/two-city-scheduling/
 
 题目4
 
@@ -225,7 +225,7 @@ coding技巧: a / x 向上取整 => (a + (x - 1) ) / x
 
 Leetcode 自由之路
 
-https://src.main.java.leetcode.com/problems/freedom-trail/
+https://src.main.java.com.hliu.leetcode.com/problems/freedom-trail/
 
 
 
@@ -280,7 +280,7 @@ https://src.main.java.leetcode.com/problems/freedom-trail/
 
 返回边框全是1的最大正方形面积
 
-https://src.main.java.leetcode.com/problems/largest-1-bordered-square/
+https://src.main.java.com.hliu.leetcode.com/problems/largest-1-bordered-square/
 
 
 
@@ -320,19 +320,19 @@ https://src.main.java.leetcode.com/problems/largest-1-bordered-square/
 
 最接近sum的子序列累加和问题
 
-https://src.main.java.leetcode.com/problems/closest-subsequence-sum/
+https://src.main.java.com.hliu.leetcode.com/problems/closest-subsequence-sum/
 
 
 
 ## 7. freedom-trail
 
-https://src.main.java.leetcode.com/problems/freedom-trail/
+https://src.main.java.com.hliu.leetcode.com/problems/freedom-trail/
 
 
 
 ## 8. 距离K的所有节点
 
-863.All Nodes Distance K in Binary Tree https://src.main.java.leetcode.com/problems/all-nodes-distance-k-in-binary-tree/
+863.All Nodes Distance K in Binary Tree https://src.main.java.com.hliu.leetcode.com/problems/all-listNodes-distance-k-in-binary-tree/
 
 给定三个参数：
 
@@ -400,7 +400,7 @@ Done
 
 ## 5. 分配Candy
 
-5.原问题：https://src.main.java.leetcode.com/problems/candy/
+5.原问题：https://src.main.java.com.hliu.leetcode.com/problems/candy/
 
 进阶问题：在原问题的基础上，增加一个原则：
 
@@ -424,7 +424,7 @@ Done
 
 ## 7.字符串交错组成
 
-https://src.main.java.leetcode.com/problems/interleaving-string/
+https://src.main.java.com.hliu.leetcode.com/problems/interleaving-string/
 
 
 
@@ -436,7 +436,7 @@ dp [i] [j] => str1拿出 i 长度, str2拿出 j 长度, 能否组成str3的 i + 
 
 ## 8.大楼轮廓线问题
 
-https://src.main.java.leetcode.com/problems/the-skyline-problem/
+https://src.main.java.com.hliu.leetcode.com/problems/the-skyline-problem/
 
 
 
@@ -504,13 +504,13 @@ https://src.main.java.leetcode.com/problems/the-skyline-problem/
 
 返回最大的异或结果
 
-https://src.main.java.leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/
+https://src.main.java.com.hliu.leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/
 
 
 
 3.Leetcode 
 
-https://src.main.java.leetcode.com/problems/maximum-xor-with-an-element-from-array/
+https://src.main.java.com.hliu.leetcode.com/problems/maximum-xor-with-an-element-from-array/
 
 
 
@@ -558,7 +558,7 @@ Done
 
 ## 2.相机最小覆盖问题
 
-https://src.main.java.leetcode.com/problems/binary-tree-cameras/
+https://src.main.java.com.hliu.leetcode.com/problems/binary-tree-cameras/
 
 
 
@@ -654,7 +654,7 @@ N-1号灯的开关能影响N-2、N-1和0位置的灯
 
 ## 2. remove-invalid-parentheses
 
-https://src.main.java.leetcode.com/problems/remove-invalid-parentheses/
+https://src.main.java.com.hliu.leetcode.com/problems/remove-invalid-parentheses/
 
 
 
@@ -662,7 +662,7 @@ https://src.main.java.leetcode.com/problems/remove-invalid-parentheses/
 
 ## 3. LIS
 
-https://src.main.java.leetcode.com/problems/longest-increasing-subsequence
+https://src.main.java.com.hliu.leetcode.com/problems/longest-increasing-subsequence
 
 
 
@@ -670,7 +670,7 @@ https://src.main.java.leetcode.com/problems/longest-increasing-subsequence
 
 ## 4. russian-doll-envelopes
 
-https://src.main.java.leetcode.com/problems/russian-doll-envelopes/
+https://src.main.java.com.hliu.leetcode.com/problems/russian-doll-envelopes/
 
 
 
@@ -696,7 +696,7 @@ https://src.main.java.leetcode.com/problems/russian-doll-envelopes/
 
 题目1
 
-https://src.main.java.leetcode.com/problems/jump-game-ii/
+https://src.main.java.com.hliu.leetcode.com/problems/jump-game-ii/
 
 题目2
 
@@ -708,19 +708,19 @@ https://www.lintcode.com/problem/top-k-frequent-words-ii/
 
 题目3
 
-https://src.main.java.leetcode.com/problems/k-inverse-pairs-array/
+https://src.main.java.com.hliu.leetcode.com/problems/k-inverse-pairs-array/
 
 ## 4. convert-BST-to-sorted-doubly-linked-list
 
 题目4
 
-https://src.main.java.leetcode.com/problems/convert-binary-search-tree-to-sorted-doubly-linked-list/
+https://src.main.java.com.hliu.leetcode.com/problems/convert-binary-search-tree-to-sorted-doubly-linked-list/
 
 ## 5. boolean-evaluation
 
 题目5
 
-https://src.main.java.leetcode-cn.com/problems/boolean-evaluation-lcci/
+https://src.main.java.com.hliu.leetcode-cn.com/problems/boolean-evaluation-lcci/
 
 # Class11
 
@@ -750,7 +750,7 @@ https://src.main.java.leetcode-cn.com/problems/boolean-evaluation-lcci/
 
 返回任意满足条件的一个子串的起始位置，未找到返回-1
 
-https://src.main.java.leetcode.com/problems/permutation-in-string/
+https://src.main.java.com.hliu.leetcode.com/problems/permutation-in-string/
 
 
 
@@ -760,7 +760,7 @@ https://src.main.java.leetcode.com/problems/permutation-in-string/
 
 ## 2. Median of two sorted array
 
-https://src.main.java.leetcode.com/problems/median-of-two-sorted-arrays/
+https://src.main.java.com.hliu.leetcode.com/problems/median-of-two-sorted-arrays/
 
 进阶问题：
 
@@ -776,7 +776,7 @@ https://src.main.java.leetcode.com/problems/median-of-two-sorted-arrays/
 
 ## 3. regular-expression-matching
 
-https://src.main.java.leetcode.com/problems/regular-expression-matching/
+https://src.main.java.com.hliu.leetcode.com/problems/regular-expression-matching/
 
 
 
@@ -784,7 +784,7 @@ https://src.main.java.leetcode.com/problems/regular-expression-matching/
 
 ## 4. longest-consecutive-sequence
 
-https://src.main.java.leetcode.com/problems/longest-consecutive-sequence/
+https://src.main.java.com.hliu.leetcode.com/problems/longest-consecutive-sequence/
 
 
 
@@ -804,7 +804,7 @@ https://src.main.java.leetcode.com/problems/longest-consecutive-sequence/
 
 ## 2. scramble-string
 
-https://src.main.java.leetcode.com/problems/scramble-string/
+https://src.main.java.com.hliu.leetcode.com/problems/scramble-string/
 
 
 
@@ -814,7 +814,7 @@ https://src.main.java.leetcode.com/problems/scramble-string/
 
 ## 3. super-washing-machines
 
-https://src.main.java.leetcode.com/problems/super-washing-machines/
+https://src.main.java.com.hliu.leetcode.com/problems/super-washing-machines/
 
 贪心, 以每个位置进行计算, 然后找到所有位置中最大的瓶颈
 
@@ -822,7 +822,7 @@ https://src.main.java.leetcode.com/problems/super-washing-machines/
 
 ## 4. bricks-falling-when-hit
 
-https://src.main.java.leetcode.com/problems/bricks-falling-when-hit/
+https://src.main.java.com.hliu.leetcode.com/problems/bricks-falling-when-hit/
 
 
 
@@ -866,7 +866,7 @@ https://src.main.java.leetcode.com/problems/bricks-falling-when-hit/
 
 ## 6. first missing positive
 
-https://src.main.java.leetcode.com/problems/first-missing-positive/
+https://src.main.java.com.hliu.leetcode.com/problems/first-missing-positive/
 
 字节的问法: 缺失的大于K的最小正整数
 
@@ -890,7 +890,7 @@ https://src.main.java.leetcode.com/problems/first-missing-positive/
 
 ## 5. recover-binary-search-tree
 
-https://src.main.java.leetcode.com/problems/recover-binary-search-tree/
+https://src.main.java.com.hliu.leetcode.com/problems/recover-binary-search-tree/
 
 
 
@@ -936,33 +936,33 @@ c4 - class7
 
 ## 1. 一次交易
 
-https://src.main.java.leetcode.com/problems/best-time-to-buy-and-sell-stock/
+https://src.main.java.com.hliu.leetcode.com/problems/best-time-to-buy-and-sell-stock/
 
 
 
 ## 2. 无限次交易
 
-https://src.main.java.leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/
+https://src.main.java.com.hliu.leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/
 
 ## 3. 两次交易
 
-https://src.main.java.leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/
+https://src.main.java.com.hliu.leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/
 
 ## 4. k次交易
 
-https://src.main.java.leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/
+https://src.main.java.com.hliu.leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/
 
 
 
 ## 5. 有cooldown
 
-https://src.main.java.leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/
+https://src.main.java.com.hliu.leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/
 
 
 
 ## 6. 有 transaction fee
 
-https://src.main.java.leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/
+https://src.main.java.com.hliu.leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/
 
 
 
@@ -1006,7 +1006,7 @@ https://src.main.java.leetcode.com/problems/best-time-to-buy-and-sell-stock-with
 
 题目3
 
-https://src.main.java.leetcode.com/problems/patching-array/
+https://src.main.java.com.hliu.leetcode.com/problems/patching-array/
 
 打patch问题
 
@@ -1028,7 +1028,7 @@ https://src.main.java.leetcode.com/problems/patching-array/
 
 Leetcode :
 
-https://src.main.java.leetcode-cn.com/problems/yuan-quan-zhong-zui-hou-sheng-xia-de-shu-zi-lcof/
+https://src.main.java.com.hliu.leetcode-cn.com/problems/yuan-quan-zhong-zui-hou-sheng-xia-de-shu-zi-lcof/
 
 
 
@@ -1056,7 +1056,7 @@ https://src.main.java.leetcode-cn.com/problems/yuan-quan-zhong-zui-hou-sheng-xia
 
 返回二维数组中有没有num这个数
 
-https://src.main.java.leetcode.com/problems/search-a-2d-matrix/
+https://src.main.java.com.hliu.leetcode.com/problems/search-a-2d-matrix/
 
 右上角开始
 
@@ -1070,7 +1070,7 @@ https://src.main.java.leetcode.com/problems/search-a-2d-matrix/
 
 在给定一个正数k，返回二维数组中，最小的第k个数
 
-https://src.main.java.leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/
+https://src.main.java.com.hliu.leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/
 
 
 
@@ -1086,7 +1086,7 @@ https://src.main.java.leetcode.com/problems/kth-smallest-element-in-a-sorted-mat
 
 给定两个字符串S和T, 返回S的所有子序列中, 有多少个子序列的字面值等于T
 
-https://src.main.java.leetcode.com/problems/distinct-subsequences/
+https://src.main.java.com.hliu.leetcode.com/problems/distinct-subsequences/
 
 样本行列对应
 
@@ -1104,7 +1104,7 @@ int dp
 
 返回Str的所有子序列中有多少不同的字面值
 
-https://src.main.java.leetcode.com/problems/distinct-subsequences-ii/
+https://src.main.java.com.hliu.leetcode.com/problems/distinct-subsequences-ii/
 
 解题要点: 列出实际例子, 观看每次出现重复数字情况下, 重复集合出现的规律 
 
@@ -1134,7 +1134,7 @@ x ........... x
 
 题目3
 
-https://src.main.java.leetcode.com/problems/palindrome-pairs/
+https://src.main.java.com.hliu.leetcode.com/problems/palindrome-pairs/
 
 
 
@@ -1200,7 +1200,7 @@ process(int[] arr, int level, int from, int to, int other)
 
 ## 2. Shortest Bridge
 
-https://src.main.java.leetcode.com/problems/shortest-bridge/
+https://src.main.java.com.hliu.leetcode.com/problems/shortest-bridge/
 
 
 
@@ -1272,7 +1272,7 @@ https://www.nowcoder.com/practice/7201cacf73e7495aa5f88b223bbbf6d1
 
 ## 2. smallest-range-covering-elements-from-k-lists/
 
-https://src.main.java.leetcode.com/problems/smallest-range-covering-elements-from-k-lists/
+https://src.main.java.com.hliu.leetcode.com/problems/smallest-range-covering-elements-from-k-lists/
 
 有序表, 维持size为K
 
@@ -1342,7 +1342,7 @@ https://src.main.java.leetcode.com/problems/smallest-range-covering-elements-fro
 
 ## 4. count-different-palindromic-subsequences
 
-https://src.main.java.leetcode.com/problems/count-different-palindromic-subsequences/
+https://src.main.java.com.hliu.leetcode.com/problems/count-different-palindromic-subsequences/
 
 范围尝试: 从L....R能搞出几个回文  dp[ L ] [ R ]
 
@@ -1390,7 +1390,7 @@ father[i] = j 表示点i的父亲是点j， father表示的树一定是一棵树
 
 ## 2. 三个不重合子数组累加和
 
-https://src.main.java.leetcode.com/problems/maximum-sum-of-3-non-overlapping-subarrays/
+https://src.main.java.com.hliu.leetcode.com/problems/maximum-sum-of-3-non-overlapping-subarrays/
 
 
 
@@ -1442,7 +1442,7 @@ O(N)
 
 ## 4.tallest-billboard
 
-https://src.main.java.leetcode.com/problems/tallest-billboard/
+https://src.main.java.com.hliu.leetcode.com/problems/tallest-billboard/
 
 
 
@@ -1460,7 +1460,7 @@ https://src.main.java.leetcode.com/problems/tallest-billboard/
 
 ## 5.trapping-rain-water
 
-https://src.main.java.leetcode.com/problems/trapping-rain-water/
+https://src.main.java.com.hliu.leetcode.com/problems/trapping-rain-water/
 
 
 
@@ -1472,7 +1472,7 @@ https://src.main.java.leetcode.com/problems/trapping-rain-water/
 
 ## 6.trapping-rain-water2
 
-https://src.main.java.leetcode.com/problems/trapping-rain-water-ii/
+https://src.main.java.com.hliu.leetcode.com/problems/trapping-rain-water-ii/
 
 
 
@@ -1544,7 +1544,7 @@ tree和queries里面的所有值，都一定在0~N-1之间
 
 ## 5.
 
-https://src.main.java.leetcode.com/problems/minimum-cost-to-merge-stones/
+https://src.main.java.com.hliu.leetcode.com/problems/minimum-cost-to-merge-stones/
 
 
 
@@ -1600,7 +1600,7 @@ https://src.main.java.leetcode.com/problems/minimum-cost-to-merge-stones/
 
 Leetcode 题目 : 
 
-https://src.main.java.leetcode.com/problems/smallest-range-covering-elements-from-k-lists/
+https://src.main.java.com.hliu.leetcode.com/problems/smallest-range-covering-elements-from-k-lists/
 
 
 
@@ -1620,13 +1620,13 @@ https://src.main.java.leetcode.com/problems/smallest-range-covering-elements-fro
 
 题目2 
 
-https://src.main.java.leetcode.com/problems/word-search-ii/
+https://src.main.java.com.hliu.leetcode.com/problems/word-search-ii/
 
 
 
 题目3
 
-https://src.main.java.leetcode.com/problems/expression-add-operators/
+https://src.main.java.com.hliu.leetcode.com/problems/expression-add-operators/
 
 c4 - class1
 
@@ -1634,7 +1634,7 @@ c4 - class1
 
 题目4
 
-https://src.main.java.leetcode.com/problems/word-ladder-ii/
+https://src.main.java.com.hliu.leetcode.com/problems/word-ladder-ii/
 
 生成邻居表
 
@@ -1670,7 +1670,7 @@ nums < 9, programs长度小于500，每组测试乐队的全部数量一定是nu
 
 题目2
 
-https://src.main.java.leetcode.com/problems/rabbits-in-forest/
+https://src.main.java.com.hliu.leetcode.com/problems/rabbits-in-forest/
 
 企鹅厂每年都会发文化衫，文化衫有很多种颜色，厂庆的时候，企鹅们都需要穿文化衫来拍照
 

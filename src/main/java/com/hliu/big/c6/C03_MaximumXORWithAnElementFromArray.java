@@ -1,4 +1,4 @@
-package com.hliu.sys.c6;
+package com.hliu.big.c6;
 
 import java.util.Arrays;
 
@@ -8,23 +8,23 @@ public class C03_MaximumXORWithAnElementFromArray {
     1707. Maximum XOR With an Element From Array
      */
 
-  private static class Node {
+  private static class TrieNode {
 
-    Node[] nexts = new Node[2];
+    TrieNode[] nexts = new TrieNode[2];
     int minGoingAhead = Integer.MAX_VALUE;
   }
 
   private static class Trie {
 
-    Node head = new Node();
+    TrieNode head = new TrieNode();
 
     public void add(int num) {
-      Node cur = head;
+      TrieNode cur = head;
       cur.minGoingAhead = Math.min(cur.minGoingAhead, num);
       for (int shift = 30; shift >= 0; shift--) {
         int path = (num >> shift) & 1;
         if (cur.nexts[path] == null) {
-          cur.nexts[path] = new Node();
+          cur.nexts[path] = new TrieNode();
         }
         cur = cur.nexts[path];
         cur.minGoingAhead = Math.min(cur.minGoingAhead, num);
@@ -32,7 +32,7 @@ public class C03_MaximumXORWithAnElementFromArray {
     }
 
     public int findMaxMatchWithCondition(int num, int upperBound) {
-      Node cur = head;
+      TrieNode cur = head;
       if (cur.minGoingAhead > upperBound) {
         return -1;
       }

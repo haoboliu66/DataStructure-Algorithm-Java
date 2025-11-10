@@ -26,7 +26,7 @@ L++每次有一个数字从右侧移出窗口
 
 题目一:
 
-> https://src.main.java.leetcode.com/problems/sliding-window-maximum/
+> https://src.main.java.com.hliu.leetcode.com/problems/sliding-window-maximum/
 
 假设一个固定大小为W的窗口，依次划过arr, 返回每一次滑出状况的最大值
 
@@ -125,12 +125,6 @@ arr是货币数组, 值都是正数。再给定一个正数aim, 每个值都认�
 
 
 
-
-
-
-
-
-
 # 2.单调栈
 
 单调栈解决的问题: 求一个数组左边离它最近比他小的, 和右边离它最近比他小的
@@ -171,7 +165,7 @@ arr是货币数组, 值都是正数。再给定一个正数aim, 每个值都认�
 
 题目三:
 
-> https://src.main.java.leetcode.com/problems/largest-rectangle-in-histogram/
+> https://src.main.java.com.hliu.leetcode.com/problems/largest-rectangle-in-histogram/
 
 给定一个非负数组arr，代表直方图, 返回直方图的最大长方形面积
 
@@ -185,7 +179,7 @@ arr是货币数组, 值都是正数。再给定一个正数aim, 每个值都认�
 
 题目四:
 
-> https://src.main.java.leetcode.com/problems/maximal-rectangle/
+> https://src.main.java.com.hliu.leetcode.com/problems/maximal-rectangle/
 
 给定一个二维数组matrix，其中的值不是0就是1，
 
@@ -217,7 +211,7 @@ N行, 每行玩一次单调栈求解
 
 题目五:
 
-> https://src.main.java.leetcode.com/problems/count-submatrices-with-all-ones
+> https://leetcode.com/problems/count-submatrices-with-all-ones
 
 给定一个二维数组matrix，其中的值不是0就是1，
 
@@ -731,7 +725,7 @@ str1 + str2,  判断str2是不是str1的子串
 
 1.一个字符串, 只能在字符串后面添加字符, 让整体都变回文串, 至少需要加几个字符
 
-> https://src.main.java.leetcode.com/problems/shortest-palindrome/
+> https://src.main.java.com.hliu.leetcode.com/problems/shortest-palindrome/
 
 求必须包含最后一个字符的最长回文子串, 前面的部分逆序填到后面
 

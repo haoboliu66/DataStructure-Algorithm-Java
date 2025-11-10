@@ -1,8 +1,7 @@
-package src.main.java.fundamental.recursion.dp;
+package com.hliu.fundamental.recursion.dp;
 
 
 public class PlayCard {
-
 
     public static int win1(int[] arr) {
         if (arr == null || arr.length == 0) {

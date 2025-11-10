@@ -1,4 +1,4 @@
-package fundamental.graph.mst;
+package com.hliu.fundamental.graph.mst;
 
 import java.util.*;
 

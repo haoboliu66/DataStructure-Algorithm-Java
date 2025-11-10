@@ -1,4 +1,4 @@
-package fundamental.graph;
+package com.hliu.fundamental.graph;
 
 import java.util.*;
 

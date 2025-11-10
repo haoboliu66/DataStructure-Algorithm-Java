@@ -1,12 +1,9 @@
-package src.main.java.fundamental.recursion.dp;
+package com.hliu.fundamental.recursion.dp;
 
 import java.util.HashMap;
 
 
 public class StickersSpellWord {
-
-    public static void main(String[] args) {
-    }
 
     public static int minStickers(String[] stickers, String target) {
         int n = stickers.length;

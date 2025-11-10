@@ -3,6 +3,7 @@ package com.hliu.advanced.c3.class1;
 public class C02_03_Parentheses {
 
   /*
+  https://leetcode.com/problems/valid-parentheses/  => 这个题目里有多种括号形式
   Q1:括号配对, 只有一种括号(), 判断是否valid
    */
   public static boolean isValid(String s) {
@@ -22,9 +23,9 @@ public class C02_03_Parentheses {
 
   /*
   Q2:  921 Minimum Add to Make Parentheses Valid
+  https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/
    */
   public static int needParentheses(String s) {
-
     char[] str = s.toCharArray();
     int count = 0;
     int need = 0;
@@ -38,9 +39,24 @@ public class C02_03_Parentheses {
     return count + need;
   }
 
+  // https://leetcode.com/problems/maximum-nesting-depth-of-the-parentheses/
+  public int maxDepth(String s) {
+    char[] str = s.toCharArray();
+    int maxDepth = 0;
+    int depth = 0;
+    for (char c : str) {
+      if (c == '(') {
+        depth++;
+        maxDepth = Math.max(maxDepth, depth);
+      } else if (c == ')') {
+        depth--;
+      }
+    }
+    return maxDepth;
+  }
 
   /*
-  Q3: 求一个有效括号字符串内, 最大的括号嵌套层数
+  Q3: 求一个有效括号字符串内, 最大的括号嵌套层数, 同上, 但是此实现中输入只有括号字符
    */
   public static int parenthesesDeep(String s) {
     if ("".equals(s)) {
@@ -48,26 +64,15 @@ public class C02_03_Parentheses {
     }
     char[] str = s.toCharArray();
     int count = 0;
-    int max = Integer.MIN_VALUE;
-    for (int i = 0; i < str.length; i++) {
-      count += (str[i] == '(' ? 1 : -1);
-      max = Math.max(max, count);
-    }
-    return max;
-  }
-
-  public static int deep(String s) {
-    char[] str = s.toCharArray();
-    int count = 0;
-    int max = 0;
-    for (int i = 0; i < str.length; i++) {
-      if (str[i] == '(') {
-        max = Math.max(max, ++count);
+    int maxDepth = 0;
+    for (char c : str) {
+      if (c == '(') {
+        maxDepth = Math.max(maxDepth, ++count);
       } else {
         count--;
       }
     }
-    return max;
+    return maxDepth;
   }
 
   /*
@@ -80,7 +85,7 @@ public class C02_03_Parentheses {
     }
     char[] str = s.toCharArray();
     int[] dp = new int[str.length];
-    int max = 0;
+    int maxLen = 0;
     for (int i = 1; i < str.length; i++) {
       if (str[i] == ')') {
         // str[i] == ')'
@@ -91,9 +96,9 @@ public class C02_03_Parentheses {
           dp[i] += (preIndex - 1 > 0 ? dp[preIndex - 1] : 0);
         }
       }
-      max = Math.max(dp[i], max);
+      maxLen = Math.max(dp[i], maxLen);
     }
-    return max;
+    return maxLen;
   }
 
   public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package fundamental.sorting;
+package com.hliu.fundamental.sorting;
 
 
 import java.util.Arrays;

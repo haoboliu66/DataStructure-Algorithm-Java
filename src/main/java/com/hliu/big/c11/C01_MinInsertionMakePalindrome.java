@@ -1,4 +1,4 @@
-package com.hliu.sys.c11;
+package com.hliu.big.c11;
 
 public class C01_MinInsertionMakePalindrome {
 

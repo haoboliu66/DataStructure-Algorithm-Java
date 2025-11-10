@@ -1,11 +1,11 @@
-package src.main.java.fundamental.linear.stackqueue;
+package com.hliu.fundamental.linear.stackqueue;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
 public class QueueWithArray {
 
-    private int[] arr;
+    private int[] queue;
     private int size;
     private int pushIndex;
     private int pollIndex;
@@ -13,7 +13,7 @@ public class QueueWithArray {
 
     public QueueWithArray(int limit) {
         this.limit = limit;
-        arr = new int[limit];
+        queue = new int[limit];
         size = 0;
         pollIndex = 0;
         pushIndex = 0;
@@ -32,7 +32,7 @@ public class QueueWithArray {
             throw new RuntimeException("Queue is full");
         }
         size++;
-        arr[pushIndex] = ele;
+        queue[pushIndex] = ele;
         pushIndex = nextIndex(pushIndex);
     }
 
@@ -41,7 +41,7 @@ public class QueueWithArray {
             throw new RuntimeException("Queue Empty");
         }
         size--;
-        int res = arr[pollIndex];
+        int res = queue[pollIndex];
         pollIndex = nextIndex(pollIndex);
         return res;
     }

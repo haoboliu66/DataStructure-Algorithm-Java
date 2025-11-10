@@ -1,6 +1,10 @@
-package fundamental.linear.linkedlist;
+package com.hliu.fundamental.linear.linkedlist;
 
-import java.util.*;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Set;
+
+import com.hliu.fundamental.linear.linkedlist.entity.ListNode;
 
 public class RemoveDuplicate2 {
 
@@ -9,26 +13,13 @@ public class RemoveDuplicate2 {
     Output: 1->2->5
      */
 
-    public static class Node {
-        int val;
-        Node next;
-
-        public Node(int val) {
-            this.val = val;
-        }
-    }
-
-    public Node deleteDuplicates(Node head) {
-
-        if (head == null) {
-            return null;
-        }
-        if (head.next == null) {
+    public ListNode deleteDuplicates(ListNode head) {
+        if (head == null || head.next == null) {
             return head;
         }
 
         LinkedHashMap<Integer, Integer> map = new LinkedHashMap<>();
-        Node next = null;
+        ListNode next = null;
         while (head != null) {
             next = head.next;
             head.next = null;
@@ -40,7 +31,7 @@ public class RemoveDuplicate2 {
             }
             head = next;
         }
-        Node h = null;
+        ListNode h = null;
         Set<Integer> keys = map.keySet();
         for (Iterator<Integer> iterator = keys.iterator();
              iterator.hasNext(); ) {
@@ -49,9 +40,9 @@ public class RemoveDuplicate2 {
                 iterator.remove();
             } else {
                 if (h == null) {
-                    h = new Node(key);
+                    h = new ListNode(key);
                 } else {
-                    Node n = new Node(key);
+                    ListNode n = new ListNode(key);
                     h.next = n;
                     h = n;
                 }

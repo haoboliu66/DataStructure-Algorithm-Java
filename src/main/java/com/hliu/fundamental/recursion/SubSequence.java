@@ -1,11 +1,11 @@
-package src.main.java.fundamental.recursion;
+package com.hliu.fundamental.recursion;
 
 import java.util.*;
 
 public class SubSequence {
 
     public static Set<String> getSubSequence(String s) {
-        HashSet<String> all = new HashSet<>();
+        Set<String> all = new HashSet<>();
         Set<String> addition;
         char[] str = s.toCharArray();
         all.add("");
@@ -38,7 +38,6 @@ public class SubSequence {
             return;
         }
         process(str, index + 1, path, res);
-
         path.add(str[index]);
         process(str, index + 1, path, res);
         path.pollLast();

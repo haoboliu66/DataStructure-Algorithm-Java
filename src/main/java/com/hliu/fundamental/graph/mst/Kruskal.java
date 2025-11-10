@@ -1,7 +1,16 @@
-package fundamental.graph.mst;
+package com.hliu.fundamental.graph.mst;
 
-import fundamental.graph.Graph;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.PriorityQueue;
+import java.util.Set;
+import java.util.Stack;
+
+import com.hliu.fundamental.graph.Graph;
 
 public class Kruskal {
 
@@ -77,7 +86,6 @@ public class Kruskal {
             }
             Graph.Node<V> head1 = findFather(node1);
             Graph.Node<V> head2 = findFather(node2);
-            // 找出两个集合哪个Size大,哪个Size小, 用小的挂在大的上面
             Graph.Node<V> larger = sizeMap.get(head1) >= sizeMap.get(head2) ? head1 : head2;
             Graph.Node<V> smaller = larger == head1 ? head2 : head1;
             parents.put(smaller, larger);
@@ -93,7 +101,7 @@ public class Kruskal {
         PriorityQueue<Graph.Edge<V>> queue = new PriorityQueue<>(edgeComparator);
         unionSet.makeSets(graph.nodes.values());//先把每一个node构成单独的集合
         Set<Graph.Edge<V>> result = new HashSet<>();
-//        for(Edge<V> e: src.main.java.fundamental.graph.edges){//遍历把图中所有边加入小根堆
+//        for(Edge<V> e: src.main.java.com.hliu.fundamental.graph.edges){//遍历把图中所有边加入小根堆
 //            queue.add(e);
 //        }
         queue.addAll(graph.edges);//图中所有的边加入小根堆

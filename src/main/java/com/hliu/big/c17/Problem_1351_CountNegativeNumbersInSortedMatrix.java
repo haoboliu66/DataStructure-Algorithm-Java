@@ -1,4 +1,4 @@
-package com.hliu.sys.c17;
+package com.hliu.big.c17;
 
 public class Problem_1351_CountNegativeNumbersInSortedMatrix {
 

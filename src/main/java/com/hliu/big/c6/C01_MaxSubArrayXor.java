@@ -1,4 +1,4 @@
-package com.hliu.sys.c6;
+package com.hliu.big.c6;
 
 public class C01_MaxSubArrayXor {
 

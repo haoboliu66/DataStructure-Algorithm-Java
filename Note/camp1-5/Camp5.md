@@ -2,7 +2,7 @@
 
 ## 1. Scramble String
 
-https://src.main.java.leetcode.com/problems/scramble-string/
+https://src.main.java.com.hliu.leetcode.com/problems/scramble-string/
 
 
 
@@ -391,19 +391,19 @@ public class Query {
 
 ## 1.
 
-https://src.main.java.leetcode.com/problems/remove-boxes/
+https://src.main.java.com.hliu.leetcode.com/problems/remove-boxes/
 
 
 
 ## 2.
 
-https://src.main.java.leetcode.com/problems/strange-printer/
+https://src.main.java.com.hliu.leetcode.com/problems/strange-printer/
 
 
 
 ## 3.
 
-https://src.main.java.leetcode.com/problems/smallest-range-covering-elements-from-k-lists/
+https://src.main.java.com.hliu.leetcode.com/problems/smallest-range-covering-elements-from-k-lists/
 
 
 

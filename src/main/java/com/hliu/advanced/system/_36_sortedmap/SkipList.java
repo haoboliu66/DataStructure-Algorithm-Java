@@ -210,7 +210,7 @@ public class SkipList {
       return cur.key;
     }
 
-    public K ceillingKey(K key) {
+    public K ceilingKey(K key) {
       if (key == null) {
         return null;
       }

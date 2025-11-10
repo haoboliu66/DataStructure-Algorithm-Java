@@ -1,4 +1,4 @@
-package com.hliu.sys.c6;
+package com.hliu.big.c6;
 
 public class C02_MaximumXOROfTwoNumbersArray {
 
@@ -20,22 +20,22 @@ public class C02_MaximumXOROfTwoNumbersArray {
   }
 
 
-  private class Node {
+  private class TrieNode {
 
-    Node[] next = new Node[2];
+    TrieNode[] next = new TrieNode[2];
   }
 
   public class Trie {
 
-    Node head = new Node();
+    TrieNode head = new TrieNode();
 
     public void add(int num) {
-      Node cur = head;
+      TrieNode cur = head;
       for (int shift = 30; shift >= 0; shift--) {
 
         int path = (num >> shift) & 1; // 0 or 1
         if (cur.next[path] == null) {
-          cur.next[path] = new Node();
+          cur.next[path] = new TrieNode();
         }
         cur = cur.next[path];
       }
@@ -43,7 +43,7 @@ public class C02_MaximumXOROfTwoNumbersArray {
 
     public int findMaxMatch(int num) {
       int res = 0;
-      Node cur = head;
+      TrieNode cur = head;
       for (int shift = 30; shift >= 0; shift--) {
         int bit = (num >> shift) & 1;
         int expected = bit ^ 1;  //最好的结果, 就是 bit ^ 和自己不一样的值

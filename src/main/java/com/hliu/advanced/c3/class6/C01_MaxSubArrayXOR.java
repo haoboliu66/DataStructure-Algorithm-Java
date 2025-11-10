@@ -4,9 +4,9 @@ import java.util.Arrays;
 
 public class C01_MaxSubArrayXOR {
 
-    /*
-     子数组的最大异或和 => 使用Trie计算可以得到想要的数组前缀异或和
-     */
+  /*
+   子数组的最大异或和 => 使用Trie计算可以得到想要的数组前缀异或和
+   */
 
   // 传统思维: 以[i]结尾求最大的异或和
   public static int maxSubArrayXor0(int[] arr) {
@@ -27,25 +27,25 @@ public class C01_MaxSubArrayXOR {
     return max;
   }
 
-  private static class Node {
+  private static class TrieNode {
 
-    Node[] nexts;
+    TrieNode[] nexts;
 
-    public Node() {
-      nexts = new Node[2];
+    public TrieNode() {
+      nexts = new TrieNode[2];
     }
   }
 
   private static class Trie {
 
-    Node head = new Node();
+    TrieNode root = new TrieNode();
 
     public void add(int num) {
-      Node cur = head;
+      TrieNode cur = root;
       for (int shift = 31; shift >= 0; shift--) {
         int path = (num >> shift) & 1;
         if (cur.nexts[path] == null) {
-          cur.nexts[path] = new Node();
+          cur.nexts[path] = new TrieNode();
         }
         cur = cur.nexts[path];
       }
@@ -53,7 +53,7 @@ public class C01_MaxSubArrayXOR {
 
     // 在前缀树上找一条路径, 与num异或起来, 结果最大
     public int findMaxMatch(int num) {
-      Node cur = head;
+      TrieNode cur = root;
       int ans = 0;
       for (int shift = 31; shift >= 0; shift--) {
         int path = (num >> shift) & 1;
