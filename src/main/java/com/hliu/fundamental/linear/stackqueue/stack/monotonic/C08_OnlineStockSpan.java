@@ -1,4 +1,4 @@
-package com.hliu.fundamental.linear.stackqueue.monotonic;
+package com.hliu.fundamental.linear.stackqueue.stack.monotonic;
 
 import java.util.ArrayList;
 import java.util.List;

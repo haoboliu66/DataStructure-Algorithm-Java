@@ -2,6 +2,18 @@ package com.hliu.fundamental.math;
 
 public class MathTricks {
 
+  public static void main(String[] args) {
+
+    double res = 1000 * 2.1 / 100;
+    System.out.println(res);
+
+    double x = 3400  * 2.4/100;
+
+    long xl  = Math.round(x + 30);
+    System.out.println(xl);
+
+  }
+
   // 最大公约数Greatest Common Divisor, 辗转相除法
   public static int gcd(int a, int b) {
     return b == 0 ? a : gcd(b, a % b);

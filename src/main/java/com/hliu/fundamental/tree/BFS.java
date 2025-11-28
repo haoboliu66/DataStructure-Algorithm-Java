@@ -5,45 +5,8 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-import java.util.TreeMap;
 
 public class BFS {
-
-
-  public static void main(String[] args) {
-
-    int[] nums = {9, 8, 1, 0, 1, 9, 4, 0, 4, 1};
-    int res = maxWidthRamp(nums);
-    System.out.println(res);
-  }
-
-  public static int maxWidthRamp(int[] nums) {
-    if (nums == null || nums.length < 2) {
-      return 0;
-    }
-    TreeMap<Integer, Integer> indexMap = new TreeMap<>();
-    int ramp = 0;
-    indexMap.put(nums[0], 0);
-    for (int i = 1; i < nums.length; i++) {
-      int cur = nums[i];
-      if (!indexMap.containsKey(cur)) {
-        indexMap.put(cur, i);
-      }
-      Integer lessIndex = indexMap.firstEntry()
-                                  .getValue();
-      if (lessIndex != null) {
-        ramp = Math.max(ramp, i - lessIndex);
-      }
-      Integer equalIndex = indexMap.get(cur);
-      if (equalIndex != null) {
-        ramp = Math.max(ramp, i - equalIndex);
-      }
-      if (!indexMap.containsKey(cur)) {
-        indexMap.put(cur, i);
-      }
-    }
-    return ramp;
-  }
 
   // 普通bfs
   public void bfs(TreeNode root) {

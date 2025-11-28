@@ -5,7 +5,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MyPriorityQueue {
+public class GreaterPriorityQueue {
 
   public static class PriorityQueue<T> {
 

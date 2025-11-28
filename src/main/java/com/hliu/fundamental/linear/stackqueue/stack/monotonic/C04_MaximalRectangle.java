@@ -1,9 +1,15 @@
-package com.hliu.fundamental.linear.stackqueue.monotonic;
+package com.hliu.fundamental.linear.stackqueue.stack.monotonic;
 
 import java.util.Stack;
 
 // https://leetcode.com/problems/maximal-rectangle/
 public class C04_MaximalRectangle {
+
+  /*
+   压缩数组的技巧: 在矩阵中, 必须以[i]行为底, 来计算这个矩形的面积; 如果当前行的位置是'0', 那么高度就是0; 如果是'1', 那么高度就是上一行的高度+1
+
+   把[i]行到0行范围的矩阵压缩为一个数组, 然后就可以借用LargestRectangleHistogram的代码来求解
+   */
 
   public static int maximalRectangle(char[][] matrix) {
     if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {

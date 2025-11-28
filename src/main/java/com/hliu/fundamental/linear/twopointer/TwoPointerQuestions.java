@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class Questions {
+public class TwoPointerQuestions {
 
   public String findDifferentBinaryString(String[] nums) {
 
@@ -108,15 +108,6 @@ public class Questions {
       }
     }
     return false;
-  }
-
-  public int compareVersion(String version1, String version2) {
-
-    char[] str1 = version1.toCharArray();
-    int p1 = 0, p2 = 0;
-    char[] str2 = version2.toCharArray();
-
-    return 0;
   }
 
   // https://leetcode.com/problems/sort-array-by-parity/

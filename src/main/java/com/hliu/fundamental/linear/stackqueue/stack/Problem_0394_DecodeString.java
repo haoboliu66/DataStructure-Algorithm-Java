@@ -1,4 +1,4 @@
-package com.hliu.fundamental.linear.stack;
+package com.hliu.fundamental.linear.stackqueue.stack;
 
 import java.util.ArrayList;
 import java.util.List;

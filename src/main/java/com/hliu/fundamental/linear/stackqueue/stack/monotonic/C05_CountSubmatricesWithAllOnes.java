@@ -1,4 +1,4 @@
-package com.hliu.fundamental.linear.stackqueue.monotonic;
+package com.hliu.fundamental.linear.stackqueue.stack.monotonic;
 
 // https://leetcode.com/problems/count-submatrices-with-all-ones/
 public class C05_CountSubmatricesWithAllOnes {

@@ -1,14 +1,7 @@
 package com.hliu.advanced.top;
 
-import org.junit.Test;
-
 public class Problem_0008_StringToInteger {
 
-    @Test
-    public void test() {
-        String s = "    -42";
-        System.out.println(myAtoi(s));
-    }
 
     public int myAtoi(String s) {
 

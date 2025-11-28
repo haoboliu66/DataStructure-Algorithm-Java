@@ -1,12 +1,12 @@
-package com.hliu.fundamental.linear.stackqueue.monotonic;
+package com.hliu.fundamental.linear.stackqueue.stack.monotonic;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-public class C01_MonotoneStack {
 
-  // 解决问题: 求一个数字两侧最近比他小 或 两侧最近比他大
+// 解决的问题: 求一个数字两侧最近比他小 或 两侧最近比他大
+public class C01_MonotoneStack {
 
   //    给定一个数组arr[3,2,1,7,0,4,5,6], 求每一个数字左边最近的比它小的数,和右边最近比它小的数
   public static int[][] getNearLessNoDuplicate(int[] arr) {
@@ -31,7 +31,6 @@ public class C01_MonotoneStack {
     }
     return res;
   }
-
 
   // 数组中有重复数字的情况
   public static int[][] getNearLessDuplicate(int[] arr) {

@@ -118,7 +118,7 @@ public class BinaryTreeQuestions {
   }
 
   // 加一个map优化查找rootIndex的过程
-  public TreeNode buildTree0(int[] preorder, int[] inorder) {
+  public TreeNode buildTree1(int[] preorder, int[] inorder) {
     Map<Integer, Integer> indexMap = new HashMap<>();
     for (int i = 0; i < inorder.length; i++) {
       indexMap.put(inorder[i], i);
@@ -315,11 +315,6 @@ public class BinaryTreeQuestions {
       pre = head;
       head = head.right;
     }
-    return true;
-  }
-
-  public boolean isValidBST2(TreeNode root) {
-
     return true;
   }
 

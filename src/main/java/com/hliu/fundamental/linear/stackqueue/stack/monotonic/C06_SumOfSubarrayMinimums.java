@@ -1,10 +1,10 @@
-package com.hliu.fundamental.linear.stackqueue.monotonic;
+package com.hliu.fundamental.linear.stackqueue.stack.monotonic;
 
 import java.util.Arrays;
 import java.util.Stack;
 
 // https://leetcode.com/problems/sum-of-subarray-minimums/
-//Similiar: https://leetcode.com/problems/number-of-valid-subarrays/
+//Similar: https://leetcode.com/problems/number-of-valid-subarrays/
 
 public class C06_SumOfSubarrayMinimums {
 
