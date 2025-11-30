@@ -1,4 +1,4 @@
-package com.hliu.fundamental.recursion;
+package com.hliu.fundamental.recursion.classic;
 
 import java.util.*;
 

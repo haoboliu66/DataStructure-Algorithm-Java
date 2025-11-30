@@ -34,6 +34,61 @@ public class HeapQuestions {
     return dummy.next;
   }
 
+  // https://leetcode.com/problems/minimum-cost-to-connect-sticks/
+  public int connectSticks(int[] sticks) {
+    PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+    for (int stick : sticks) {
+      minHeap.offer(stick);
+    }
+    int sum = 0;
+    while (minHeap.size() >= 2) {
+      int cost = minHeap.poll() + minHeap.poll();
+      sum += cost;
+      minHeap.offer(cost);
+    }
+    return sum;
+  }
+
+
+  public static void main(String[] args) {
+    int[][] costs = {
+        {10, 20},
+        {30, 200},
+        {400, 50},
+        {30, 20}
+    };
+    HeapQuestions heapQuestions = new HeapQuestions();
+    int result = heapQuestions.twoCitySchedCost(costs);
+    System.out.println(result);
+  }
+  public int twoCitySchedCost(int[][] costs) {
+    int N = costs.length;
+    int[] aCosts = new int[N];
+    int[] bCosts = new int[N];
+    int index =0 ;
+    for (int i = 0; index < N  && i < N; i++, index++) {
+      aCosts[index] = costs[i][0];
+      bCosts[index] = costs[i][1];
+    }
+    System.out.println(Arrays.toString(aCosts));
+    System.out.println(Arrays.toString(bCosts));
+//    Arrays.sort(aCosts);
+//    Arrays.sort(bCosts);
+    int minCost = 0;
+    int aPointer = 0, bPointer = 0;
+    int aCount = 0;
+    for(int i = 0; i < aCosts.length; i++) {
+
+      int costToA = aCosts[i];
+      int costToB = bCosts[i];
+
+
+    }
+
+
+    return minCost;
+  }
+
   private class C01_SortArrayDistanceLessK {
 
     public void sortedArrayDistanceLessK(int[] arr, int k) {
