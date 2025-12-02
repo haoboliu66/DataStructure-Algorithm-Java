@@ -1,4 +1,4 @@
-package src.main.java.advanced.c4.class6;
+package com.hliu.advanced.c4.class6;
 
 public class C01_SplitNumber {
 

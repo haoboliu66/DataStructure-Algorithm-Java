@@ -5,9 +5,13 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Subsets {
+public class C02_Subsets {
 
   // https://leetcode.com/problems/subsets/
+
+  /*
+  Time Complexity: O(2^N * N)
+   */
 
   public List<List<Integer>> subsets(int[] nums) {
     List<List<Integer>> res = new ArrayList<>();

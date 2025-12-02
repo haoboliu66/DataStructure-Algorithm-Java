@@ -248,7 +248,6 @@ public class TwoPointerQuestions {
   }
 
   public int findRadius1(int[] houses, int[] heaters) {
-//    int[] minHeaterDistances = new int[houses.length];
     int minRadius = 0;
     TreeSet<Integer> heaterSet = new TreeSet<>();
     for (int heater : heaters) {
@@ -263,13 +262,8 @@ public class TwoPointerQuestions {
       int rightDistance = rightHeater != null ? Math.abs(curHousePosition - rightHeater) : Integer.MAX_VALUE;
       int leftDistance = leftHeader != null ? Math.abs(curHousePosition - leftHeader) : Integer.MAX_VALUE;
       curHouseMinDistance = Math.min(rightDistance, leftDistance);
-//      minHeaterDistances[i] = curHouseMinDistance;
       minRadius = Math.max(minRadius, curHouseMinDistance);
     }
-//    int minRadius = 0;
-//    for (int distance : minHeaterDistances) {
-//      minRadius = Math.max(minRadius, distance);
-//    }
     return minRadius;
   }
 }

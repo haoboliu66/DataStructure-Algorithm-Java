@@ -184,7 +184,10 @@ public class TopologySortQuestions {
   // https://leetcode.cn/problems/alien-dictionary/
 
   // https://leetcode.com/problems/stamping-the-sequence/
+  public int[] movesToStamp(String stamp, String target) {
 
+    return null;
+  }
 
   // https://www.luogu.com.cn/problem/P4017
   static class FoodChain {

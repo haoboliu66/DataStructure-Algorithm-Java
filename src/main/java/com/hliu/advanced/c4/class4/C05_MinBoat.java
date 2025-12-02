@@ -1,4 +1,4 @@
-package src.main.java.advanced.c4.class4;
+package com.hliu.advanced.c4.class4;
 
 import java.util.Arrays;
 

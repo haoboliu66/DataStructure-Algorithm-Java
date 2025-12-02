@@ -2,7 +2,11 @@ package com.hliu.fundamental.recursion.classic;
 
 import java.util.*;
 
-public class SubSequence {
+public class C01_SubSequence {
+
+    /*
+  Time Complexity: O(2^N * N)
+   */
 
   public static void main(String[] args) {
     String s = "abc";
